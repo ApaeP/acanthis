@@ -1,0 +1,12 @@
+<%= link_to "Back", antiques_path, class: "btn btn-dark" %>
+<%= simple_form_for(@antique) do |f| %>
+  <%= f.input :title, lable: false, placeholder: "Nom" %>
+  <%= f.input :description, lable: false, placeholder: "Description" %>
+  <label class="btn btn-outline-info">
+    Ajouter une photo
+    <span style="display:none;">
+      <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
+    </span>
+  </label>
+  <%= f.submit "OK", class: "btn btn-dark" %>
+<% end %>
