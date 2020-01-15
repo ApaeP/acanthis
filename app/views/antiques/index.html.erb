@@ -1,0 +1,10 @@
+<div class="container index-container">
+  <h1><%= @antiques.count %> Antiquités</h1>
+  <%= link_to "Nouvel objet", new_antique_path, class: "btn btn-dark" %>
+
+  <% @antiques.each do |antique| %>
+    <%= cl_image_tag antique.photo.key, height: 120, width: 120, crop: :thumb, alt: "photo #{antique.title}" %>
+    <p><%= antique.title %></p>
+  <% end %>
+
+</div>
