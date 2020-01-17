@@ -11,6 +11,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+
     <title>Acanthis Antiquités</title>
     <meta content="fr" http-equiv="content-language">
     <meta content="Bienvenue sur le site internet d'Acanthis, boutique d'antiquités située à Dijon. Jérome Henry est un antiquaire investi et passionné par son activité." name="description">
@@ -21,6 +23,11 @@
 
   <body>
     <%= render 'shared/navbar' %>
+
+    <!-- DEVISE ALERTS -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <!-- DEVISE ALERTS END -->
 
     <%= yield %>
 
