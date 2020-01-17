@@ -23,12 +23,15 @@ class AntiquesController < ApplicationController
   end
 
   def update
+    @antique = set_antique
     @antique.update(antique_params)
+    redirect_to antique_path(@antique)
   end
 
   def destroy
+    @antique = set_antique
     @antique.destroy
-    redirect_to antique_index_path
+    redirect_to antiques_path
   end
 
   private
