@@ -1,5 +1,9 @@
-<%= cl_image_tag @antique.photo.key, height: 120, width: 120, crop: :thumb, alt: "photo #{@antique.title}" %>
-<h2><%= @antique.title %></h2>
-<p><%= @antique.description %></p>
-<%= link_to "Modifier", edit_antique_path %>
-<%= link_to "Supprimer", antique_path(@antique), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{@antique.title}\"?" }  %>
+<div class="container">
+  <%= cl_image_tag @antique.photo.key, height: 800, width: 800, crop: :thumb, alt: "photo #{@antique.title}" %>
+  <h2><%= @antique.title %></h2>
+  <p><%= @antique.description %></p>
+  <% if user_signed_in? %>
+    <%= link_to "Modifier", edit_antique_path %>
+    <%= link_to "Supprimer", antique_path(@antique), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{@antique.title}\"?" }  %>
+  <% end %>
+</div>
