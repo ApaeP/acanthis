@@ -6,4 +6,12 @@ class PagesController < ApplicationController
         lng: 50
       }
   end
+
+  def infos
+
+  end
+
+  def contact
+
+  end
 end

@@ -1,14 +1,23 @@
 <div class="container index-container">
-  <h1><%= @antiques.count %> Antiquités</h1>
-  <%= link_to "Nouvel objet", new_antique_path, class: "btn btn-dark" %>
 
-  <% @antiques.each do |antique| %>
-    <%= link_to antique_path(antique) do %>
-      <div>
-        <%= cl_image_tag antique.photo.key, height: 120, width: 120, crop: :thumb, alt: "photo #{antique.title}" %>
-        <p><%= antique.title %></p>
-      </div>
-    <% end %>
+  <h1><%= @antiques.count %> Antiquités</h1>
+  <% if user_signed_in? %>
+    <%= link_to "Nouvel objet", new_antique_path, class: "btn btn-dark" %>
   <% end %>
 
+  <div class="antique-grid">
+    <% @antiques.each do |antique| %>
+      <%= link_to antique_path(antique) do %>
+
+        <div class="card index-card">
+          <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
+          <div class="card-body">
+            <p class="card-text"><%= antique.title %></p>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+  </div>
 </div>
