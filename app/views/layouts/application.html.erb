@@ -23,14 +23,14 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <div class="container-general">
 
-    <!-- DEVISE ALERTS -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <!-- DEVISE ALERTS END -->
+      <!-- <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p> -->
 
-    <%= yield %>
+      <%= yield %>
 
+    </div>
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->

@@ -1,4 +1,6 @@
 class AntiquesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
 
   def index
     @antiques = Antique.all
@@ -14,8 +16,11 @@ class AntiquesController < ApplicationController
 
   def create
     @antique = Antique.new(antique_params)
-    @antique.save
-    redirect_to antique_path(@antique)
+    if @antique.save
+      redirect_to antique_path(@antique)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,7 +30,11 @@ class AntiquesController < ApplicationController
   def update
     @antique = set_antique
     @antique.update(antique_params)
-    redirect_to antique_path(@antique)
+    if @antique.save
+      redirect_to antique_path(@antique)
+    else
+      render :edit
+    end
   end
 
   def destroy

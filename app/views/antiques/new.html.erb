@@ -1,12 +1,22 @@
-<%= link_to "Back", antiques_path, class: "btn btn-dark" %>
-<%= simple_form_for(@antique) do |f| %>
-  <%= f.input :title, lable: false, placeholder: "Nom" %>
-  <%= f.input :description, lable: false, placeholder: "Description" %>
-  <label class="btn btn-outline-info">
-    Ajouter une photo
-    <span style="display:none;">
-      <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
-    </span>
-  </label>
-  <%= f.submit "OK", class: "btn btn-dark" %>
+<% if user_signed_in? %>
+  <div class="container">
+    <%= simple_form_for(@antique) do |f| %>
+      <%= f.input :title, label: false, placeholder: "Nom" %>
+      <%= f.input :description, label: false, placeholder: "Description" %>
+      <label class="btn btn-outline-info" style="width: 100%;">
+        Ajouter une photo
+        <span style="display:none;">
+          <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
+        </span>
+      </label>
+      <div class="d-flex">
+        <%= f.submit "OK", class: "btn btn-dark" %>
+        <%= link_to "Retour", antiques_path, class: "btn btn-dark" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="container">
+    <p>Vous n'avez pas accès à ces fonctions. Merci de vous connecter.</p>
+  </div>
 <% end %>

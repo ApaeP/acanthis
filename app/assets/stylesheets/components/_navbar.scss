@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: #4C1322;
   color: white;
+  height: 59px;
   li a {
     color: white !important;
   }
@@ -13,4 +14,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 130px;
+}
+
+#log-out-link {
+  border: white 1px solid;
+  margin-left: 20px;
 }
