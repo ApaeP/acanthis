@@ -3,7 +3,8 @@ class AntiquesController < ApplicationController
 
 
   def index
-    @antiques = Antique.all
+    # @antiques = Antique.all
+    @antiques = Antique.paginate(page: params[:page], per_page: 12)
   end
 
   def show
