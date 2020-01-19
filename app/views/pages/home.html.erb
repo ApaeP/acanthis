@@ -36,11 +36,19 @@
       <% @antiques.each_with_index do |antique, i| %>
         <% if i == 0 %>
           <div class="carousel-item active">
-              <%= cl_image_tag antique.photo.key, class: "d-block w-100", alt: "photo #{antique.title}" %>
+            <% if antique.photo.attached? %>
+              <%= cl_image_tag antique.photo.key, alt: "photo #{antique.title}", class: "d-block w-100" %>
+            <% else %>
+              <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
+            <% end %>
           </div>
         <% else %>
           <div class="carousel-item">
-              <%= cl_image_tag antique.photo.key, class: "d-block w-100", alt: "photo #{antique.title}" %>
+            <% if antique.photo.attached? %>
+              <%= cl_image_tag antique.photo.key, alt: "photo #{antique.title}", class: "d-block w-100" %>
+            <% else %>
+              <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
+            <% end %>
           </div>
         <% end %>
       <% end %>
