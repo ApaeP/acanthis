@@ -1,5 +1,9 @@
 <div class="container">
-  <%= cl_image_tag @antique.photo.key, height: 800, width: 800, crop: :thumb, alt: "photo #{@antique.title}" %>
+  <% if @antique.photo.attached? %>
+    <%= cl_image_tag @antique.photo.key, alt: "photo #{@antique.title}", height: 800, width: 800, crop: :thumb %>
+  <% else %>
+    <%= image_tag "no-photo.png", alt: @antique.title, class: "card-img-top" %>
+  <% end %>
   <h2><%= @antique.title %></h2>
   <p><%= @antique.description %></p>
   <% if user_signed_in? %>
