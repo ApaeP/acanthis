@@ -8,6 +8,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
+gem 'will_paginate', '3.1.8'
+gem 'bootstrap-will_paginate'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -17,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
+gem 'non-stupid-digest-assets'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
