@@ -4,7 +4,11 @@
   <% if user_signed_in? %>
     <%= link_to "Nouvel objet", new_antique_path, class: "btn btn-dark" %>
   <% end %>
+
   <hr>
+<%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @antiques %>
+  <!-- GRID -->
   <div class="antique-grid d-flex flex-wrap">
     <% @antiques.each do |antique| %>
       <%= link_to antique_path(antique), class: "a-card" do %>
@@ -23,5 +27,9 @@
       <% end %>
     <% end %>
   </div>
+  <!-- GRID END -->
+  <%= will_paginate @antiques %>
+
   <hr style="margin-bottom: 30px;">
+
 </div>
