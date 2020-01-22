@@ -1,13 +1,21 @@
 <div class="container index-container justify-content-center">
 
-  <h1 id="titre-index"><%= @antiques.count %> Antiquités</h1>
-  <% if user_signed_in? %>
-    <%= link_to "Nouvel objet", new_antique_path, class: "btn btn-dark" %>
-  <% end %>
+  <div class="d-flex justify-content-between">
+    <div class="gauche">
+
+    </div>
+    <h1 id="titre-index"><%= @antiques.count %> Objets</h1>
+    <div class="droite">
+      <% if user_signed_in? %>
+        <%#= link_to "Nouvel objet", new_antique_path, class: "new-antique" %>
+        <%= link_to "Modal", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
+      <% end %>
+    </div>
+  </div>
 
   <hr>
 <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-  <%= will_paginate @antiques %>
+  <%= will_paginate @antiques, previous_label: "<", next_label: ">" %>
   <!-- GRID -->
   <div class="antique-grid d-flex flex-wrap">
     <% @antiques.each do |antique| %>
@@ -28,8 +36,31 @@
     <% end %>
   </div>
   <!-- GRID END -->
-  <%= will_paginate @antiques %>
+  <%= will_paginate @antiques, previous_label: "<", next_label: ">" %>
 
   <hr style="margin-bottom: 30px;">
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="new-antique-modal-body">
+        <%= render 'antiques/new', antique: @antique %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

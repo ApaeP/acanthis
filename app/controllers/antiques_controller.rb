@@ -5,6 +5,7 @@ class AntiquesController < ApplicationController
   def index
     # @antiques = Antique.all
     @antiques = Antique.paginate(page: params[:page], per_page: 12)
+    @antique = Antique.new
   end
 
   def show
@@ -20,7 +21,10 @@ class AntiquesController < ApplicationController
     if @antique.save
       redirect_to antique_path(@antique)
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js
+      end
     end
   end
 

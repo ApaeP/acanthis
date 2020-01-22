@@ -5,6 +5,36 @@
 
 #titre-index {
   text-align: center;
+  margin-top: 20px;
+}
+
+.gauche {
+  // background-color: black;
+  width: 20%;
+  height: 48px;
+  margin-top: 20px;
+}
+
+.droite {
+  // background-color: black;
+  width: 20%;
+  height: 48px;
+  margin-top: 20px;
+}
+
+.new-antique {
+  float: right;
+  text-decoration: none;
+  color: rgba(40, 40, 40, 0.7);
+  border: rgba(40, 40, 40, 0.7) 0.5px solid;
+  padding: 10px 15px 10px 15px;
+  width: 122.6px;
+  text-align: center;
+  &:hover {
+    text-decoration: underline;
+    color: black;
+    border: black 0.5px solid;
+  }
 }
 
 .pagination {
@@ -15,16 +45,19 @@
   }
   a {
     color: rgba(40, 40, 40, 0.7);
-    padding-right: 8px;
-    padding-left: 8px;
+    padding-right: 6px;
+    padding-left: 5px;
+    border-radius: 50%;
   }
   .active {
     a {
       // text-decoration: underline;
       color: black;
-      border: black 1px solid;
-      padding-right: 8px;
-      padding-left: 8px;
+      // border: black 1px solid;
+      // padding-right: 6px;
+      // padding-left: 5px;
+      // border-radius: 50%;
+      text-decoration: underline;
     }
   }
 }
