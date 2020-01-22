@@ -1,8 +1,8 @@
 .index-card {
-  width: 18rem;
+  width: 16rem;
   border-radius: 0 !important;
   border: none !important;
-  box-shadow:  0px 0px 12px rgba(40, 40, 40, 0.3);
+  // box-shadow:  0px 0px 12px rgba(40, 40, 40, 0.3);
   p {
     text-decoration: none !important;
     color: black !important;
@@ -17,16 +17,24 @@
 }
 
 .card-img-top {
-  height: 288px;
+  height: 200px;
   background-position: top;
   object-fit: contain;
   background-color: black;
+  border-radius: 0px !important;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .a-card {
   margin: 10px;
+  height: 230px;
+}
+
+.card-body {
+  // padding-top: 10px !important;
+  // padding-left: 0px !important;
+  padding: 10px 0 0 0 !important;
 }
