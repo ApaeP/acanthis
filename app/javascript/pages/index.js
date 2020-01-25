@@ -40,9 +40,20 @@ const goRight = () => {
   });
 };
 
+const navigateWithArrows = () => {
+  document.addEventListener('keydown', (event) => {
+    if(event.keyCode == 37) {
+      document.querySelector('.show .go-left').click();
+    } else if (event.keyCode == 39) {
+      document.querySelector('.show .go-right').click();
+    };
+  });
+};
+
 const navigateShow = () => {
-  goRight();
   goLeft();
+  goRight();
+  navigateWithArrows();
 };
 
 // const setWidthOfGoBtns = () => {
@@ -51,4 +62,4 @@ const navigateShow = () => {
 //   goLeftBtn.style.width = (document.width - modalWidth) / 2;
 // };
 
-export { closeShowModalWhenModify, goLeft, goRight, navigateShow };
+export { closeShowModalWhenModify, navigateShow };
