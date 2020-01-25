@@ -1,7 +1,7 @@
 import 'bootstrap';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
-import { closeShowModalWhenModify, goLeft, goRight, navigateShow } from '../pages/index';
+import { closeShowModalWhenModify, navigateShow } from '../pages/index';
 import { launchFunctionOnLoad } from '../personalfunctions/launchonload';
 
 require("@rails/ujs").start()
