@@ -8,18 +8,21 @@
     <div class="droite">
       <% if user_signed_in? %>
         <%#= link_to "Nouvel objet", new_antique_path, class: "new-antique" %>
-        <%= link_to "Modal", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
+        <%= link_to "Nouvel objet", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
       <% end %>
     </div>
   </div>
 
   <hr>
+  <%= select_tag :per_page, options_for_select([4, 8, 12, 16, 20, 24, 48],params[:per_page].to_i),
+   :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
 <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
-  <%= will_paginate @antiques, previous_label: "<", next_label: ">" %>
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
   <!-- GRID -->
   <div class="antique-grid d-flex flex-wrap">
-    <% @antiques.each do |antique| %>
-      <%= link_to antique_path(antique), class: "a-card" do %>
+    <% @antiquespaginate.each_with_index do |antique, i| %>
+      <%#= link_to antique_path(antique), class: "a-card" do %>
+      <%= link_to "#", remote: true, id: "show-link-#{i}", class: "a-card", data: { toggle: "modal", target: "#showAntiqueModal#{antique.id}" } do %>
 
         <div class="card index-card">
           <% if antique.photo.attached? %>
@@ -36,13 +39,14 @@
     <% end %>
   </div>
   <!-- GRID END -->
-  <%= will_paginate @antiques, previous_label: "<", next_label: ">" %>
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
 
   <hr style="margin-bottom: 30px;">
 
 </div>
 
-<!-- Modal -->
+<% if user_signed_in? %>
+<!-- Modal New Antique-->
 <div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -55,12 +59,54 @@
       <div class="new-antique-modal-body">
         <%= render 'antiques/new', antique: @antique %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
+<!-- Modal New Antique END-->
+
+<!-- Modal Edit Antique-->
+<% @antiques.each do |antique| %>
+  <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= antique.title %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="edit-antique-modal-body">
+          <%= render 'antiques/edit', antique: antique %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<!-- Modal Edit Antique END-->
+
+
+<% end %>
+
+<!-- Modal Show Antique-->
+<% @antiques.each_with_index do |antique, i| %>
+  <div class="modal fade bd-example-modal-lg" id="showAntiqueModal<%= antique.id %>" data-index=<%= i %> tabindex="-1" role="dialog" aria-labelledby="showAntiqueModalTitle" aria-hidden="true">
+    <div class="go-left" data-index=<%= i %> data-id= <%= antique.id %> >Gauche</div>
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <!-- <div class="modal-header"> -->
+          <!-- <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5> -->
+<!--           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        <!-- </div> -->
+        <div class="show-antique-modal-body">
+          <%= render 'antiques/show', antique: antique %>
+        </div>
+      </div>
+    </div>
+    <div class="go-right" data-index=<%= i %> data-id= <%= antique.id %> >Droite</div>
+  </div>
+<% end %>
+<!-- Modal Show Antique END-->
 
 
