@@ -1,0 +1,42 @@
+.photo-show {
+  width: 100%;
+  height: 70vh;
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+.title-show {
+  margin: 0.5rem 0 0.5rem 0.7rem;
+}
+
+.description-show {
+  margin-left: 0.7rem;
+}
+
+.bouton-show {
+  // float: right;
+  text-decoration: none;
+  color: rgba(40, 40, 40, 0.7);
+  border: rgba(40, 40, 40, 0.7) 0.5px solid;
+  padding: 10px 15px 10px 15px;
+  width: 122.6px;
+  text-align: center;
+  margin: 0 20px 10px 20px;
+  &:hover {
+    text-decoration: underline;
+    color: black;
+    border: black 0.5px solid;
+  }
+}
+
+.close-show {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.fa-times-circle {
+  color: white;
+}

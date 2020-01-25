@@ -1,22 +1,22 @@
 <% if user_signed_in? %>
   <div class="container">
-    <%= simple_form_for(@antique) do |f| %>
+    <%= simple_form_for(antique, remote: true) do |f| %>
       <%= f.input :title, label: "Nom", placeholder: "Nom" %>
-      <%= f.input :description, label: "Description", placeholder: "Description" %>
+      <%= f.input :description, as: :text, input_html: {:rows => 6}, label: "Description", placeholder: "Description" %>
       <label class="btn btn-outline-info" style="width: 100%;">
-        Ajouter une photo
+        Changer de photo
         <span style="display:none;">
           <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
         </span>
       </label>
-      <div class="d-flex">
-        <%= f.submit "OK", class: "btn btn-dark" %>
-        <%= link_to "Retour", antique_path(@antique), class: "btn btn-dark" %>
+      <hr>
+      <div class="d-flex justify-content-center">
+        <%= f.submit "OK", class: "ok-modal btn btn-outline-info" %>
       </div>
     <% end %>
   </div>
 <% else %>
   <div class="container">
-    <p>Vous n'avez pas accès à ces fonctions. Merci de vous connecter.</p>
+    <p>Vous n'avez pas accès à ces fonctions.</p>
   </div>
 <% end %>

@@ -1,0 +1,21 @@
+var closeButton = document.querySelector('#newAntiqueModal');
+// closeButton.click();
+
+function refreshForm(innerHTML) {
+  const newAntiqueForm = document.querySelector('.new-antique-modal-body');
+  newAntiqueForm.innerHTML = innerHTML;
+}
+
+function addAntique(antiqueHTML) {
+  const antiques = document.querySelector(".antique-grid']");
+  antiques.insertAdjacentHTML('afterbegin', antiqueHTML);
+}
+
+<% if @antique.errors.any? %>
+  refreshForm('<%= j render "antiques/new", antique: @antique %>');
+<% else %>
+  closeButton.click();
+  document.location.reload(true)
+  addAntique('<%= j render "antiques/card", antique: @antique %>');
+  refreshForm('<%= j render "antiques/new", antique: @antique %>');
+<% end %>

@@ -3,8 +3,9 @@ class AntiquesController < ApplicationController
 
 
   def index
-    # @antiques = Antique.all
-    @antiques = Antique.paginate(page: params[:page], per_page: 12)
+    per_page = params[:per_page].to_i.zero? ? 12 : params[:per_page].to_i
+    @antiques = Antique.order("created_at DESC").all
+    @antiquespaginate = Antique.order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
   end
 
@@ -12,17 +13,16 @@ class AntiquesController < ApplicationController
     @antique = set_antique
   end
 
-  def new
-    @antique = Antique.new
-  end
-
   def create
     @antique = Antique.new(antique_params)
     if @antique.save
-      redirect_to antique_path(@antique)
+      respond_to do |format|
+        format.html { redirect_to antiques_path }
+        format.js
+      end
     else
       respond_to do |format|
-        format.html { render :new }
+        format.html { redirect_to antiques_path }
         format.js
       end
     end
@@ -36,9 +36,15 @@ class AntiquesController < ApplicationController
     @antique = set_antique
     @antique.update(antique_params)
     if @antique.save
-      redirect_to antique_path(@antique)
+      respond_to do |format|
+        format.html { redirect_to antiques_path }
+        format.js
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { redirect_to antiques_path }
+        format.js
+      end
     end
   end
 
