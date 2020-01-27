@@ -15,10 +15,10 @@ class ContactsController < ApplicationController
         UserMailer.with(contact: @contact).contact_email_notif_for_user.deliver_later
         UserMailer.with(contact: @contact).contact_email.deliver_later
         format.html { redirect_to root_path }
-        format.json { render json: @contact, status: :created }
+        format.json
       else
         format.html { render :new }
-        format.json { render json: @contact.errors }
+        format.json
       end
     end
   end

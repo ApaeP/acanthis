@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center">
+  <%= form_for(@contact, remote: true) do |f| %>
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being sent:</h2>
+
+        <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="d-flex flex-column justify-content-center">
+      <%= f.text_field :name, placeholder: "Nom" %>
+      <%= f.text_field :email, placeholder: "E-Mail" %>
+      <%= f.text_area :content, placeholder: "Votre Message" %>
+      <%= f.text_field :phone, placeholder: "Telephone" %>
+      <hr>
+      <%= recaptcha_tags %>
+      <hr>
+      <%= f.submit "Send", class: "btn btn-outline-info" %>
+    </div>
+  <% end %>
+</div>
