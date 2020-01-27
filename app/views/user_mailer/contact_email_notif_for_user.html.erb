@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <%= link_to root_url do %>
+      <h1>Acanthis</h1>
+    <% end %>
+    <% if @contact.name %>
+      <h2>Votre demande de contact n°<%= @contact.id %> </h2>
+    <% else %>
+      <h2>Demande de contact sans nom n°<%= @contact.id %> </h2>
+    <% end %>
+    <p> Votre demande : "<%= @contact.content %>" </p>
+    <h4>Email : <%= @contact.email %></h4>
+    <% if @contact.phone %>
+      <h4>Tel : <%= @contact.phone %></h>
+    <% end %>
+  </body>
+</html>
