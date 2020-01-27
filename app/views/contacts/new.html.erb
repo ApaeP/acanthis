@@ -1,15 +1,15 @@
 <%= form_for(@contact) do |f| %>
-  <%# if @contact.errors.any? %>
+  <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <h3><%#= pluralize(@contact.errors.count, "error") %> prohibited this contact from being sent:</h2>
+      <h3><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being sent:</h2>
 
       <ul>
-      <%# @contact.errors.full_messages.each do |msg| %>
-        <li><%#= msg %></li>
-      <%# end %>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       </ul>
     </div>
-  <%# end %>
+  <% end %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -25,8 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :phone %><br />
-    <%= f.text_area :phone %>
+    <%= f.text_field :phone %>
   </div>
+  <%= recaptcha_tags %>
   <div class="actions">
     <%= f.submit "Send"%>
   </div>

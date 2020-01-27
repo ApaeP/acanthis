@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
-      if @contact.save
+      if verify_recaptcha(model: @contact) && @contact.save
         UserMailer.with(contact: @contact).contact_email_notif_for_user.deliver_later
         UserMailer.with(contact: @contact).contact_email.deliver_later
         format.html { redirect_to root_path }
