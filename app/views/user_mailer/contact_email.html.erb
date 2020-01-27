@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <% if @contact.name %>
+      <h1>Demande de contact de la part de <%= @contact.name %> n°<%= @contact.id %> </h1>
+    <% else %>
+      <h1>Demande de contact sans nom n°<%= @contact.id %> </h1>
+    <% end %>
+    <p> <%= @contact.content %> </p>
+    <h4>Email : <%= @contact.email %></h4>
+    <% if @contact.phone %>
+      <h4>Tel : <%= @contact.phone %></h>
+    <% end %>
+  </body>
+</html>
