@@ -3,19 +3,43 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <%= link_to root_url do %>
-      <h1>Acanthis</h1>
-    <% end %>
-    <% if @contact.name %>
-      <h2>Votre demande de contact n°<%= @contact.id %> </h2>
-    <% else %>
-      <h2>Demande de contact sans nom n°<%= @contact.id %> </h2>
-    <% end %>
-    <p> Votre demande : "<%= @contact.content %>" </p>
+
+  <body style="width: 80%; margin: 20px auto; font-family: Arial;">
+    <div style="">
+      <span style="display: ruby;"><h1>Acanthis&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+
+      <% if @contact.name %>
+        <h2 style="width: calc(80% - 140px); text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;Demande de contact n°<%= @contact.id %> </h2>
+      <% else %>
+        <h2 style="width: calc(80% - 140px); text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;Demande de contact n°<%= @contact.id %> </h2>
+      <% end %></span>
+    </div>
+
+    <p style="font-size: 0.9rem; text-decoration: underline; font-weight: bold;"> Votre message:</p>
+
+    <p><%= @contact.content %></p>
+
     <h4>Email : <%= @contact.email %></h4>
     <% if @contact.phone %>
       <h4>Tel : <%= @contact.phone %></h>
     <% end %>
+
   </body>
+
 </html>
+
+<div style="display: flex; width: 80vw; margin: 20px auto; font-family: Arial;">
+  <div>
+    <span style="display: ruby;"><h1>Acanthis</h1></span>
+  </div>
+  <div>
+    <span>
+      <% if @contact.name %>
+        <h2 style="">Demande de contact n°<%= @contact.id %> </h2>
+      <% else %>
+        <h2 style="">Demande de contact n°<%= @contact.id %> </h2>
+      <% end %>
+    </span>
+  </div>
+
+</div>

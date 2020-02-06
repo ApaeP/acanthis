@@ -7,15 +7,16 @@ function refreshForm(innerHTML) {
 }
 
 function addAntique(antiqueHTML) {
-  const antiques = document.querySelector(".antique-grid']");
+  const antiques = document.querySelector(".antique-grid");
   antiques.insertAdjacentHTML('afterbegin', antiqueHTML);
 }
 
 <% if @antique.errors.any? %>
+  console.log('raté antique');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
 <% else %>
   closeButton.click();
-  document.location.reload(true)
+  // document.location.reload(true)
   addAntique('<%= j render "antiques/card", antique: @antique %>');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
 <% end %>

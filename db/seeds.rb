@@ -14,6 +14,7 @@ puts "User created."
 
 puts "Creating antiques..."
 
+4.times do
   antique1 = Antique.new(title: "Masques", description: "Paire de masques anciens. Bronze. XIXème.")
   photo1 = URI.open('https://res.cloudinary.com/acanthisdev/image/upload/v1579363649/objet-1_daz9y7.png')
   antique1.photo.attach(io: photo1, filename: "Masques.png", content_type: 'image/png')
@@ -61,7 +62,7 @@ puts "Creating antiques..."
   antique8.photo.attach(io: photo8, filename: "Hache.png", content_type: 'image/png')
   antique8.save!
   puts "Antique 8 created"
-
+end
 
 puts "Antiques created"
 

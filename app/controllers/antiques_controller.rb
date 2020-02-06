@@ -3,14 +3,11 @@ class AntiquesController < ApplicationController
 
 
   def index
+    @contact = Contact.new
     per_page = params[:per_page].to_i.zero? ? 12 : params[:per_page].to_i
     @antiques = Antique.order("created_at DESC").all
     @antiquespaginate = Antique.order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
-  end
-
-  def show
-    @antique = set_antique
   end
 
   def create
@@ -26,10 +23,6 @@ class AntiquesController < ApplicationController
         format.js
       end
     end
-  end
-
-  def edit
-    @antique = set_antique
   end
 
   def update

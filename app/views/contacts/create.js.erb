@@ -1,0 +1,29 @@
+//select Background to automatize modal closing on successful submit
+var closeButton = document.querySelector('#newContactModal');
+
+// refresh form if it has errors
+function refreshForm(innerHTML) {
+  // refresh the html form
+  const newContactModal = document.querySelector('.new-contact-modal-body');
+  newContactModal.innerHTML = innerHTML;
+  // refresh the recaptcha
+  grecaptcha.render(document.querySelector('.g-recaptcha'), {
+    'sitekey': '6Lc6LtMUAAAAAHXnBolVV6mb7ZQdo6GDyuzK-hWG',
+    'theme': 'light'
+  });
+}
+
+// replace the modal innerHTML with a validation message
+function validateMessage(validateHTML) {
+  const newContactModal = document.querySelector('.new-contact-modal-body');
+  newContactModal.innerHTML = validateHTML;
+}
+
+
+<% if @contact.errors.any? %>
+  refreshForm('<%= j render "contacts/new", contact: @contact %>');
+<% else %>
+  validateMessage('<%= j render "contacts/validate" %>');
+  setTimeout(function(){closeButton.click()}, 3000);
+  setTimeout(function(){refreshForm('<%= j render "contacts/new", contact: @contact %>')}, 3100);
+<% end %>

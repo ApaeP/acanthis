@@ -1,17 +1,11 @@
 class PagesController < ApplicationController
   def home
+    @contact = Contact.new
     @antiques = Antique.all
-    @markers = {
-        lat: 50,
-        lng: 50
-      }
   end
 
   def infos
-
+    @contact = Contact.new
   end
 
-  def contact
-
-  end
 end
