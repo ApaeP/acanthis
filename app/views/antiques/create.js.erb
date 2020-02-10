@@ -12,11 +12,11 @@ function addAntique(antiqueHTML) {
 }
 
 <% if @antique.errors.any? %>
-  console.log('raté antique');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
 <% else %>
   closeButton.click();
-  // document.location.reload(true)
   addAntique('<%= j render "antiques/card", antique: @antique %>');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
+  document.location.reload(true)
+  // window.location.reload(true)
 <% end %>

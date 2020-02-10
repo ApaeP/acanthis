@@ -3,6 +3,8 @@
     <%= simple_form_for(antique, remote: true) do |f| %>
       <%= f.input :title, label: false, placeholder: "Nom" %>
       <%= f.input :description, as: :text, input_html: {:rows => 6}, label: false, placeholder: "Description" %>
+      <%= f.collection_radio_buttons :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]], :last, :first %>
+      <%#= select(:antique, :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]) %>
       <label class="btn btn-outline-info" style="width: 100%;">
         Ajouter une photo
         <span style="display:none;">

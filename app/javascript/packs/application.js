@@ -1,7 +1,7 @@
 import 'bootstrap';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
-import { closeShowModalWhenModify, navigateShow } from '../pages/index';
+import { closeShowModalWhenModify } from '../pages/index';
 import { launchFunctionOnLoad } from '../personalfunctions/launchonload';
 
 require("@rails/ujs").start()
@@ -10,6 +10,10 @@ require("@rails/activestorage").start()
 require("channels")
 
 initMapbox();
+
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
 
 // Carousel
 $('#carousel-example').on('slide.bs.carousel', function (e) {
@@ -48,20 +52,20 @@ $('#carousel-example').on('slide.bs.carousel', function (e) {
     }
 };
 
-  if(window.attachEvent) {
-    window.attachEvent('onload', navigateShow);
-} else {
-    if(window.onload) {
-        var curronload = window.onload;
-        var newonload = function(evt) {
-            curronload(evt);
-            navigateShow(evt);
-        };
-        window.onload = newonload;
-    } else {
-        window.onload = navigateShow;
-    }
-};
+//   if(window.attachEvent) {
+//     window.attachEvent('onload', navigateShow);
+// } else {
+//     if(window.onload) {
+//         var curronload = window.onload;
+//         var newonload = function(evt) {
+//             curronload(evt);
+//             navigateShow(evt);
+//         };
+//         window.onload = newonload;
+//     } else {
+//         window.onload = navigateShow;
+//     }
+// };
 
 //   if(window.attachEvent) {
 //     window.attachEvent('onload', goRight);

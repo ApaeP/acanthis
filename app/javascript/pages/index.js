@@ -16,45 +16,45 @@ const closeShowModalWhenModify = () => {
   });
 };
 
-const goLeft = () => {
-  var goLeftBtns = document.querySelectorAll('.go-left')
+// const goLeft = () => {
+//   var goLeftBtns = document.querySelectorAll('.go-left')
 
-  goLeftBtns.forEach((result) => {
-    result.addEventListener('click', (event) => {
-      var antiqueIndexLeft = event.currentTarget.dataset.index
-      document.querySelector(`#close-show-${event.currentTarget.dataset.id}`).click();
-      document.querySelector(`#show-link-${parseInt(antiqueIndexLeft) - parseInt(1)}`).click();
-    });
-  });
-};
+//   goLeftBtns.forEach((result) => {
+//     result.addEventListener('click', (event) => {
+//       var antiqueIndexLeft = event.currentTarget.dataset.index
+//       document.querySelector(`#close-show-${event.currentTarget.dataset.id}`).click();
+//       document.querySelector(`#show-link-${parseInt(antiqueIndexLeft) - parseInt(1)}`).click();
+//     });
+//   });
+// };
 
-const goRight = () => {
-  var goRightBtns = document.querySelectorAll('.go-right')
+// const goRight = () => {
+//   var goRightBtns = document.querySelectorAll('.go-right')
 
-  goRightBtns.forEach((result) => {
-    result.addEventListener('click', (event) => {
-      var antiqueIndexRight = event.currentTarget.dataset.index
-      document.querySelector(`#close-show-${event.currentTarget.dataset.id}`).click();
-      document.querySelector(`#show-link-${parseInt(antiqueIndexRight) + parseInt(1)}`).click();
-    });
-  });
-};
+//   goRightBtns.forEach((result) => {
+//     result.addEventListener('click', (event) => {
+//       var antiqueIndexRight = event.currentTarget.dataset.index
+//       document.querySelector(`#close-show-${event.currentTarget.dataset.id}`).click();
+//       document.querySelector(`#show-link-${parseInt(antiqueIndexRight) + parseInt(1)}`).click();
+//     });
+//   });
+// };
 
-const navigateWithArrows = () => {
-  document.addEventListener('keydown', (event) => {
-    if(event.keyCode == 37) {
-      document.querySelector('.show .go-left').click();
-    } else if (event.keyCode == 39) {
-      document.querySelector('.show .go-right').click();
-    };
-  });
-};
+// const navigateWithArrows = () => {
+//   document.addEventListener('keydown', (event) => {
+//     if(event.keyCode == 37) {
+//       document.querySelector('.show .go-left').click();
+//     } else if (event.keyCode == 39) {
+//       document.querySelector('.show .go-right').click();
+//     };
+//   });
+// };
 
-const navigateShow = () => {
-  goLeft();
-  goRight();
-  navigateWithArrows();
-};
+// const navigateShow = () => {
+//   goLeft();
+//   goRight();
+//   navigateWithArrows();
+// };
 
 // const setWidthOfGoBtns = () => {
 //   var modalWidth = document.querySelector('.show-antique-modal-body').offsetWidth
@@ -62,4 +62,4 @@ const navigateShow = () => {
 //   goLeftBtn.style.width = (document.width - modalWidth) / 2;
 // };
 
-export { closeShowModalWhenModify, navigateShow };
+export { closeShowModalWhenModify };
