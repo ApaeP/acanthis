@@ -1,20 +1,18 @@
 <div class="container index-container justify-content-center">
 
   <div class="d-flex justify-content-between">
-    <div class="gauche">
 
-    </div>
     <h1 id="titre-index"><%= @antiques.count %> Objets</h1>
-    <div class="droite">
+
       <% if user_signed_in? %>
         <%#= link_to "Nouvel objet", new_antique_path, class: "new-antique" %>
         <%= link_to "Nouvel objet", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
       <% end %>
-    </div>
+
   </div>
 
   <hr>
-  <%= select_tag :per_page, options_for_select([12, 16, 20, 24, 48],params[:per_page].to_i),
+  <%= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
    :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
    <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
 <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
@@ -90,7 +88,7 @@
 
 <!-- Modal Show Antique-->
 <% @antiques.each_with_index do |antique, i| %>
-  <div class="modal fade bd-example-modal-lg" id="showAntiqueModal<%= antique.id %>" data-index=<%= i %> tabindex="-1" role="dialog" aria-labelledby="showAntiqueModalTitle" aria-hidden="true">
+  <div class="modal fade bd-example-modal-lg" id="showAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="showAntiqueModalTitle" aria-hidden="true" data-index=<%= i %>>
     <div class="go-left" data-index=<%= i %> data-id= <%= antique.id %> >Gauche</div>
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
