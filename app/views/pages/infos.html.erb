@@ -1,1 +1,43 @@
-coucou
+<div class="container">
+  <div id="infos-container">
+    <h1 id="infos-titre">Acanthis</h1>
+    <div class="paragraphe">
+      <p class="p-infos" id="infos-p-haut">
+        Installée depuis <strong>1841</strong> dans le quartier, la Maison Henry-Jacotot
+        se diversifie et se lance dans l'antiquité en 1975 au
+        10 bis de la rue d'Auxonne, sous l'enseigne de L'Escabelle.<br>
+        Devenu <strong>Acanthis</strong> en 1994, l'histoire dijonnaise de la famille
+        Henry continue et Jérôme vous propose meubles et objets
+        anciens pour toutes les bourses avec sincérité, passion et bonne humeur,
+        à l'angle de la rue d'Auxonne et de la
+        rue Coupée de Longvic.
+      </p>
+    </div>
+
+    <div class="d-flex">
+      <%= image_tag "apropos1.jpg", alt: "A propos1" %>
+      <div>
+        <h3>Meubles et objets anciens à Dijon</h3>
+        <div class="paragraphe">
+          <p class="p-infos" id="infos-p-bas">
+            Vous avez hérité d'objets anciens suite à une succession? Acanthis vous propose
+            un service de succession, avec estimation gratuite et achat comptant ou courtage
+            de vos antiquités.<br><br>
+            Jérôme Henry met son savoir-faire et son expérience à votre service, se déplace
+            gratuitement, vous conseille et vous guide.<br><br>
+            Passioné d'art Africain, venez découvrir en boutique du jeudi au samedi de nombreux
+            objets disponibles à la vente.<br><br>
+            De plus, Jérôme Henry est engagé professionnellement auprès du Salon des Antiquaires de
+            Dijon (Dij'Antik) et du SNCAO-GA (Syndicat National du Commerce de l'Antiquité, de l'
+            Occasion et des Galeries d'Art moderne et contemporain).
+          </p>
+        </div>
+      </div>
+      <%= image_tag "apropos2.jpg", alt: "A propos2" %>
+    </div>
+
+    <%= link_to "Contact", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" do %>
+      N'hésitez pas à me contacter pour un déplacement et une estimation de vos biens (service gratuit)
+    <% end %>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { closeShowModalWhenModify } from '../pages/index';
 import { launchFunctionOnLoad } from '../personalfunctions/launchonload';
+import { dropdownmenuPhoto, dropdownmenuInfos } from '../components/dropdownmenus';
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -11,9 +12,12 @@ require("channels")
 
 initMapbox();
 
-$(document).ready(function() {
-    $(".dropdown-toggle").dropdown();
-});
+$(document).on('turbolinks:load', function() {
+  $(".dropdown-toggle").dropdown();
+  dropdownmenuPhoto();
+  dropdownmenuInfos();
+  closeShowModalWhenModify();
+})
 
 // Carousel
 $('#carousel-example').on('slide.bs.carousel', function (e) {

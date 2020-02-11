@@ -1,0 +1,24 @@
+#infos-container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  min-height: calc(100vh - 129px)
+}
+
+#infos-titre {
+  padding-top: 4vh;
+  margin-bottom: 4vh;
+}
+
+.paragraphe {
+  display: flex;
+  justify-content: center;
+}
+
+.p-infos {
+  width: 80%;
+  // text-align: justify;
+}
+
+#infos-p-haut {
+    margin-bottom: 3vh;
+  }
