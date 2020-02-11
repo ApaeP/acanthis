@@ -15,7 +15,7 @@
   <%= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
    :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
    <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
-<%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+  <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
   <!-- GRID -->
   <div class="antique-grid d-flex flex-wrap">
@@ -89,7 +89,6 @@
 <!-- Modal Show Antique-->
 <% @antiques.each_with_index do |antique, i| %>
   <div class="modal fade bd-example-modal-lg" id="showAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="showAntiqueModalTitle" aria-hidden="true" data-index=<%= i %>>
-    <div class="go-left" data-index=<%= i %> data-id= <%= antique.id %> >Gauche</div>
       <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <!-- <div class="modal-header"> -->
@@ -103,7 +102,6 @@
           </div>
         </div>
       </div>
-    <div class="go-right" data-index=<%= i %> data-id= <%= antique.id %> >Droite</div>
   </div>
 <% end %>
 <!-- Modal Show Antique END-->

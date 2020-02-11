@@ -1,5 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
+  <% @contact = Contact.new %>
+  <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
     <%= image_tag "logo-txt.png" %>
   <% end %>
 
@@ -9,29 +10,34 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Antiquités", antiques_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item active">
-        <div class="dropdown show">
-          <%= link_to "Galeries Photo", antiques_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLink", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+      <li class="nav-item">
+        <div class="dropdown show">
+          <%= link_to "Acanthis", infos_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLinkInfos", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+          <div id="nav-dropdown-infos" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <%= link_to "À propos", infos_path, class: "dropdown-item info" %>
+              <%= link_to "Antiquités", antiquites_path, class: "dropdown-item info" %>
+              <%= link_to "Salon des Antiquaires", salons_path, class: "dropdown-item info" %>
+              <%= link_to "SNCAO", sncao_path, class: "dropdown-item info" %>
           </div>
         </div>
       </li>
-      <li class="nav-item">
-        <%= link_to "Informations", infos_path, class: "nav-link" %>
+
+      <li class="nav-item active">
+        <div class="dropdown show">
+          <%= link_to "Galeries", antiques_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownPhotoMenuLink", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
+          <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <% Category.all.each do |cat| %>
+              <%= link_to cat.name, antiques_path(category: cat), class: "dropdown-item photo-cat" %>
+            <% end %>
+          </div>
+        </div>
       </li>
+
       <li class="nav-item">
-        <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" } %>
+        <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out-link" %>
@@ -47,7 +53,7 @@
   </div>
 </div>
 
-<!-- Modal New Antique-->
+<!-- Modal Contact -->
 <div class="modal fade" id="newContactModal" tabindex="-1" role="dialog" aria-labelledby="newContactModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -63,4 +69,4 @@
     </div>
   </div>
 </div>
-<!-- Modal New Antique END-->
+<!-- Modal Contact END-->

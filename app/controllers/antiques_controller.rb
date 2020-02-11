@@ -3,10 +3,10 @@ class AntiquesController < ApplicationController
 
 
   def index
-    @contact = Contact.new
+    # @contact = Contact.new
     per_page = params[:per_page].to_i.zero? ? 12 : params[:per_page].to_i
-    @antiques = Antique.order("created_at DESC").all
-    @antiquespaginate = Antique.order("created_at DESC").paginate(page: params[:page], per_page: per_page)
+    @antiques = Antique.where(category_id: params[:category]).order("created_at DESC").all
+    @antiquespaginate = Antique.where(category_id: params[:category]).order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
   end
 

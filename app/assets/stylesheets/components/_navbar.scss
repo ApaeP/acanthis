@@ -1,16 +1,16 @@
 // @media (min-width: 601px) {
   .navbar-lewagon {
     justify-content: space-between;
-    background: #4C1322;
+    background: white;
     color: white;
-    height: 59px;
-    li a {
-      color: white !important;
-      @media (max-width: 600px) {
-        color: black !important;
-        background-color: white;
-      }
-    }
+    height: 24vh;
+    // .nav-link {
+      // color: white !important;
+    //   @media (max-width: 600px) {
+    //     color: black !important;
+    //     background-color: white;
+    //   }
+    // }
   }
 // }
 
@@ -23,6 +23,10 @@
 }
 
 #log-out-link {
-  border: white 1px solid;
+  border: black 1px solid;
   margin-left: 20px;
+}
+
+.photo-cat {
+  color: black !important;
 }
