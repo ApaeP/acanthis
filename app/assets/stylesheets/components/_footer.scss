@@ -1,18 +1,20 @@
 .footer {
-  background: #4C1322;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 24vh;
   padding: 0px 50px;
-  color: white;
+  color: grey;
+  font-family: 'Karla', sans-serif;
+  border-top: 1px solid lightgray;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: white;
+  color: grey;
   // opacity: 0.15;
   text-decoration: none;
   font-size: 24px;

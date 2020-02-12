@@ -1,9 +1,21 @@
+.navbar-container {
+  height: 24vh;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  position: sticky;
+  top: -16.8vh;
+  z-index: 1000;
+}
+
 // @media (min-width: 601px) {
   .navbar-lewagon {
-    justify-content: space-between;
+    justify-content: center !important;
     background: white;
-    color: white;
-    height: 24vh;
+    color: grey;
+    height: 30%;
+    padding: 0 !important;
+    // height: 24vh;
+    font-family: 'Karla', sans-serif;
     // .nav-link {
       // color: white !important;
     //   @media (max-width: 600px) {
@@ -13,6 +25,32 @@
     // }
   }
 // }
+#logo-navbar {
+  height: 70%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo-div {
+  height: 85%;
+  width: 100vw;
+  background-image: url(image-path('logov2.png'));
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#navbarSupportedContent {
+  width: 80%;
+  justify-content: center;
+}
+
+.navbar-nav {
+  width: 100%;
+  justify-content: space-evenly;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -23,10 +61,10 @@
 }
 
 #log-out-link {
-  border: black 1px solid;
+  border: grey 1px solid;
   margin-left: 20px;
 }
 
 .photo-cat {
-  color: black !important;
+  color: grey !important;
 }
