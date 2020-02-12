@@ -69,6 +69,7 @@
   margin: 0 2px 0 2px;
   cursor: pointer;
 }
- .fs-carousel-indicators .active {
+ .fs-carousel-indicators.active {
+  background-color: black !important;
   // background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), image_url;
   }

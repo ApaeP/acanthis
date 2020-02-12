@@ -1,4 +1,3 @@
-<% @contact = Contact.new %>
 <div class="navbar-container">
     <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
   <div class="d-flex" id="logo-div">
@@ -31,7 +30,7 @@
           <div class="dropdown show">
             <%= link_to "Galeries", antiques_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownPhotoMenuLink", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <% Category.all.each do |cat| %>
+              <% Category.all.order("created_at ASC").each do |cat| %>
                 <%= link_to cat.name, antiques_path(category: cat), class: "dropdown-item photo-cat" %>
               <% end %>
             </div>
@@ -68,7 +67,7 @@
         </button>
       </div>
       <div class="new-contact-modal-body">
-        <%= render 'contacts/new', contact: @contact %>
+        <%= render 'contacts/new', contact: Contact.new %>
       </div>
     </div>
   </div>
