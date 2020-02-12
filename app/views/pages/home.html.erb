@@ -71,57 +71,7 @@
 <!-- CAROUSEL END -->
 
   <hr>
-
-  <!-- MAPBOX -->
-  <div id="map"></div>
-
-  <script>
-
-    mapboxgl.accessToken = "<%= ENV['MAPBOX_API_KEY'] %>";
-
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/outdoors-v10',
-      center: [5.045117, 47.315673],
-      zoom: 14.5
-    });
-
-    map.addControl(new mapboxgl.NavigationControl())
-
-    map.on('load', function() {
-      map.loadImage(
-          'https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/LocationPin2-512.png',
-          function(error, image) {
-          if (error) throw error;
-          map.addImage('pin', image);
-          map.addLayer({
-            'id': 'points',
-            'type': 'symbol',
-            'source': {
-              'type': 'geojson',
-              'data': {
-                'type': 'FeatureCollection',
-                'features': [
-                {
-                  'type': 'Feature',
-                  'geometry': {
-                    'type': 'Point',
-                    'coordinates': [5.045117, 47.315673]
-                  }
-                }
-                ]
-              }
-            },
-            'layout': {
-              'icon-image': 'pin',
-              'icon-size': 0.10
-            }
-          });
-        }
-      );
-    });
-  </script>
-  <!-- MAPBOX -->
+  <h1>MAP</h1>
   <hr>
 
 </div>

@@ -17,7 +17,7 @@ puts "Creating Categories"
 
 puts "Creating antiques..."
 
-3.times do
+1.times do
   antique1 = Antique.new(title: "Masques", description: "Paire de masques anciens. Bronze. XIXème.")
   antique1.category = Category.find_by_name("Achat/Vente")
   photo1 = URI.open('https://res.cloudinary.com/acanthisdev/image/upload/v1579363649/objet-1_daz9y7.png')
