@@ -13,8 +13,17 @@
 @import "pages/index";
 @import "antiques/index";
 
+body {
+  font-family: 'Karla', sans-serif;
+}
+
 .container-general {
   min-height: calc(100vh - 48vh);
+  font-family: 'Karla', sans-serif;
+}
+
+.navfoot {
+  width: 100vw;
 }
 
 // body {
