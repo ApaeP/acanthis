@@ -1,0 +1,54 @@
+<div class="fs-carousel-haut-bas">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="carousel-fs-close-btn">&times;</button>
+</div>
+
+<div id="carouselFullscreen" class="carousel slide">
+
+  <div class="carousel-inner" id="carousel-fs-inner">
+    <% @antiques.each_with_index do |i, ind| %>
+      <% if ind == 0 %>
+        <div class="fs-car-item carousel-item active" id="fs-car-item" data-id="<%= ind %>">
+          <div class="photo-fs-carousel" style="background-image: url('<%= i.photo ? url_for(i.photo) : "url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg')"; %>');"></div>
+          <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
+            <h5><%= i.title %></h5>
+            <p><%= i.description %></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="fs-car-item carousel-item" id="fs-car-item-<%= ind %>" data-id="<%= ind %>">
+          <div class="photo-fs-carousel" style="background-image: url('<%= i.photo ? url_for(i.photo) : "url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg')"; %>');"></div>
+          <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
+            <h5><%= i.title %></h5>
+            <p><%= i.description %></p>
+          </div><!-- -->
+        </div>
+      <% end %>
+    <% end %>
+  </div><!-- -->
+
+  <!-- CAROUSEL CONTROLS -->
+  <a class="carousel-control-prev" href="#carouselFullscreen" role="button" data-slide="prev" id="carousel-control-fs">
+    <span class="carousel-control-prev-icon" aria-hidden="true" id="fs-carousel-nav left"></i></span>
+    <span class="sr-only">Précédent</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselFullscreen" role="button" data-slide="next" id="carousel-control-fs">
+    <span class="carousel-control-next-icon" aria-hidden="true" id="fs-carousel-nav right"></span>
+    <span class="sr-only">Suivant</span>
+  </a>
+  <!-- CAROUSEL CONTROLS END -->
+
+</div><!-- carouselFullscreen -->
+
+<div class="fs-carousel-haut-bas">
+  <ol class="carousel-indicators">
+    <% @antiques.each_with_index do |elem, i| %>
+      <% if i == 0 %>
+        <!-- <li data-target="#carouselFullscreen" class="active" data-slide-to=<%#= i.to_s %>></li> -->
+        <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('<%= elem.photo ? url_for(elem.photo) : "url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg')"; %>');"></div>
+      <% else %>
+        <div class="fs-carousel-indicators" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('<%= elem.photo ? url_for(elem.photo) : "url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg')"; %>');"></div>
+        <!-- <li data-target="#carouselFullscreen" data-slide-to=<#%= i.to_s %>></li> -->
+      <% end %>
+    <% end %>
+  </ol>
+</div><!-- fs-carousel-bas -->

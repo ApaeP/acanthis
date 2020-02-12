@@ -1,4 +1,7 @@
 <div class="container index-container justify-content-center">
+  <%= link_to "#", data: { toggle: "modal", target: "#fs-antiques-modal" } do %>
+  Contactez Jérôme Henry (Acanthis)
+<% end %>
 
   <div class="d-flex justify-content-between">
 
@@ -17,93 +20,86 @@
    <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
   <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
-  <!-- GRID -->
-  <div class="antique-grid d-flex flex-wrap">
-    <% @antiquespaginate.each_with_index do |antique, i| %>
-      <%#= link_to antique_path(antique), class: "a-card" do %>
-      <%= link_to "#", remote: true, id: "show-link-#{i}", class: "a-card", data: { toggle: "modal", target: "#showAntiqueModal#{antique.id}" } do %>
+    <!-- GRID -->
+    <div class="antique-grid d-flex flex-wrap">
+      <% @antiquespaginate.each_with_index do |antique, i| %>
 
-        <div class="card index-card">
-          <% if antique.photo.attached? %>
-            <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
-          <% else %>
-            <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
-          <% end %>
-<!--           <div class="card-body">
-            <p class="card-text"><%#= antique.title %></p>
-          </div> -->
+        <%#= link_to "#", remote: true, id: "show-link-#{i}", class: "a-card", data: { toggle: "modal", target: "#showAntiqueModal#{antique.id}" } do %>
+        <%#= link_to "#", data: { toggle: "modal", target: "#fs-antiques-modal", 'slide-to': i }, class: "a-card" do %>
+        <div class="a-card">
+          <div class="card index-card" data-id=<%= i.to_s %>>
+            <% if antique.photo.attached? %>
+              <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
+            <% else %>
+              <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
+            <% end %>
+          </div>
         </div>
 
+        <%# end %>
+
       <% end %>
-    <% end %>
-  </div>
-  <!-- GRID END -->
+    </div>
+    <!-- GRID END -->
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
 
   <hr style="margin-bottom: 30px;">
 
 </div>
 
-<% if user_signed_in? %>
-<!-- Modal New Antique-->
-<div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="new-antique-modal-body">
-        <%= render 'antiques/new', antique: @antique %>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal New Antique END-->
+  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL -->
+  <div class="modal fade modal-fullscreen force-fullscreen" id="fs-antiques-modal" tabindex="-1" role="dialog" aria-labelledby="fs-antiques-modalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="fullscreen-carousel-dialog">
+      <div class="modal-content" id="fullscreen-carousel-content">
+        <div class="modal-body" id="fullscreen-carousel-body">
+          <!-- CAROUSEL -->
+         <%= render 'antiques/carousel', antiques: @antiquespaginate %>
+          <!-- CAROUSEL END -->
+        </div><!-- fullscreen-carousel-body -->
+      </div><!-- fullscreen-carousel-content -->
+    </div><!-- fullscreen-carousel-dialog -->
+  </div><!-- fs-antiques-modal -->
+  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL END -->
 
-<!-- Modal Edit Antique-->
-<% @antiques.each do |antique| %>
-  <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
+<% if user_signed_in? %>
+  <!-- Modal New Antique-->
+  <div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= antique.title %></h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="edit-antique-modal-body">
-          <%= render 'antiques/edit', antique: antique %>
+        <div class="new-antique-modal-body">
+          <%= render 'antiques/new', antique: @antique %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
-<!-- Modal Edit Antique END-->
+  <!-- Modal New Antique END-->
 
-
-<% end %>
-
-<!-- Modal Show Antique-->
-<% @antiques.each_with_index do |antique, i| %>
-  <div class="modal fade bd-example-modal-lg" id="showAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="showAntiqueModalTitle" aria-hidden="true" data-index=<%= i %>>
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <!-- Modal Edit Antique-->
+  <% @antiques.each do |antique| %>
+    <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <!-- <div class="modal-header"> -->
-            <!-- <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5> -->
-  <!--           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= antique.title %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
-            </button> -->
-          <!-- </div> -->
-          <div class="show-antique-modal-body">
-            <%= render 'antiques/show', antique: antique %>
+            </button>
+          </div>
+          <div class="edit-antique-modal-body">
+            <%= render 'antiques/edit', antique: antique %>
           </div>
         </div>
       </div>
-  </div>
+    </div>
+  <% end %>
+  <!-- Modal Edit Antique END-->
 <% end %>
-<!-- Modal Show Antique END-->
+
 
 

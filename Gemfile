@@ -18,7 +18,6 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary', '~> 1.12.0'
-gem 'geocoder'
 gem 'non-stupid-digest-assets'
 gem 'recaptcha'
 
