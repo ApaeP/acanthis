@@ -1,7 +1,4 @@
 <div class="container index-container justify-content-center">
-  <%= link_to "#", data: { toggle: "modal", target: "#fs-antiques-modal" } do %>
-  Contactez Jérôme Henry (Acanthis)
-<% end %>
 
   <div class="d-flex justify-content-between">
 
@@ -15,7 +12,7 @@
   </div>
 
   <hr>
-  <%= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
+  <%#= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
    :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
    <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
   <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
@@ -45,6 +42,7 @@
 
   <hr style="margin-bottom: 30px;">
 
+
 </div>
 
   <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL -->
@@ -73,7 +71,7 @@
           </button>
         </div>
         <div class="new-antique-modal-body">
-          <%= render 'antiques/new', antique: @antique %>
+          <%= render 'antiques/new', antique: @antique, category: "Achat/Vente" %>
         </div>
       </div>
     </div>

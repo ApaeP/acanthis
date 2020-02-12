@@ -4,10 +4,11 @@ class AntiquesController < ApplicationController
 
   def index
     # @contact = Contact.new
-    per_page = params[:per_page].to_i.zero? ? 12 : params[:per_page].to_i
+    per_page = 24 # params[:per_page].to_i.zero? ? 24 : params[:per_page].to_i
     @antiques = Antique.where(category_id: params[:category]).order("created_at DESC").all
     @antiquespaginate = Antique.where(category_id: params[:category]).order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
+    @category = Category.first
   end
 
   def create
@@ -54,6 +55,6 @@ class AntiquesController < ApplicationController
   end
 
   def antique_params
-    params.require(:antique).permit(:title, :description, :photo, :category)
+    params.require(:antique).permit(:title, :description, :photo, :category_id)
   end
 end
