@@ -5,32 +5,32 @@
 <div id="carouselFullscreen" class="carousel slide">
 
   <div class="carousel-inner" id="carousel-fs-inner">
-    <% @antiques.each_with_index do |i, ind| %>
-      <% if ind == 0 %>
+    <% antiques.each_with_index do |elem, i| %>
+      <% if i == 0 %>
 
-        <div class="fs-car-item carousel-item active" id="fs-car-item-<%= ind %>" data-id="<%= ind %>">
-          <% if i.photo.attached? %>
-            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(i.photo) %>');" %>');"></div>
+        <div class="fs-car-item carousel-item active" id="fs-car-item-<%= i %>" data-id="<%= i %>">
+          <% if elem.photo.attached? %>
+            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
           <% else %>
             <div class="photo-fs-carousel" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
           <% end %>
           <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
-            <h5><%= i.title %></h5>
-            <p><%= i.description %></p>
+            <h5><%= elem.title %></h5>
+            <p><%= elem.description %></p>
           </div>
         </div>
 
       <% else %>
 
-        <div class="fs-car-item carousel-item" id="fs-car-item-<%= ind %>" data-id="<%= ind %>">
-          <% if i.photo.attached? %>
-            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(i.photo) %>');" %>');"></div>
+        <div class="fs-car-item carousel-item" id="fs-car-item-<%= i %>" data-id="<%= i %>">
+          <% if elem.photo.attached? %>
+            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
           <% else %>
             <div class="photo-fs-carousel" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
           <% end %>
           <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
-            <h5><%= i.title %></h5>
-            <p><%= i.description %></p>
+            <h5><%= elem.title %></h5>
+            <p><%= elem.description %></p>
           </div><!-- -->
         </div>
 
@@ -53,7 +53,7 @@
 
 <div class="fs-carousel-haut-bas">
   <ol class="carousel-indicators">
-    <% @antiques.each_with_index do |elem, i| %>
+    <% antiques.each_with_index do |elem, i| %>
       <% if i == 0 %>
         <% if elem.photo.attached? %>
           <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('<%= url_for(elem.photo) %>');"></div>

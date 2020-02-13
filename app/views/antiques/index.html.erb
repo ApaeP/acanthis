@@ -2,7 +2,7 @@
 
   <div class="d-flex justify-content-between">
 
-    <h1 id="titre-index"><%= @antiques.count %> Objets</h1>
+    <h1 id="titre-index"><%= @category.name %> <%= @antiques.count %> Objets</h1>
 
       <% if user_signed_in? %>
         <%#= link_to "Nouvel objet", new_antique_path, class: "new-antique" %>
@@ -14,7 +14,7 @@
   <hr>
   <%#= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
    :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
-   <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
+  <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
   <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
     <!-- GRID -->
@@ -30,6 +30,11 @@
             <% else %>
               <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
             <% end %>
+          </div>
+          <div class="card-info">
+            <%= link_to "Modifier", "#", class: "card-links", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
+            <%#= link_to "Modifier", edit_antique_path(antique), class: "bouton-show" %>
+            <%= link_to "Supprimer", antique_path(antique), class: "card-links", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title}\"?" } %>
           </div>
         </div>
 
@@ -71,7 +76,7 @@
           </button>
         </div>
         <div class="new-antique-modal-body">
-          <%= render 'antiques/new', antique: @antique, category: "Achat/Vente" %>
+          <%= render 'antiques/new', antique: @antique, category: @category %>
         </div>
       </div>
     </div>
