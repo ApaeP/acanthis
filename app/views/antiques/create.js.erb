@@ -13,9 +13,10 @@ function addAntique(antiqueHTML) {
 
 <% if @antique.errors.any? %>
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
+  console.log('antique errors detected')
 <% else %>
   closeButton.click();
-  addAntique('<%= j render "antiques/card", antique: @antique %>');
+  // addAntique('<%= j render "antiques/card", antique: @antique %>');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
   document.location.reload(true)
   // window.location.reload(true)

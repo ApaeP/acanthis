@@ -8,19 +8,20 @@ class AntiquesController < ApplicationController
     @antiques = Antique.where(category_id: params[:category]).order("created_at DESC").all
     @antiquespaginate = Antique.where(category_id: params[:category]).order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
-    @category = Category.first
+    @category = @antiques.first.category
   end
 
   def create
     @antique = Antique.new(antique_params)
+    @category = @antique.category
     if @antique.save
       respond_to do |format|
-        format.html { redirect_to antiques_path }
+        format.html { redirect_to antiques_path(category: @category.id) }
         format.js
       end
     else
       respond_to do |format|
-        format.html { redirect_to antiques_path }
+        format.html { redirect_to antiques_path(category: @category.id) }
         format.js
       end
     end
@@ -29,14 +30,15 @@ class AntiquesController < ApplicationController
   def update
     @antique = set_antique
     @antique.update(antique_params)
+    @category = @antique.category
     if @antique.save
       respond_to do |format|
-        format.html { redirect_to antiques_path }
+        format.html { redirect_to antiques_path(category: @category.id) }
         format.js
       end
     else
       respond_to do |format|
-        format.html { redirect_to antiques_path }
+        format.html { redirect_to antiques_path(category: @category.id) }
         format.js
       end
     end
@@ -44,8 +46,9 @@ class AntiquesController < ApplicationController
 
   def destroy
     @antique = set_antique
+    @category = @antique.category
     @antique.destroy
-    redirect_to antiques_path
+    redirect_to antiques_path(category: @category.id)
   end
 
   private

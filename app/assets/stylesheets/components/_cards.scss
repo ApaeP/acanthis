@@ -39,3 +39,19 @@ a:hover {
   // padding-left: 0px !important;
   padding: 10px 0 0 0 !important;
 }
+
+.card-info {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-links {
+  text-decoration: none !important;
+  color: gray;
+  font-family: Karla;
+
+  &:hover {
+    color: rgba(0,0,0,.7);
+  }
+}
