@@ -1,0 +1,15 @@
+var closeButton = document.querySelector('#new-cat-modal-close-btn');
+// closeButton.click();
+
+function refreshForm(innerHTML) {
+  const newCategoryForm = document.querySelector('.new-category-modal-body');
+  newCategoryForm.innerHTML = innerHTML;
+}
+
+<% if @category.errors.any? %>
+  refreshForm('<%= j render "categories/new", category: @category %>');
+<% else %>
+  closeButton.click();
+  refreshForm('<%= j render "categories/new", category: @category %>');
+  document.location.reload(true)
+<% end %>

@@ -13,7 +13,6 @@ function addAntique(antiqueHTML) {
 
 <% if @antique.errors.any? %>
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
-  console.log('antique errors detected')
 <% else %>
   closeButton.click();
   // addAntique('<%= j render "antiques/card", antique: @antique %>');

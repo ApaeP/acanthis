@@ -1,0 +1,15 @@
+var closeButton = document.querySelector('#edit-cat-modal-close-btn');
+// closeButton.click();
+
+function refreshForm(innerHTML) {
+  const editCategoryForm = document.querySelector('.edit-category-modal-body');
+  editCategoryForm.innerHTML = innerHTML;
+}
+
+<% if @category.errors.any? %>
+  refreshForm('<%= j render "categories/edit", category: @category %>');
+<% else %>
+  closeButton.click();
+  refreshForm('<%= j render "categories/edit", category: @category %>');
+  document.location.reload(true)
+<% end %>

@@ -7,7 +7,17 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(set_category_params)
-    @category.save
+    if @category.save
+      respond_to do |format|
+        format.html { redirect_to antiques_path(category: @category) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to antiques_path(category: @category) }
+        format.js
+      end
+    end
   end
 
   def update
@@ -25,7 +35,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category_params
-        params.require(:category).permit(:name)
+    params.require(:category).permit(:title)
   end
 
   def set_category
