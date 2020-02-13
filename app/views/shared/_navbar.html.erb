@@ -32,6 +32,7 @@
             <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <% Category.all.order("created_at ASC").each do |cat| %>
                 <%= link_to cat.name, antiques_path(category: cat), class: "dropdown-item photo-cat" %>
+                <%= link_to "X", category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.name}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat' %>
               <% end %>
             </div>
           </div>
