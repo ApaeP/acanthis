@@ -3,7 +3,7 @@
     <%= simple_form_for(antique, remote: true) do |f| %>
       <%= f.input :title, label: "Nom", placeholder: "Nom" %>
       <%= f.input :description, as: :text, input_html: {:rows => 6}, label: "Description", placeholder: "Description" %>
-      <%= f.association :category, label: false %>
+      <%= f.association :category, as: :radio_buttons, checked: params[:category] %>
       <label class="btn btn-outline-info" style="width: 100%;">
         Changer de photo
         <span style="display:none;">

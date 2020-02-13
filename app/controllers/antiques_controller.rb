@@ -8,7 +8,7 @@ class AntiquesController < ApplicationController
     @antiques = Antique.where(category_id: params[:category]).order("created_at DESC").all
     @antiquespaginate = Antique.where(category_id: params[:category]).order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @antique = Antique.new
-    @category = @antiques.first.category
+    @category = Category.where(id: params[:category])
   end
 
   def create

@@ -3,9 +3,31 @@
   text-decoration: none;
 }
 
+#index-header {
+  display: flex;
+  justify-content: space-between;
+  .un {
+    width: 125px;
+  }
+  .deux {
+    width: auto;
+    text-align: center;
+  }
+  .trois {
+    width: 125px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+#index-top-separator {
+  margin-top: 0 !important;
+}
+
 #titre-index {
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .gauche {
@@ -28,7 +50,7 @@
   color: rgba(40, 40, 40, 0.7);
   border: rgba(40, 40, 40, 0.7) 0.5px solid;
   padding: 10px 15px 10px 15px;
-  width: 122.6px;
+  width: 125px;
   text-align: center;
   &:hover {
     text-decoration: underline;
