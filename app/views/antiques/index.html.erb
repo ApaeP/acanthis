@@ -1,17 +1,20 @@
 <div class="container index-container justify-content-center">
 
-  <div class="d-flex justify-content-between">
-
-    <h1 id="titre-index"><%= @category.name %> <%= @antiques.count %> Objets</h1>
-
+  <div id="index-header">
+    <div class="un">
+    </div>
+    <div class="deux">
+      <h1 id="titre-index"><%= @category.name %></h1>
+      <p>(<%= @antiques.count %> éléments)</p>
+    </div>
+    <div class="trois">
       <% if user_signed_in? %>
-        <%#= link_to "Nouvel objet", new_antique_path, class: "new-antique" %>
         <%= link_to "Nouvel objet", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
       <% end %>
-
+    </div>
   </div>
 
-  <hr>
+  <hr id="index-top-separator">
   <%#= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
    :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
   <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
@@ -23,20 +26,33 @@
 
         <%#= link_to "#", remote: true, id: "show-link-#{i}", class: "a-card", data: { toggle: "modal", target: "#showAntiqueModal#{antique.id}" } do %>
         <%#= link_to "#", data: { toggle: "modal", target: "#fs-antiques-modal", 'slide-to': i }, class: "a-card" do %>
-        <div class="a-card">
-          <div class="card index-card" data-id=<%= i.to_s %>>
-            <% if antique.photo.attached? %>
-              <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
-            <% else %>
-              <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
-            <% end %>
+        <% if user_signed_in? %>
+          <div class="a-card">
+            <div class="card index-card" data-id=<%= i.to_s %>>
+              <% if antique.photo.attached? %>
+                <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
+              <% else %>
+                <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
+              <% end %>
+            </div>
+            <div class="card-info">
+                <%= link_to "Modifier", "#", class: "card-links", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
+                <%= link_to "Supprimer", antique_path(antique), class: "card-links", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title}\"?" } %>
+            </div>
           </div>
-          <div class="card-info">
-            <%= link_to "Modifier", "#", class: "card-links", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
-            <%#= link_to "Modifier", edit_antique_path(antique), class: "bouton-show" %>
-            <%= link_to "Supprimer", antique_path(antique), class: "card-links", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title}\"?" } %>
+        <% else %>
+          <div class="a-card a-card-visitor">
+            <div class="card index-card" data-id=<%= i.to_s %>>
+              <% if antique.photo.attached? %>
+                <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top card-img-top-visitor" %>
+              <% else %>
+                <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top card-img-top-visitor" %>
+              <% end %>
+            </div>
+            <div class="card-info">
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <%# end %>
 

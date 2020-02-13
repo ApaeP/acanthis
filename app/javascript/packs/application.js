@@ -4,8 +4,6 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'bootstrap';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { initMapbox } from '../plugins/init_mapbox';
 import { closeShowModalWhenModify } from '../pages/index';
 import { launchFunctionOnLoad } from '../personalfunctions/launchonload';
 import { dropdownmenuPhoto, dropdownmenuInfos } from '../components/dropdownmenus';

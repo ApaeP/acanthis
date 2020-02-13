@@ -30,7 +30,7 @@ a:hover {
 }
 
 .a-card {
-  margin: 2px;
+  margin: 1px;
   height: 230px;
 }
 
@@ -54,4 +54,16 @@ a:hover {
   &:hover {
     color: rgba(0,0,0,.7);
   }
+}
+
+
+
+
+.card-img-top-visitor {
+  // height: 200px;
+  height: 16rem !important;
+}
+
+.a-card-visitor {
+  height: 16rem !important;
 }
