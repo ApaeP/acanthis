@@ -31,7 +31,20 @@
             <%= link_to "Galeries", antiques_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownPhotoMenuLink", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <% Category.all.order("created_at ASC").each do |cat| %>
-                <%= link_to cat.name, antiques_path(category: cat), class: "dropdown-item photo-cat" %>
+                <div class="dropdown-flex">
+                  <%= link_to "#{cat.title} - (#{cat.antiques.length})", antiques_path(category: cat), class: "dropdown-item photo-cat un" %>
+                  <% if user_signed_in? %>
+                    <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item photo-cat deux' do %>
+                      <i class="far fa-edit"></i>
+                    <% end %>
+                    <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to "Nouvelle Catégorie", "#", class: "nav-link dropdown-item photo-cat", data: { toggle: "modal", target: "#newCategoryModal" }, id: "category-navbar" %>
               <% end %>
             </div>
           </div>
@@ -73,3 +86,44 @@
   </div>
 </div>
 <!-- Modal Contact END-->
+
+<% if user_signed_in? %>
+
+  <!-- Modal New Category -->
+  <div class="modal fade" id="newCategoryModal" tabindex="-1" role="dialog" aria-labelledby="newCategoryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Création d'une nouvelle catégorie</h5>
+          <button id="new-cat-modal-close-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="new-category-modal-body">
+          <%= render 'categories/new', category: Category.new %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Edit Category -->
+  <% Category.all.order("created_at ASC").each do |cat| %>
+    <div class="modal fade" id="editCategoryModal<%= cat.id %>" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= cat.title %></h5>
+            <button id="edit-cat-modal-close-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="edit-category-modal-body">
+            <%= render 'categories/edit', category: cat%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>

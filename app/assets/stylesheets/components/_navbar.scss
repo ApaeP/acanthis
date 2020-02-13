@@ -69,3 +69,21 @@
 .photo-cat {
   color: grey !important;
 }
+
+.dropdown-flex {
+  display: flex;
+  .un {
+    width: 100%;
+  }
+  .deux {
+    width: 20%;
+    text-align: right;
+  }
+}
+
+#new-category-container {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
