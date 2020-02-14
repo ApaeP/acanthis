@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="container" id="new-category-container">
     <%= simple_form_for(category, remote: true) do |f| %>
-      <%= f.input :title, label: false, placeholder: "Titre de la catégorie" %>
+      <%= f.input :title, label: false, placeholder: "Titre de la catégorie", class: "category-new" %>
       <div class="d-flex justify-content-center">
         <%= f.submit "OK", class: "ok-modal btn btn-outline-info" %>
         <%#= link_to "Retour", antiques_path, class: "btn btn-dark" %>

@@ -1,15 +1,24 @@
 <div class="container d-flex justify-content-center">
-  <%= simple_form_for(contact, remote: true) do |f| %>
-    <div class="d-flex flex-column justify-content-center contact-form">
-      <%= f.input :name, label: false, placeholder: "Votre nom" %>
-      <%= f.input :email, label: false, placeholder: "Votre adresse e-mail" %>
-      <%= f.input :content, label: false, input_html: { rows: 6 }, placeholder: "Votre Message" %>
-      <%= f.input :phone, label: false, placeholder: "Votre n° de téléphone" %>
+  <!-- <div class="d-flex flex-column justify-content-center"> -->
+    <%= simple_form_for(contact, remote: true) do |f| %>
+      <div class="d-flex flex-column justify-content-center contact-form">
+        <%= f.input :name, label: false, placeholder: "Votre nom" %>
+        <%= f.input :email, label: false, placeholder: "Votre adresse e-mail" %>
+        <%= f.input :content, label: false, input_html: { rows: 6 }, placeholder: "Votre Message" %>
+        <%= f.input :phone, label: false, placeholder: "Votre n° de téléphone" %>
+        <hr>
+        <%= f.error :base %>
+        <%= recaptcha_tags %>
+        <hr>
+        <%= f.submit "Send", class: "btn btn-outline-info" %>
+      </div>
+    <div id="infos-contact-form">
       <hr>
-      <%= f.error :base %>
-      <%= recaptcha_tags %>
-      <hr>
-      <%= f.submit "Send", class: "btn btn-outline-info" %>
+      <p>10 bis Rue d'Auxonne</p>
+      <p>21000 Dijon</p>
+      <a href="tel:0380663157">03 80 66 31 57</a>
+      <%= mail_to "acanthis.21@free.fr", "acanthis.21@free.fr", id: "last-link-right" %>
     </div>
-  <% end %>
+    <% end %>
+  <!-- </div> -->
 </div>

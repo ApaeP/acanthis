@@ -1,25 +1,99 @@
 .footer {
+  height: 24vh;
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
+}
+
+#footer-haut {
+  height: 90%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 24vh;
   padding: 0px 50px;
   color: grey;
   font-family: 'Karla', sans-serif;
-  border-top: 1px solid lightgray;
+  // border-top: 1px solid lightgray;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
+  a {
+    color: grey;
+    // opacity: 0.15;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 0px 10px;
+    &:hover {
+      opacity: 0.3;
+    }
+  }
 }
-.footer-links a {
+
+.footer-copyright {
   color: grey;
-  // opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+  font-size: 0.8rem;
+  text-align: center;
+  height: 10%;
 }
-.footer-links a:hover {
-  opacity: 0.3;
+
+#footer-droite {
+  color: grey;
+  font-size: 0.85rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  a {
+    text-decoration: none !important;
+    color: rgba(0,0,0,.5);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    &:hover {
+      color: rgba(0,0,0,.7);
+    }
+  }
+}
+
+#last-link-right {
+  margin-bottom: 0 !important;
+}
+
+#footer-gauche {
+  color: grey;
+  font-size: 0.85rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: center;
+}
+
+#footer-centre {
+  color: grey;
+  font-size: 0.85rem;
+  text-align: center;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  a {
+    text-decoration: none !important;
+    color: rgba(0,0,0,.5);
+    padding: 0.3rem 0;
+    &:hover {
+      color: rgba(0,0,0,.7);
+    }
+  }
+}
+
+table {
+  font-size: 0.85rem;
+  text-align: left;
 }
