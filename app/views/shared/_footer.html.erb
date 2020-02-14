@@ -1,8 +1,80 @@
 <div class="footer">
-  <div class="footer-links">
-    <a href="https://www.facebook.com/antiquite.acanthis" target="_blank"><i class="fab fa-facebook"></i></a>
-  </div>
+  <div id="footer-haut">
+
+    <div id="footer-gauche">
+      <table>
+        <tr>
+          <td>Lundi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+          <td>15h-19h</td>
+        </tr>
+        <tr>
+          <td>Mardi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+          <td>15h-19h</td>
+        </tr>
+        <tr>
+          <td>Mercredi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+          <td>15h-19h</td>
+        </tr>
+        <tr>
+          <td>Jeudi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+          <td>15h-19h</td>
+        </tr>
+        <tr>
+          <td>Vendredi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+          <td>15h-19h</td>
+        </tr>
+        <tr>
+          <td>Samedi&nbsp;&nbsp;</td>
+          <td>10h-13h&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="footer-centre">
+      <%= link_to "Contact", "#", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
+      <a href="https://www.facebook.com/antiquite.acanthis" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <%= link_to "Retrouvez en vidéo Le Salon des Antiquaire 2018", "#",  data: { toggle: "modal", target: "#videodeuxModal", src: "https://www.youtube.com/embed/ZPQUj7hiaDw" }, class: 'video-btn' %>
+      <a href="https://res.cloudinary.com/acanthisdev/image/upload/v1581597204/Dij_Antik_Dossier_de_presse_ozuqqo.pdf" target="_blank" download="Dossier_de_presse_Dij'Antik">Dossier de presse Dij'Antik</a>
+      <a href="http://www.sncao-syndicat.com/">Site du SNCAO-GA</a>
+    </div>
+
+    <div id="footer-droite">
+      <p>10 bis Rue d'Auxonne</p>
+      <p>21000 Dijon</p>
+      <a href="tel:0380663157">03 80 66 31 57</a>
+      <%= mail_to "acanthis.21@free.fr", "acanthis.21@free.fr", id: "last-link-right" %>
+    </div>
+
+  </div><!-- footer haut -->
+
   <div class="footer-copyright">
-    Acanthis Antiquités, Jérôme Henry - ©2019
+    Acanthis Antiquités, Jérôme Henry - ©2020
   </div>
 </div>
+
+<!-- Modal Video -->
+<div class="modal fade" id="videodeuxModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="video-modal-dialog modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+      <div class="video-modal-body">
+
+        <button type="button" class="close close-video-modal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="" id="videodeux" allowscriptaccess="always" allow="autoplay"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal Video END -->

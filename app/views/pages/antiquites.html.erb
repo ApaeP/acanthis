@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container card-style">
   <div id="antiquites-container">
     <!-- ACHAT VENTE -->
       <h1>Achat comptant et Vente d'antiquités</h1>
@@ -33,10 +33,10 @@
         Archéologie  -   Tapis & tapisseries  -  Curiosités & objets de vitrine<br>
         Vins anciens  -  Statues & décorations de jardin  -  Décoration vintage<br>
       </p>
-
-      <p>
+      <%= link_to "#", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-link-body" do %>
         Prenez rendez-vous!
-      </p>
+      <% end %>
+
     <!-- ACHAT VENTE END -->
 
     <!-- SUCCESSION PARTAGE -->
@@ -62,7 +62,21 @@
         Le but étant de rendre les clefs au notaire ou de mettre le bien en vente rapidement.
       </p>
 
-      <div class="tableau">
+      <table>
+        <tr>
+          <td class="antiquites-tableau">Que Faire?</td>
+          <td class="antiquites-tableau">Tout garder? Pourquoi?<br>Tout vendre? Combien?<br>Resasser? Regretter?<br></td>
+        </tr>
+        <tr>
+          <td class="antiquites-tableau">Solutions Acanthis:</td>
+          <td class="antiquites-tableau">Inventaire estimatif (partage éventuel)<br>Rachat comptant ou courtage<br>Solution de débarras<br>Option Ménage</td>
+        </tr>
+        <tr>
+          <td class="antiquites-tableau">Résultat:</td>
+          <td class="antiquites-tableau">Gain de temps<br>Esprit libéré<br>Déplacement rapide et gratuit</td>
+        </tr>
+      </table>
+      <!-- <div class="tableau">
         <div class="titre" id="1">
           <p>Héritage</p>
         </div>
@@ -93,7 +107,7 @@
           </div>
           <div>Gain de temps<br>Esprit libéré<br>Déplacement rapide et gratuit</div>
         </div>
-      </div>
+      </div> -->
     <!-- SUCCESSION PARTAGE END-->
 
     <%= link_to "Contact", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" do %>
