@@ -16,7 +16,7 @@ puts "\nCategories created"
 
 puts "\nCreating antiques..."
 
-nb_de_tours = 1
+nb_de_tours = 10
 tour = 1
 
 nb_de_tours.times do
