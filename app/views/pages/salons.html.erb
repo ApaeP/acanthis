@@ -1,7 +1,7 @@
 <div class="container card-style">
   <div id="salons-container">
     <h1>Dij'Antik - Salon des Antiquaires à Dijon</h1>
-    <p>
+    <p class="jtt">
       Décembre 2016, alors que Dijon vient d'être nommée capitale de la grande région Bourgogne-Franche-Comté,
       Dijon-Congrexpo (gestionnaire du Parc des Expositions) et la ville de Dijon, prennent la décision de ne
       plus organiser le salon des antiquaires : institution dijonnaise depuis 44 ans et seule manifestation
@@ -10,7 +10,7 @@
     </p>
     <%= image_tag "Dijantik.jpg", alt: "Dij'Antik" %>
     <h3>Jérôme Henry, Patrick Damidot et Denis Favier créent Dij'Antik</h3>
-    <p>
+    <p class="jtt">
       Dij'Antik, le nouveau salon des antiquaires de Dijon est né de ce refus en mars 2017.<br>
       Avec Patrick Damidot (antiquaire rue des Forges à Dijon) et Denis Favier (Shopping Dijon),
       nous avons décidé de reprendre l'organisation de cette manifestation en créant Dij'Antik,
@@ -27,7 +27,7 @@
       encore que le précédent.
     </p>
     <a href="https://res.cloudinary.com/acanthisdev/image/upload/v1581597204/Dij_Antik_Dossier_de_presse_ozuqqo.pdf" target="_blank" download="Dossier_de_presse_Dij'Antik">Dossier de presse Dij'Antik</a>
-    <%= link_to "Contact", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" do %>
+    <%= link_to "Contact", class: "contact-link-body", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" do %>
       N'hésitez pas à me contacter pour un déplacement et une estimation de vos biens (service gratuit)
     <% end %>
   </div>

@@ -28,8 +28,6 @@
     <div class="antique-grid d-flex flex-wrap">
       <% @antiquespaginate.each_with_index do |antique, i| %>
 
-        <%#= link_to "#", remote: true, id: "show-link-#{i}", class: "a-card", data: { toggle: "modal", target: "#showAntiqueModal#{antique.id}" } do %>
-        <%#= link_to "#", data: { toggle: "modal", target: "#fs-antiques-modal", 'slide-to': i }, class: "a-card" do %>
         <% if user_signed_in? %>
           <div class="a-card">
             <div class="card index-card" data-id=<%= i.to_s %>>
@@ -55,18 +53,20 @@
             </div>
             <div class="card-info">
             </div>
+            <div class="card-hover" id="hover-<%= i %>" data-id=<%= i.to_s %>>
+              <!-- <div class="card-hover-text" data-id=<%#= i.to_s %>> -->
+                <h5 class="hover-title" id="text-hover-<%= i %>"><%= antique.title.capitalize %></h5>
+              <!-- </div> -->
+            </div>
           </div>
         <% end %>
-
-        <%# end %>
 
       <% end %>
     </div>
     <!-- GRID END -->
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
 
-  <hr style="margin-bottom: 30px;">
-
+  <hr id="index-bottom-separator">
 
 </div>
 
