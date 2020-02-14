@@ -2,7 +2,7 @@
   <div id="antiquites-container">
     <!-- ACHAT VENTE -->
       <h1>Achat comptant et Vente d'antiquités</h1>
-      <p>
+      <p class="jtt">
         Acanthis est un magasin d'antiquités situé dans le quartier Wilson à Dijon. Jérôme Henry
         se charge de l'achat de vos objets et meubles anciens avec passion et vous reçoit pour répondre
         au mieux à vos attentes.
@@ -11,7 +11,7 @@
       <%= image_tag "achatvente2.jpg", alt: "Achat/Vente2" %>
       <%= image_tag "achatvente3.jpg", alt: "Achat/Vente3" %>
       <h3>Jérôme Henry, antiquaire à Dijon</h3>
-      <p>
+      <p class="jtt">
         En prenant rendez-vous avec moi au 03 80 66 31 57, je vous proposerai un déplacement
         gratuit afin d'évaluer ce que vous désirez vendre et vous en faire une estimation.
         Tout objet présent dans mon magasin ayant été acheté comptant, vous pouvez m'appeler
@@ -27,13 +27,13 @@
         Voici quelques exemples d'objets que je suis susceptible d'acheter et de vendre :
       </p>
 
-      <p>
+      <p class="jtt">
         Mobilier ancien  -  Horlogerie & luminaires  -  Art asiatique  -  Peinture & dessins<br>
         Jouets & instruments de musique  -  Livres & photographies  -  Arts de la table<br>
         Archéologie  -   Tapis & tapisseries  -  Curiosités & objets de vitrine<br>
         Vins anciens  -  Statues & décorations de jardin  -  Décoration vintage<br>
       </p>
-      <%= link_to "#", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-link-body" do %>
+      <%= link_to "#", data: { toggle: "modal", target: "#newContactModal" }, class: "contact-link-body" do %>
         Prenez rendez-vous!
       <% end %>
 
@@ -41,7 +41,7 @@
 
     <!-- SUCCESSION PARTAGE -->
       <h1>Succession et Partage</h1>
-      <p>
+      <p class="jtt">
         Jérôme Henry essaie de proposer divers services pour faciliter vos héritages et
         partages, lors d'une succession.<br>
         On se retrouve souvent un peu démuni devant le nombre d'objets, de meubles ou
@@ -52,13 +52,13 @@
 
       <h3>Jérôme Henry antiquaire : estimation et achat d'objets anciens</h3>
 
-      <p>
+      <p class="jtt">
         Je vous propose un inventaire estimatif des objets de valeur, suivi d'un conseil
         qui vous permettront de prendre une décision raisonnable et de faire un partage
-        équilibré entre les héritiers potentiels.<br>
+        équilibré entre les héritiers potentiels.
         Puis un rachat partiel ou total des objets restants.<br>
         Et enfin une solution de débarras (voire de ménage) qui permet de ne pas s'encombrer
-        l'esprit avec le traitement du négligeable.<br>
+        l'esprit avec le traitement du négligeable.
         Le but étant de rendre les clefs au notaire ou de mettre le bien en vente rapidement.
       </p>
 

@@ -17,7 +17,7 @@ const activateCarouselIndicators = () => {
 
 const openCarouselOnClickedElement = () => {
   const modale = document.querySelector('#fs-antiques-modal')
-  const allCards = document.querySelectorAll('.index-card')
+  const allCards = document.querySelectorAll('.card-hover')
 
   allCards.forEach((card) => {
     card.addEventListener('click', (event) => {
