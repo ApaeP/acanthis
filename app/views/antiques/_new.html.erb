@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <div class="container">
+  <div class="container new-antique-container">
     <%= simple_form_for(antique, remote: true) do |f| %>
       <%= f.input :title, label: false, placeholder: "Nom" %>
       <%= f.input :description, as: :text, input_html: {:rows => 6}, label: false, placeholder: "Description" %>
