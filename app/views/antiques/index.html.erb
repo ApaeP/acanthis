@@ -29,6 +29,7 @@
       <% @antiquespaginate.each_with_index do |antique, i| %>
 
         <% if user_signed_in? %>
+
           <div class="a-card">
             <div class="card index-card" data-id=<%= i.to_s %>>
               <% if antique.photo.attached? %>
@@ -37,12 +38,21 @@
                 <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
               <% end %>
             </div>
-            <div class="card-info">
-                <%= link_to "Modifier", "#", class: "card-links", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
-                <%= link_to "Supprimer", antique_path(antique), class: "card-links", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title}\"?" } %>
+            <div class="card-info card-info-user">
+            </div>
+            <div class="card-hover card-hover-user" id="hover-<%= i %>" data-id=<%= i.to_s %>>
+              <!-- <div class="card-hover-text" data-id=<%#= i.to_s %>> -->
+                <h5 class="hover-title" id="text-hover-<%= i %>"><%= antique.title.capitalize %></h5>
+                <div>
+                  <%= link_to "Modifier", "#", class: "card-links btn btn-dark", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
+                  <%= link_to "Supprimer", antique_path(antique), class: "card-links btn btn-dark", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title.capitalize}\"?" } %>
+                </div>
+              <!-- </div> -->
             </div>
           </div>
+
         <% else %>
+
           <div class="a-card a-card-visitor">
             <div class="card index-card" data-id=<%= i.to_s %>>
               <% if antique.photo.attached? %>
@@ -59,6 +69,7 @@
               <!-- </div> -->
             </div>
           </div>
+
         <% end %>
 
       <% end %>

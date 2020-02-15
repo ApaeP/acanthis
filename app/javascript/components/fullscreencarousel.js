@@ -21,10 +21,17 @@ const openCarouselOnClickedElement = () => {
 
   allCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      document.querySelector('.fs-car-item.active').classList.remove('active')
-      document.querySelector(`#fs-car-item-${card.dataset.id}`).classList.add('active')
-      $('#fs-antiques-modal').modal('show')
-    });
+      console.log('target', event.target)
+      console.log('currentTarget', event.currentTarget)
+      // si la cible de base de l'evenement, en loccurence 'card' est differente de la cible au moment de l'evenement (event.currentTarget !== event.target)
+      if (event.currentTarget === event.target || event.target === document.querySelector(`#text-hover-${card.dataset.id}`)) {
+        document.querySelector('.fs-car-item.active').classList.remove('active')
+        document.querySelector(`#fs-car-item-${card.dataset.id}`).classList.add('active')
+        $('#fs-antiques-modal').modal('show')
+      } else {
+        return;
+      }
+    }, false);
   });
 };
 
@@ -42,3 +49,4 @@ export { openCarouselOnClickedElement };
 // var value = object.getAttribute("aria-selected");
 
 // document.querySelector('#fs-antiques-modal').getAttribute("aria-hidden")
+
