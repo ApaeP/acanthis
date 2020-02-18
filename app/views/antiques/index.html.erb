@@ -13,7 +13,7 @@
     </div>
     <div class="trois">
       <% if user_signed_in? %>
-        <%= link_to "Nouvel objet", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
+        <%= link_to "Nouvel élément", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
       <% end %>
     </div>
   </div>
@@ -45,7 +45,7 @@
                 <h5 class="hover-title" id="text-hover-<%= i %>"><%= antique.title.capitalize %></h5>
                 <div>
                   <%= link_to "Modifier", "#", class: "card-links btn btn-dark", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
-                  <%= link_to "Supprimer", antique_path(antique), class: "card-links btn btn-dark", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'objet \"#{antique.title.capitalize}\"?" } %>
+                  <%= link_to "Supprimer", antique_path(antique), class: "card-links btn btn-dark", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'élément \"#{antique.title.capitalize}\"?" } %>
                 </div>
               <!-- </div> -->
             </div>
@@ -101,7 +101,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Nouvel objet</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Nouvel élément</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
