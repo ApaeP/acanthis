@@ -3,25 +3,33 @@
 #
 # Examples:
 #
-puts "Start seeding\n"
+puts "\nDestroying DataBase"
+Antique.destroy_all
+Category.destroy_all
+User.destroy_all
+puts "\nDestroying DataBase finished"
 
-puts "Creating user...\n"
+puts "\nStart seeding"
+
+puts "\nCreating user..."
 user = User.new(email: "acanthisdev@gmail.com", password: "azerty")
 user.save!
 puts "\nUser created."
 
 puts "\nCreating Categories"
-  ["Achat/Vente", "Archéologie", "Salon Dij'Antik 2017", "Art Africain", "Art Asiatique"].each {|i| Category.new(title: i).save}
+  ["Achat/Vente", "Archéologie", "Salon Dij'Antik 2017", "Art Africain", "Art Asiatique"].each {|i| Category.new(title: i).save!}
 puts "\nCategories created"
 
 puts "\nCreating antiques..."
 
-nb_de_tours = 10
+nb_de_tours = 2
 tour = 1
 
 nb_de_tours.times do
   puts "\nTour n°#{tour} sur #{nb_de_tours}\n"
   tour += 1
+
+
   antique1 = Antique.new(title: "Masques", description: "Paire de masques anciens. Bronze. XIXème.")
   antique1.category = Category.find_by_title(["Achat/Vente", "Archéologie", "Salon Dij'Antik 2017", "Art Africain", "Art Asiatique"].sample)
   photo1 = URI.open('https://res.cloudinary.com/acanthisdev/image/upload/v1579363649/objet-1_daz9y7.png')
