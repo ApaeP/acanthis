@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-  # before_destroy :destroy_antiques
 
   def new
     @category = Category.new
