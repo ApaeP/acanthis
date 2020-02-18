@@ -26,5 +26,3 @@ $(document).on('turbolinks:load', function() {
   passSrcToVideoModal();
   initMap();
 });
-
-

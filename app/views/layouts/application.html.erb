@@ -9,31 +9,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
-    <%#= stylesheet_pack_tag 'application', media: 'all', defer: true %>
-
+    <!-- MetaData -->
     <title>Acanthis Antiquités</title>
     <meta content="fr" http-equiv="content-language">
     <meta content="Bienvenue sur le site internet d'Acanthis, boutique d'antiquités située à Dijon. Jérome Henry est un antiquaire investi et passionné par son activité." name="description">
     <meta content="Acanthis Antiquités, Jérôme Henry à Dijon" name="keywords">
     <meta content="Acanthis Antiquités, Jérôme Henry à Dijon" name="author">
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
     <link href="https://s3-eu-west-1.amazonaws.com/sc-files.pjms.fr/p/pjms/443/000/243/360/94ba4f9a984e41a5a28588a9bfc8590c.ico" rel="shortcut icon">
 
+    <!-- Goodle Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700&display=swap" rel="stylesheet">
+
+    <!-- Google Map -->
     <script async defer src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&callback=initMap"%> ></script>
-    <!-- Carousel -->
+
+    <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <!-- SWIPER -->
+    <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
     <script src="https://unpkg.com/swiper/js/swiper.js"></script>
-    <!-- SWIPER END-->
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload', defer: true%> <!-- from app/assets/javascripts/application.js -->
-    <%#= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
+
   </head>
 
   <body>
