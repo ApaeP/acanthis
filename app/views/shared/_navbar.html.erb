@@ -16,6 +16,7 @@
           <div class="dropdown show">
             <%= link_to "Acanthis", infos_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLinkInfos", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div id="nav-dropdown-infos" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <%= link_to "Accueil", root_path, class: "dropdown-item info" %>
                 <%= link_to "À propos", infos_path, class: "dropdown-item info" %>
                 <%= link_to "Antiquités", antiquites_path, class: "dropdown-item info" %>
                 <%= link_to "Salon des Antiquaires", salons_path, class: "dropdown-item info" %>

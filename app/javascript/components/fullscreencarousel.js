@@ -1,28 +1,8 @@
-// recuperer .carousel-item.active id
-// passerr la classe .active au .fs-carousel-indicator correspondant via id
-
-const activateCarouselIndicators = () => {
-  // const carouselElements = document.querySelectorAll('.fs-car-item')
-  // const carouselIndicators = document.querySelectorAll('.fs-carousel-indicators')
-
-  // document.addEventListener('click', (event) => {
-  //   if (document.querySelector('#fs-antiques-modal.show')) {
-
-
-
-
-  //   }
-  // });
-};
-
 const openCarouselOnClickedElement = () => {
   const modale = document.querySelector('#fs-antiques-modal')
   const allCards = document.querySelectorAll('.card-hover')
-
   allCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      console.log('target', event.target)
-      console.log('currentTarget', event.currentTarget)
       // si la cible de base de l'evenement, en loccurence 'card' est differente de la cible au moment de l'evenement (event.currentTarget !== event.target)
       if (event.currentTarget === event.target || event.target === document.querySelector(`#text-hover-${card.dataset.id}`)) {
         document.querySelector('.fs-car-item.active').classList.remove('active')
@@ -35,18 +15,27 @@ const openCarouselOnClickedElement = () => {
   });
 };
 
+const navigateFSCarouselWithArrows = () => {
+  if (document.querySelector('#carouselFullscreen')) {
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        document.querySelector('#carousel-control-fs.carousel-control-prev').click();
+      }
+      if (event.key === 'ArrowRight') {
+        document.querySelector('#carousel-control-fs.carousel-control-next').click();
+      }
+    });
+  }
+};
+
+const activateCarouselIndicators = () => {
+  // const carouselElements = document.querySelectorAll('.fs-car-item')
+  // const carouselIndicators = document.querySelectorAll('.fs-carousel-indicators')
+  // document.addEventListener('click', (event) => {
+  //   if (document.querySelector('#fs-antiques-modal.show')) {
+  //   }
+  // });
+};
+
 // export { activateCarouselIndicators };
-export { openCarouselOnClickedElement };
-
-
-// aria-hidden="true" quand pas ouvert
-// aria-modal="true" pour ouvrir
-
-// HTML
-// <element aria-selected="p" ... >
-// JavaScript
-// object.setAttribute("aria-selected",value);
-// var value = object.getAttribute("aria-selected");
-
-// document.querySelector('#fs-antiques-modal').getAttribute("aria-hidden")
-
+export { openCarouselOnClickedElement, navigateFSCarouselWithArrows };

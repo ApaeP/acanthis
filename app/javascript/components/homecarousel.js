@@ -1,4 +1,5 @@
 const initSwiperHome = () => {
+
   var slidesDependingOnWidth = 3;
   if (screen.width >= 1024) {
     slidesDependingOnWidth = 4;
@@ -27,11 +28,14 @@ const initSwiperHome = () => {
   });
 };
 
-const resizeSwiperImages = () => {
+const resizeSwiperElements = () => {
   var swiperItemWidth = $('.swiper-slide-inside').width();
   $('.swiper-slide-inside').css({
       'height': swiperItemWidth + 'px'
   });
+  $('.carousel-home-container').css({
+    'height': swiperItemWidth + 'px'
+  });
 };
 
-export { initSwiperHome, resizeSwiperImages };
+export { initSwiperHome, resizeSwiperElements };
