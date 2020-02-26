@@ -12,8 +12,14 @@ function addAntique(antiqueHTML) {
 }
 
 <% if @antique.errors.any? %>
-  refreshForm('<%= j render "antiques/new", antique: @antique %>');
+  refreshForm('<%= j render "antiques/new", antique: @antique, category: params[:category] %>');
+  document.querySelectorAll('.submit-new-element').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      document.querySelector('#loading-new-elem').style.display = 'block'
+    });
+  });
 <% else %>
+console.log('coucu')
   closeButton.click();
   // addAntique('<%= j render "antiques/card", antique: @antique %>');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
