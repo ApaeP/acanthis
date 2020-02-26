@@ -9,14 +9,18 @@
       <%#= f.collection_radio_buttons :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]], :last, :first %>
       <%#= select(:antique, :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]) %>
       <label class="btn btn-outline-info" style="width: 100%;">
-        Ajouter une photo
+        Ajouter une photo <em> (10.5 Mb max.)</em>
         <span style="display:none;">
           <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
         </span>
       </label>
       <hr>
-      <div class="d-flex justify-content-center">
-        <%= f.submit "OK", class: "ok-modal btn btn-outline-info" %>
+      <div class="d-flex justify-content-center submit-new-element-container">
+        <div class="fillnewelem"></div>
+        <%= f.submit "OK", class: "ok-modal btn btn-outline-info submit-new-element" %>
+        <div class="fillnewelem">
+          <%= image_tag asset_path("loading.gif"), alt: "alttext", id: "loading-new-elem" %>
+        </div>
         <%#= link_to "Retour", antiques_path, class: "btn btn-dark" %>
       </div>
     <% end %>

@@ -7,3 +7,23 @@
   border-radius: 0px !important;
   border: none !important;
 }
+
+#loading-new-elem {
+  width: 70px;
+  height: 70px;
+  display: none;
+}
+
+.submit-new-element-container {
+  width: 100%;
+}
+
+.fillnewelem {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-new-element {
+  width: 60% !important;
+}

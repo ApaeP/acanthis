@@ -56,6 +56,9 @@ Rails.application.configure do
 
   config.action_mailer.default_options = { from: 'acanthisdev@gmail.com' }
 
+  # Devise setup
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -80,6 +83,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  # Devise setup
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

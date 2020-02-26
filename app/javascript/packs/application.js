@@ -34,3 +34,10 @@ $(document).on('turbolinks:load', function() {
 
 // window.addEventListener("DOMContentLoaded", (event) => {
 // });
+
+document.querySelectorAll('.submit-new-element').forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    if (document.querySelector('#antique_title').value !== "")
+    document.querySelector('#loading-new-elem').style.display = 'block'
+  });
+});
