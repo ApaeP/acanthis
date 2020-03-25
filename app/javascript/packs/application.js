@@ -11,6 +11,15 @@ import { passSrcToVideoModal } from '../components/videomodal';
 import { initSwiperHome, resizeSwiperElements } from '../components/homecarousel';
 import { initMap } from '../components/googlemap.js.erb';
 
+// const resizeMainContainer = () => {
+//   var viewHeight = $(window).height();
+//   var navbarHeight = $('.navbar-container').height();
+//   var footerHeight =  $('.footer').height();
+//   $('.container-general').css({
+//       'min-height': (viewHeight - (navbarHeight+footerHeight)) + 'px'
+//   });
+// };
+
 $(document).on('turbolinks:load', function() {
   initMap();
   $(".dropdown-toggle").dropdown();
