@@ -33,7 +33,7 @@
           <div class="a-card">
             <div class="card index-card" data-id=<%= i.to_s %>>
               <% if antique.photo.attached? %>
-                <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top" %>
+                <%= cl_image_tag antique.photo.key, width: 300, height: 300, alt: antique.title, class: "card-img-top" %>
               <% else %>
                 <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
               <% end %>
@@ -56,7 +56,7 @@
           <div class="a-card a-card-visitor">
             <div class="card index-card" data-id=<%= i.to_s %>>
               <% if antique.photo.attached? %>
-                <%= cl_image_tag antique.photo.key, alt: antique.title, class: "card-img-top card-img-top-visitor" %>
+                <%= cl_image_tag antique.photo.key, width: 300, height: 300, alt: antique.title, class: "card-img-top card-img-top-visitor" %>
               <% else %>
                 <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top card-img-top-visitor" %>
               <% end %>

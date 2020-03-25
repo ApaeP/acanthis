@@ -70,7 +70,7 @@
             <div class="swiper-slide-inside">
               <% if antique.photo.attached? %>
                 <%= link_to antiques_path(category: antique.category) do %>
-                  <%= cl_image_tag antique.photo.key, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
+                  <%= cl_image_tag antique.photo.key, width: 300, height: 300, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
                 <% end %>
               <% else %>
                 <%= link_to antiques_path(category: antique.category) do %>

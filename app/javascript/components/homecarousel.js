@@ -18,7 +18,7 @@ const initSwiperHome = () => {
     //   clickable: false,
     // },
     autoplay: {
-      delay: 3000,
+      delay: 2250,
       disableOnInteraction: true,
     },
     navigation: {
