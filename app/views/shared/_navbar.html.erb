@@ -1,13 +1,12 @@
 <div class="navbar-container">
-    <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
-  <div class="d-flex" id="logo-div">
-  </div>
-    <% end %>
+  <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
+    <div class="d-flex" id="logo-div">
+    </div> <!-- <div class="d-flex" id="logo-div"> -->
+  <% end %> <%#= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <%= link_to "#", class: "nav-link phone-menu", role: "button", data: {toggle: "collapse", target: "#navbarSupportedContent"}, aria: {controls: "navbarSupportedContent", expanded: "false", label: "Toggle navigation"} do %>
+      <p>Menu</p>
+    <% end %> <%#= link_to "#", class: "nav-link phone-menu", role: "button", data: {toggle: "collapse", target: "#navbarSupportedContent"}, aria: {controls: "navbarSupportedContent", expanded: "false", label: "Toggle navigation"} do %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -16,14 +15,13 @@
           <div class="dropdown show">
             <%= link_to "Acanthis", infos_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLinkInfos", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div id="nav-dropdown-infos" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <%= link_to "Accueil", root_path, class: "dropdown-item info" %>
-                <%= link_to "À propos", infos_path, class: "dropdown-item info" %>
-                <%= link_to "Antiquités", antiquites_path, class: "dropdown-item info" %>
-                <%= link_to "Salon des Antiquaires", salons_path, class: "dropdown-item info" %>
-                <%= link_to "SNCAO-GA", sncao_path, class: "dropdown-item info" %>
+                <%= link_to "Accueil", root_path, class: "dropdown-item info nav-link acanthis-menu" %>
+                <%= link_to "À propos", infos_path, class: "dropdown-item info nav-link acanthis-menu" %>
+                <%= link_to "Salon Dij'Antik", salons_path, class: "dropdown-item info nav-link acanthis-menu" %>
+                <%= link_to "SNCAO-GA", sncao_path, class: "dropdown-item info nav-link acanthis-menu" %>
             </div>
           </div>
-        </li>
+        </li> <!-- <li class="nav-item active"> -->
 
         <li class="nav-item active">
           <div class="dropdown show">
@@ -31,7 +29,7 @@
             <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <% Category.all.order("created_at ASC").each do |cat| %>
                 <div class="dropdown-flex">
-                  <%= link_to "#{cat.title} - (#{cat.antiques.length})", antiques_path(category: cat), class: "dropdown-item photo-cat un" %>
+                  <%= link_to "#{cat.title} - (#{cat.antiques.length})", antiques_path(category: cat), class: "dropdown-item photo-cat" %>
                   <% if user_signed_in? %>
                     <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item photo-cat deux' do %>
                       <i class="far fa-edit"></i>
@@ -39,35 +37,30 @@
                     <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %>
                       <i class="far fa-trash-alt"></i>
                     <% end %>
-                  <% end %>
-                </div>
+                  <% end %> <%# if user_signed_in? %>
+                </div> <!-- <div class="dropdown-flex"> -->
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to "Nouvelle Galerie", "#", class: "nav-link dropdown-item photo-cat new-link-in-dropdown", data: { toggle: "modal", target: "#newCategoryModal" }, id: "category-navbar" %>
-              <% end %>
-            </div>
-          </div>
-        </li>
+              <% end %> <%# if user_signed_in? %>
+            </div> <!-- <div id="nav-dropdown-photo" class="dropdown-menu" aria-labelledby="dropdownMenuLink"> -->
+          </div> <!-- <div class="dropdown show"> -->
+        </li> <!-- <li class="nav-item active"> -->
 
         <li class="nav-item">
           <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
-        </li>
+        </li> <!-- <li class="nav-item"> -->
 
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out-link" %>
-          </li>
-        <% end %>
-        <!-- <li class="nav-item dropdown"> -->
-          <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> -->
-            <%#= link_to "Action", "#", class: "dropdown-item" %>
-          <!-- </div> -->
-        <!-- </li> -->
-      </ul>
-    </div>
-  </div>
-</div>
+          </li> <!-- <li class="nav-item"> -->
+        <% end %> <%# if user_signed_in? %>
+
+      </ul> <!-- <ul class="navbar-nav mr-auto"> -->
+    </div> <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+  </div> <!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> -->
+</div> <!-- <div class="navbar-container"> -->
 <!-- Modal Contact -->
 <div class="modal fade" id="newContactModal" tabindex="-1" role="dialog" aria-labelledby="newContactModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

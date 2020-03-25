@@ -1,3 +1,18 @@
+@media (max-width:600px) {
+  #index-header {
+    flex-direction: column !important;
+  }
+  .trois {
+    margin: 10px auto !important;
+  }
+  .un {
+    display: none !important;
+  }
+}
+@media (min-width: 601px) {
+
+}
+
 .antique-grid {
   justify-content: center;
   text-decoration: none;

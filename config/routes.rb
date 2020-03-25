@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'contacts/new'
   get 'contacts/create'
   get '/infos', to: 'pages#infos'
-  get '/antiquites', to: 'pages#antiquites'
+  # get '/antiquites', to: 'pages#antiquites'
   get '/salons', to: 'pages#salons'
   get '/sncao', to: 'pages#sncao'
 end

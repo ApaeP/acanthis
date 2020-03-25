@@ -6,21 +6,56 @@
   </div>
 </div>
 <div class="container content">
-  <hr>
-  <p class="jtt">Installée depuis <strong>1841</strong> dans le quartier, la Maison Henry-Jacotot se diversifie et se lance dans l'antiquité en 1975 au
-      10 bis de la rue d'Auxonne, sous l'enseigne de L'Escabelle.
-      Devenu <strong>Acanthis</strong> en 1994, l'histoire dijonnaise de la famille Henry continue et Jérôme vous propose meubles et objets
-      anciens pour toutes les bourses avec sincérité, passion et bonne humeur, à l'angle de la rue d'Auxonne et de la
-      rue Coupée de Longvic.</p>
-      <hr>
-      <h3>Achat / Vente</h3>
-  <p>Achat comptant et vente d’objets d'antiquité.</p>
-  <p>Acanthis est un magasin d'antiquités situé dans le quartier Wilson.</p>
-  <p class="jtt">Jérôme Henry se charge de l'achat de vos objets et meubles anciens avec passion et vous reçoit pour répondre
-      au mieux à vos attentes. En prenant rendez-vous au <strong>03 80 66 31 57</strong>,
-      vous vous verrez proposer un déplacement gratuit afin d'évaluer ce que vous désirez vendre et obtenir une estimation.
-      Tout objet présent dans le magasin ayant été acheté comptant, vous pouvez contacter Jérôme pour tous types d'estimation.</p>
-  <hr>
+  <hr class="home-hr">
+  <p class="jtt">
+    Installée dans le quartier Wilson de la ville de Dijon depuis 1841,
+    la Maison Henry-Jacotot se diversifie dans l'antiquité en 1975.
+  </p>
+  <p class="jtt">
+    Antiquaire depuis deux générations, installé depuis 1994 à Dijon au
+    10 bis de la rue d'Auxonne, Jérôme Henry, curieux et passionné est
+    spécialisé dans les objets insolites et l'art africain, mais propose
+    également divers services d'estimation, d'inventaire et de débarras.
+  </p>
+  <hr class="home-hr">
+  <h3>Achat / Vente</h3>
+  <p>Achat comptant / Vente et courtage d'antiquités.</p>
+  <p>Déplacement gratuit</p>
+  <p>Estimations, inventaires, partage</p>
+  <p class="jtt">
+
+  </p>
+  <table>
+  <tr>
+    <td class="day-td">Lundi</td>
+    <td class="info-td">Sur Rendez-vous</td>
+  </tr>
+  <tr>
+    <td class="day-td">Mardi</td>
+    <td class="info-td">Sur Rendez-vous</td>
+  </tr>
+  <tr>
+    <td class="day-td">Mercredi</td>
+    <td class="info-td">Sur Rendez-vous</td>
+  </tr>
+  <tr>
+    <td class="day-td">Jeudi</td>
+    <td class="info-td">10h-12h30  -  15h-19h</td>
+  </tr>
+  <tr>
+    <td class="day-td">Vendredi</td>
+    <td class="info-td">10h-12h30  -  15h-19h</td>
+  </tr>
+  <tr>
+    <td class="day-td">Samedi</td>
+    <td class="info-td">10h-12h30  -  15h-19h</td>
+  </tr>
+  <tr>
+    <td class="day-td">Dimanche</td>
+    <td class="info-td">Fermeture</td>
+  </tr>
+</table>
+  <hr class="home-hr">
 
 
 <!-- CAROUSEL -->
@@ -30,7 +65,7 @@
     <div class="swiper-wrapper">
 
       <% @antiques.each_with_index do |antique, i| %>
-        <% if i == 0 %>
+
           <div class="swiper-slide">
             <div class="swiper-slide-inside">
               <% if antique.photo.attached? %>
@@ -44,21 +79,7 @@
               <% end %>
             </div>
           </div>
-        <% else %>
-          <div class="swiper-slide">
-            <div class="swiper-slide-inside">
-              <% if antique.photo.attached? %>
-                <%= link_to antiques_path(category: antique.category) do %>
-                  <%= cl_image_tag antique.photo.key, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
-                <% end %>
-              <% else %>
-                <%= link_to antiques_path(category: antique.category) do %>
-                  <%= image_tag "no-photo.png", alt: "photo #{antique.title}", class: "img-swiper-multi" %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
+
       <% end %>
 
     </div>
@@ -72,12 +93,12 @@
 
 <!-- CAROUSEL END -->
 
-  <hr>
+  <hr class="home-hr">
 
     <!--The div element for the map -->
     <div id="map">
     </div>
 
-  <hr>
+  <hr class="home-hr">
 
 </div>

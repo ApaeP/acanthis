@@ -1,3 +1,21 @@
+@media (max-width:600px) {
+  #footer-gauche {
+    display: none !important;
+  }
+  #footer-droite {
+    display: none !important;
+  }
+  #footer-centre {
+    width: 100% !important;
+    a {
+      padding: 0 !important;
+    }
+  }
+}
+@media (min-width: 601px) {
+
+}
+
 .footer {
   height: 24vh;
   box-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
@@ -91,9 +109,4 @@
       color: rgba(0,0,0,.7);
     }
   }
-}
-
-table {
-  font-size: 0.85rem;
-  text-align: left;
 }

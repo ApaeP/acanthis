@@ -2,45 +2,18 @@
   <div id="footer-haut">
 
     <div id="footer-gauche">
-      <table>
-        <tr>
-          <td>Lundi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-          <td>15h-19h</td>
-        </tr>
-        <tr>
-          <td>Mardi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-          <td>15h-19h</td>
-        </tr>
-        <tr>
-          <td>Mercredi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-          <td>15h-19h</td>
-        </tr>
-        <tr>
-          <td>Jeudi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-          <td>15h-19h</td>
-        </tr>
-        <tr>
-          <td>Vendredi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-          <td>15h-19h</td>
-        </tr>
-        <tr>
-          <td>Samedi&nbsp;&nbsp;</td>
-          <td>10h-13h&nbsp;&nbsp;</td>
-        </tr>
-      </table>
+
     </div>
 
     <div id="footer-centre">
-      <%= link_to "Contact", "#", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
+      <%= link_to "<i class=\"fas fa-envelope\"></i> Contact".html_safe, "#", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
       <a href="https://www.facebook.com/antiquite.acanthis" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-      <%= link_to "Retrouvez en vidéo Le Salon des Antiquaire 2018", "#",  data: { toggle: "modal", target: "#videodeuxModal", src: "https://www.youtube.com/embed/ZPQUj7hiaDw" }, class: 'video-btn' %>
-      <a href="https://res.cloudinary.com/acanthisdev/image/upload/v1581597204/Dij_Antik_Dossier_de_presse_ozuqqo.pdf" target="_blank" download="Dossier_de_presse_Dij'Antik">Dossier de presse Dij'Antik</a>
-      <a href="http://www.sncao-syndicat.com/" target="_blank">Site du SNCAO-GA</a>
+      <%= link_to "<i class=\"fas fa-video\"></i> Retrouvez en vidéo Le Salon des Antiquaire 2018".html_safe, "#",  data: { toggle: "modal", target: "#videodeuxModal", src: "https://www.youtube.com/embed/ZPQUj7hiaDw" }, class: 'video-btn' %>
+      <%#= link_to  "#",  data: { toggle: "modal", target: "#videodeuxModal", src: "https://www.youtube.com/embed/ZPQUj7hiaDw" }, class: 'video-btn' do %>
+        <!-- <p><i class="fas fa-video"></i> Retrouvez en vidéo Le Salon des Antiquaire 2018</p> -->
+      <%# end %>
+      <a href="https://res.cloudinary.com/acanthisdev/image/upload/v1581597204/Dij_Antik_Dossier_de_presse_ozuqqo.pdf" target="_blank" download="Dossier_de_presse_Dij'Antik"><i class="far fa-file-alt"></i> Dossier de presse Dij'Antik</a>
+      <a href="http://www.sncao-syndicat.com/" target="_blank"><i class="fas fa-globe"></i> Site du SNCAO-GA</a>
     </div>
 
     <div id="footer-droite">

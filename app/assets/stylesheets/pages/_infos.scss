@@ -1,7 +1,7 @@
 #infos-container {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.6);
-  min-height: calc(100vh - 129px)
+  // min-height: calc(100vh - 129px)
 }
 
 #infos-titre {
@@ -20,5 +20,10 @@
 }
 
 #infos-p-haut {
-    margin-bottom: 3vh;
-  }
+  margin-bottom: 3vh;
+}
+
+.paragraph-list {
+  flex-direction: column;
+  width: 35vw;
+}
