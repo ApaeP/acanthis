@@ -24,6 +24,6 @@ function validateMessage(validateHTML) {
   refreshForm('<%= j render "contacts/new", contact: @contact %>');
 <% else %>
   validateMessage('<%= j render "contacts/validate" %>');
-  setTimeout(function(){closeButton.click()}, 3000);
+  setTimeout(function(){closeButton.click()}, 2000);
   setTimeout(function(){refreshForm('<%= j render "contacts/new", contact: @contact %>')}, 3100);
 <% end %>
