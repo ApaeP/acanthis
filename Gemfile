@@ -8,8 +8,6 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '6.0.2.1'
 gem 'redis'
-gem 'will_paginate', '3.1.8'
-gem 'bootstrap-will_paginate'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -17,9 +15,14 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
 gem 'cloudinary', '~> 1.12.0'
 gem 'non-stupid-digest-assets'
 gem 'recaptcha'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'will_paginate', '3.1.8'
+gem 'bootstrap-will_paginate'
+gem "sentry-raven"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

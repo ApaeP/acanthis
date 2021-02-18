@@ -28,14 +28,14 @@ const navigateFSCarouselWithArrows = () => {
   }
 };
 
-const activateCarouselIndicators = () => {
+// const activateCarouselIndicators = () => {
   // const carouselElements = document.querySelectorAll('.fs-car-item')
   // const carouselIndicators = document.querySelectorAll('.fs-carousel-indicators')
   // document.addEventListener('click', (event) => {
   //   if (document.querySelector('#fs-antiques-modal.show')) {
   //   }
   // });
-};
+// };
 
 // export { activateCarouselIndicators };
 export { openCarouselOnClickedElement, navigateFSCarouselWithArrows };

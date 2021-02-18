@@ -1,6 +1,6 @@
 const initSwiperHome = () => {
 
-  var slidesDependingOnWidth = 3;
+  let slidesDependingOnWidth = 3;
   if (screen.width >= 1024) {
     slidesDependingOnWidth = 4;
   } else if (screen.width >= 550) {
@@ -9,33 +9,29 @@ const initSwiperHome = () => {
     slidesDependingOnWidth = 2;
   }
 
-  var swiper = new Swiper('.swiper-container', {
+  let swiper = new Swiper('.swiper-container', {
     slidesPerView: slidesDependingOnWidth,
     spaceBetween: 10,
     loop: true,
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: false,
-    // },
     autoplay: {
       delay: 2250,
       disableOnInteraction: true,
-    },
+      },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-    },
+      },
   });
 };
 
-const resizeSwiperElements = () => {
-  var swiperItemWidth = $('.swiper-slide-inside').width();
-  $('.swiper-slide-inside').css({
-      'height': swiperItemWidth + 'px'
-  });
-  $('.carousel-home-container').css({
-    'height': swiperItemWidth + 'px'
-  });
-};
+// const resizeSwiperElements = () => {
+//   var swiperItemWidth = $('.swiper-slide-inside').width();
+//   $('.swiper-slide-inside').css({
+//       'height': swiperItemWidth + 'px'
+//   });
+//   $('.carousel-home-container').css({
+//     'height': swiperItemWidth + 'px'
+//   });
+// };
 
-export { initSwiperHome, resizeSwiperElements };
+export { initSwiperHome }; //, resizeSwiperElements };
