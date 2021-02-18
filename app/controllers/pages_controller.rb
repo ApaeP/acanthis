@@ -7,10 +7,6 @@ class PagesController < ApplicationController
 
   end
 
-  # def antiquites
-
-  # end
-
   def salons
 
   end

@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
 
-  def new
-    @category = Category.new
-  end
+  # def new
+  #   @category = Category.new
+  # end
 
   def create
     @category = Category.new(set_category_params)
