@@ -10,7 +10,7 @@
   min-height: 100%;
   border-radius: 0;
   width: 100vw;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 #fullscreen-carousel-body {
@@ -48,6 +48,11 @@
 
 #fs-carousel-caption {
   bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 100vw;
+  left: 0;
+  right: 0;
 }
 
 #carousel-fs-inner {
