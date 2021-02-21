@@ -13,6 +13,8 @@ import { initSwiperHome } from '../components/homecarousel'; //, resizeSwiperEle
 import { initMap } from '../components/googlemap.js.erb';
 
 $(document).on('turbolinks:load', function() {
+
+  console.log('coucou1')
   initMap();
   $(".dropdown-toggle").dropdown();
   $('#carouselFullscreen').carousel('pause')
@@ -25,6 +27,7 @@ $(document).on('turbolinks:load', function() {
   openCarouselOnClickedElement();
   initSwiperHome();
   // var fsCarouselHeight = $('.photo-fs-carousel').width();
+  console.log('coucou2')
   // $('.fs-car-item').css({
   //     'max-height': fsCarouselHeight + 'px'
   // });

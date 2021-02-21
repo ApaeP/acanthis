@@ -1,12 +1,16 @@
 const initSwiperHome = () => {
+  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+  const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
   let slidesDependingOnWidth = 3;
-  if (screen.width >= 1024) {
+  if (vw >= 1024) {
     slidesDependingOnWidth = 4;
-  } else if (screen.width >= 550) {
+  } else if (vw >= 800) {
     slidesDependingOnWidth = 3;
-  } else if (screen.width < 550) {
+  } else if (vw >= 550) {
     slidesDependingOnWidth = 2;
+  } else if (vw < 550) {
+    slidesDependingOnWidth = 1;
   }
 
   let swiper = new Swiper('.swiper-container', {
