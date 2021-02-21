@@ -15,7 +15,9 @@
 }
 
 .index-card {
-  width: 16rem;
+  background-image: image-url("no-photo.png");
+  background-size: cover;
+  // width: 16rem;
   border-radius: 0 !important;
   border: none !important;
   cursor: pointer;
