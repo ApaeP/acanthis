@@ -6,35 +6,17 @@
 
   <div class="carousel-inner" id="carousel-fs-inner">
     <% antiques.each_with_index do |elem, i| %>
-      <% if i == 0 %>
-
-        <div class="fs-car-item carousel-item active" id="fs-car-item-<%= i %>" data-id="<%= i %>">
+        <div class="fs-car-item carousel-item <%= "active" if i == 0 %>" id="fs-car-item-<%= i %>" data-id="<%= i %>">
           <% if elem.photo.attached? %>
-            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
+            <%= cl_image_tag elem.photo.key, height: 1000, crop: :fill, alt: "photo #{elem.title}", class: "photo-fs-carousel" %>
           <% else %>
-            <div class="photo-fs-carousel" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
+            <%= image_tag image_url('no-photo.png'), alt: "photo #{elem.title}", class: "photo-fs-carousel"  %>
           <% end %>
           <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
             <h5><%= elem.title %></h5>
             <p><%= elem.description %></p>
           </div>
         </div>
-
-      <% else %>
-
-        <div class="fs-car-item carousel-item" id="fs-car-item-<%= i %>" data-id="<%= i %>">
-          <% if elem.photo.attached? %>
-            <div class="photo-fs-carousel" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
-          <% else %>
-            <div class="photo-fs-carousel" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
-          <% end %>
-          <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
-            <h5><%= elem.title %></h5>
-            <p><%= elem.description %></p>
-          </div>
-        </div>
-
-      <% end %>
     <% end %>
   </div>
 
@@ -54,19 +36,12 @@
 <div class="fs-carousel-haut-bas">
   <ol class="carousel-indicators">
     <% antiques.each_with_index do |elem, i| %>
-      <% if i == 0 %>
         <% if elem.photo.attached? %>
-          <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
+          <div class="fs-carousel-indicators <%= "active" if i == 0 %>" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('http://res.cloudinary.com/acanthisdev/image/upload/c_fill,h_50,w_50/<%= elem.photo.key %>');"></div>
         <% else %>
-          <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
+          <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url(<%= image_path('no-photo.png') %>);"></div>
         <% end %>
-      <% else %>
-        <% if elem.photo.attached? %>
-          <div class="fs-carousel-indicators" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('<%= url_for(elem.photo) %>');"></div>
-        <% else %>
-          <div class="fs-carousel-indicators" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/v1579715141/photo-coming-soon_tni2fi.jpg');"></div>
-        <% end %>
-      <% end %>
+
     <% end %>
   </ol>
-</div><!-- fs-carousel-bas -->
+</div>

@@ -26,10 +26,12 @@
 .photo-fs-carousel {
   width: 100%;
   height: 70vh;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: contain;
+  // background-repeat: no-repeat;
   // background-color: white;
+  object-fit: contain;
+  object-position: center;
 }
 
 #fs-carousel-nav {
