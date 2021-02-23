@@ -15,13 +15,11 @@ const mouseIsOut = (elem, cursor, topTolerance, widthTolerance) => {
 };
 
 const openCloseDropdownMenu = (triggerId, menuId) => {
-  let menuPos; let cursorPos; let topTol; let mouseMoveCount = 0;
+  let menuPos; let cursorPos; let topTol;
   // const menu = document.getElementById(menuId);
   document.getElementById(triggerId).addEventListener('mouseover', (e) => {
-    mouseMoveCount += 1;
     showMenu(menuId);
     topTol = calulateHeightDifference(triggerId, menuId);
-    console.log(mouseMoveCount);
     menuPos = getElPosition(menuId);
     document.addEventListener('mousemove', e => {
       if (mouseIsOut(menuPos, {x: e.clientX, y: e.clientY}, topTol)) {
