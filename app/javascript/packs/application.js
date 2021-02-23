@@ -9,7 +9,7 @@ import { launchFunctionOnLoad } from '../personalfunctions/launchonload';
 import { openCarouselOnClickedElement, navigateFSCarouselWithArrows } from '../components/fullscreencarousel';
 import { passSrcToVideoModal } from '../components/videomodal';
 import { initSwiperHome } from '../components/homecarousel';
-import { initMap } from '../components/googlemap.js.erb';
+import { initMap } from '../components/googlemap';
 import { openCloseDropdownMenu } from '../components/dropdown_menus';
 // import { dropdownmenuPhoto, dropdownmenuInfos } from '../components/dropdownmenus';
 // resizeSwiperElements } from '../components/homecarousel';
