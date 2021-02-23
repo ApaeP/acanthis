@@ -37,7 +37,7 @@
   <ol class="carousel-indicators">
     <% antiques.each_with_index do |elem, i| %>
         <% if elem.photo.attached? %>
-          <div class="fs-carousel-indicators <%= "active" if i == 0 %>" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('http://res.cloudinary.com/acanthisdev/image/upload/c_fill,h_50,w_50/<%= elem.photo.key %>');"></div>
+          <div class="fs-carousel-indicators <%= "active" if i == 0 %>" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url('https://res.cloudinary.com/acanthisdev/image/upload/c_fill,h_50,w_50/<%= elem.photo.key %>');"></div>
         <% else %>
           <div class="fs-carousel-indicators active" data-slide-to=<%= i.to_s %> data-target="#carouselFullscreen" style="background-image: url(<%= image_path('no-photo.png') %>);"></div>
         <% end %>
