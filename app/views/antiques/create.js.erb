@@ -1,5 +1,4 @@
 var closeButton = document.querySelector('#newAntiqueModal');
-// closeButton.click();
 
 function refreshForm(innerHTML) {
   const newAntiqueForm = document.querySelector('.new-antique-modal-body');
@@ -20,8 +19,6 @@ function addAntique(antiqueHTML) {
   });
 <% else %>
   closeButton.click();
-  // addAntique('<%= j render "antiques/card", antique: @antique %>');
   refreshForm('<%= j render "antiques/new", antique: @antique %>');
   document.location.reload(true)
-  // window.location.reload(true)
 <% end %>
