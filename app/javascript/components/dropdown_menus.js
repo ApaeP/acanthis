@@ -7,7 +7,7 @@ const getElPosition = (menuId) => {
 };
 
 const calulateHeightDifference = (triggerId, menuId) => {
-  return document.getElementById(menuId).getBoundingClientRect().top - document.getElementById(triggerId).getBoundingClientRect().top - 8
+  return document.getElementById(menuId).getBoundingClientRect().top - document.getElementById(triggerId).getBoundingClientRect().top - 8;
 };
 
 const mouseIsOut = (elem, cursor, topTolerance, widthTolerance) => {

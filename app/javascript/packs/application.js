@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
   openCloseDropdownMenu('dropdownMenuLinkInfos', 'nav-dropdown-infos');
   initMap();
   $(".dropdown-toggle").dropdown();
-  $('#carouselFullscreen').carousel('pause')
+  $('#carouselFullscreen').carousel('pause');
   navigateFSCarouselWithArrows();
   closeShowModalWhenModify();
   passSrcToVideoModal();
@@ -30,11 +30,11 @@ $(document).on('turbolinks:load', function() {
   // dropdownmenuPhoto();
   // dropdownmenuInfos();
   // resizeSwiperElements();
-  document.querySelectorAll('.submit-new-element').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      if (document.querySelector('#antique_title').value !== "")
-      document.querySelector('#loading-new-elem').style.display = 'block'
-    });
-  });
+  // document.querySelectorAll('.submit-new-element').forEach((btn) => {
+  //   btn.addEventListener('click', (event) => {
+  //     if (document.querySelector('#antique_title').value !== "")
+  //     document.querySelector('#loading-new-elem').style.display = 'block'
+  //   });
+  // });
 });
 
