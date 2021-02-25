@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/infos', to: 'pages#infos'
   get '/salons', to: 'pages#salons'
   get '/sncao', to: 'pages#sncao'
+  get '/test', to: 'pages#test'
 end

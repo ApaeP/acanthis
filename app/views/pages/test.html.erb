@@ -1,0 +1,30 @@
+<div class="gallery-title">
+  <h1>LOL</h1>
+</div>
+
+
+
+
+<div class="card-grid">
+
+
+  <% @all.each do |antique| %>
+
+    <div class="sq-card">
+      <div class="sq-card-photo sq">
+        <% if antique.photo.attached? %>
+          <%= cl_image_tag antique.photo.key, alt: "alttext", class: "sq-card-photo-image sq" %>
+        <% else %>
+          <%= image_tag "no-photo.png", class: 'sq' %>
+        <% end %>
+      </div>
+      <div class="sq sq-card-text">
+        <p><%= antique.title.upcase %></p>
+      </div>
+    </div>
+
+  <% end %>
+
+
+
+</div>

@@ -15,4 +15,8 @@ class PagesController < ApplicationController
 
   end
 
+  def test
+    @all = Antique.all
+  end
+
 end
