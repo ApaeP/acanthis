@@ -9,16 +9,18 @@ import { openCarouselOnClickedElement, navigateFSCarouselWithArrows } from '../c
 import { passSrcToVideoModal }                                        from '../components/videomodal';
 import { initSwiperHome }                                             from '../components/homecarousel';
 import { initMap }                                                    from '../components/googlemap';
+import { openCarouselOnClickedElementV2 }                             from '../components/fullscreen_carouselv2';
 
 $(document).on('turbolinks:load', function() {
 
-  initMap();
   $('#carouselFullscreen').carousel('pause');
   navigateFSCarouselWithArrows();
   closeShowModalWhenModify();
   passSrcToVideoModal();
   openCarouselOnClickedElement();
+  openCarouselOnClickedElementV2();
   initSwiperHome();
+  initMap();
 
 });
 
