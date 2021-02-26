@@ -65,21 +65,21 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
 
-      <%# @antiques.each_with_index do |antique, i| %>
+      <% @antiques.each_with_index do |antique, i| %>
 
           <div class="swiper-slide">
             <div class="swiper-slide-inside">
-              <%#= link_to antiques_path(category: antique.category) do %>
-                <%# if antique.photo.attached? %>
-                  <%#= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
-                <%# else %>
-                  <%#= image_tag "no-photo.png", alt: "photo #{antique.title}", class: "img-swiper-multi" %>
-                <%# end %>
-              <%# end %>
+              <%= link_to antiques_path(category: antique.category) do %>
+                <% if antique.photo.attached? %>
+                  <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo {antique.title}", class: "img-swiper-multi" %>
+                <% else %>
+                  <%= image_tag "no-photo.png", alt: "photo {antique.title}", class: "img-swiper-multi" %>
+                <% end %>
+              <% end %>
             </div>
           </div>
 
-      <%# end %>
+      <% end %>
 
     </div>
     <!-- Add Pagination -->
