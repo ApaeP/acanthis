@@ -17,32 +17,10 @@
   <hr id="index-top-separator">
 
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
-
   <div class="card-grid">
-
     <% @antiques.each_with_index do |antique, i| %>
-
-      <div class="sq-card" data-id=<%= i.to_s %>>
-        <div class="sq-card-photo sq">
-          <% if antique.photo.attached? %>
-            <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "sq-card-photo-image sq" %>
-          <% else %>
-            <%= image_tag "no-photo.png", alt: 'no-photo', class: 'sq-card-photo-image sq' %>
-          <% end %>
-        </div>
-        <div class="sq sq-card-text">
-          <p class="sq-card-text-title"><%= antique.title.upcase %></p>
-          <% if user_signed_in? %>
-            <div class="sq-admin-links">
-              <%= link_to "Modifier", "#", class: "sq-card-lnk btn", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
-              <%= link_to "Supprimer", antique_path(antique), remote: true, class: "sq-card-lnk btn", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'élément \"#{antique.title.capitalize}\"?" } %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
+      <%= render 'index_card', antique: antique, i: i %>
     <% end %>
-
   </div>
   <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
 
@@ -74,7 +52,7 @@
             </button>
           </div>
           <div class="new-antique-modal-body">
-            <%= render 'antiques/new', antique: @antique, category: params[:category] %>
+            <%= render 'antiques/new', category: @category, antique: @new_antique %>
           </div>
         </div>
       </div>
@@ -92,7 +70,7 @@
               </button>
             </div>
             <div class="edit-antique-modal-body">
-              <%= render 'antiques/edit', antique: antique %>
+              <%= render 'antiques/edit', category: @category, antique: antique %>
             </div>
           </div>
         </div>

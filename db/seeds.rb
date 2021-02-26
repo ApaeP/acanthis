@@ -27,7 +27,7 @@ puts "\nCreating #{nb_of_antiques_to_seed} antiques..."
 
 
 nb_of_antiques_to_seed.times do |index|
-  photo = URI.open('https://res.cloudinary.com/acanthisdev/image/upload/v1579363649/objet-1_daz9y7.png')
+  photo = URI.open(['https://cdn.shopify.com/s/files/1/1365/2497/products/Rainbow-unicorn-mask_1024x.png', "https://images-eu.ssl-images-amazon.com/images/I/71\%2BncdWcmRL.png", "https://assets.entrepreneur.com/content/3x2/2000/20171025203714-GettyImages-527133383.jpeg"].sample)
   antique = Antique.new(title: Faker::Ancient.titan, description: Faker::Lorem.sentence(word_count: 15, supplemental: true, random_words_to_add: 15))
   antique.category = Category.all.sample
   antique.photo.attach(io: photo, filename: "Masques.png", content_type: 'image/png')

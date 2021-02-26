@@ -15,9 +15,11 @@ module Acanthis
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+
+
+    # Raven.configure do |config|
+    #   config.dsn = 'https://18fa4413629f43e886fbe334fd06bac6:dee8237cfdf5479480fb03dd8da85c4a@o407300.ingest.sentry.io/5276052'
+    # end
   end
 end
-
-# Raven.configure do |config|
-#   config.dsn = 'https://18fa4413629f43e886fbe334fd06bac6:dee8237cfdf5479480fb03dd8da85c4a@o407300.ingest.sentry.io/5276052'
-# end
