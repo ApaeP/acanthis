@@ -1,10 +1,9 @@
 <% if user_signed_in? %>
   <div class="container">
-    <%= simple_form_for(antique, remote: true) do |f| %>
+    <%= simple_form_for([category, antique], remote: true) do |f| %>
       <%= f.input :title, label: "Nom", placeholder: "Nom" %>
       <%= f.input :description, as: :text, input_html: {:rows => 6}, label: "Description", placeholder: "Description" %>
-      <%#= f.association :category, as: :radio_buttons, checked: params[:category] %>
-      <%= f.association :category, as: :collection_select, selected: params[:category], label: "Galerie" %>
+      <%#= f.association :category, as: :collection_select, selected: category, label: "Galerie" %>
       <label class="btn btn-outline-info" style="width: 100%;">
         Changer de photo
         <span style="display:none;">

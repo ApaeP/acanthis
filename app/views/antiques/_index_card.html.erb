@@ -1,0 +1,18 @@
+<div class="sq-card" data-id=<%= i.to_s %>>
+  <div class="sq-card-photo sq">
+    <% if antique.photo.attached? %>
+      <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "sq-card-photo-image sq" %>
+    <% else %>
+      <%= image_tag "no-photo.png", alt: 'no-photo', class: 'sq-card-photo-image sq' %>
+    <% end %>
+  </div>
+  <div class="sq sq-card-text">
+    <p class="sq-card-text-title"><%= antique.title.upcase %></p>
+    <% if user_signed_in? %>
+      <div class="sq-admin-links">
+        <%= link_to "Modifier", "#", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id }, class: "sq-card-lnk btn" %>
+        <%= link_to "Supprimer", antique, remote: true, method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'élément \"#{antique.title.capitalize}\"?" }, class: "sq-card-lnk btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

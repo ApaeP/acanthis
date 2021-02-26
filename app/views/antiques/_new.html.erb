@@ -1,13 +1,9 @@
 <% if user_signed_in? %>
   <div class="container new-antique-container">
-    <%= simple_form_for(antique, remote: true) do |f| %>
+    <%= simple_form_for([@category, antique], remote: true) do |f| %>
       <%= f.input :title, label: false, placeholder: "Nom" %>
       <%= f.input :description, as: :text, input_html: {:rows => 6}, label: false, placeholder: "Description" %>
-      <%#= f.association :category, as: :radio_buttons, checked: params[:category], label: "Galerie" %>
-      <%= f.association :category, as: :collection_select, selected: params[:category], label: "Galerie" %>
-      <%#= f.association :category, label: false, prompt: "Choisir la catégorie" %>
-      <%#= f.collection_radio_buttons :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]], :last, :first %>
-      <%#= select(:antique, :category, [["Achat/Vente", "Achat/Vente"], ["Art Africain", "Art Africain"], ["Salon Dij'Antik 2017", "Salon Dij'Antik 2017"], ["Art Asiatique", "Art Asiatique"], ["Archéologie", "Archéologie"]) %>
+      <%#= f.association :category, as: :collection_select, selected: params[:category_id], label: "Galerie" %>
       <label class="btn btn-outline-info" style="width: 100%;">
         Ajouter une photo <em> (10.5 Mb max.)</em>
         <span style="display:none;">
@@ -21,7 +17,6 @@
         <div class="fillnewelem">
           <%= image_tag asset_path("loading.gif"), alt: "alttext", id: "loading-new-elem" %>
         </div>
-        <%#= link_to "Retour", antiques_path, class: "btn btn-dark" %>
       </div>
     <% end %>
   </div>

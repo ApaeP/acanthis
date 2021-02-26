@@ -60,12 +60,6 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "acanthis_production"
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.perform_caching = false
-
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
@@ -81,6 +75,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.default_options = { from: 'acanthisdev@gmail.com' }
+
+  config.action_mailer.perform_caching = false
+
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -117,6 +117,12 @@ Rails.application.configure do
   # timestamps for the last write to the primary. The resolver uses the context
   # class timestamps to determine how long to wait before reading from the
   # replica.
+    # config Devise
+    config.action_mailer.default_url_options = { host: "http://acanthis21.herokuapp.com" }
+
+    Raven.configure do |config|
+      config.dsn = 'https://18fa4413629f43e886fbe334fd06bac6:dee8237cfdf5479480fb03dd8da85c4a@o407300.ingest.sentry.io/5276052'
+    end
   #
   # By default Rails will store a last write timestamp in the session. The
   # DatabaseSelector middleware is designed as such you can define your own
@@ -125,12 +131,4 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-
-  # config Devise
-    config.action_mailer.default_url_options = { host: "http://acanthis21.herokuapp.com" }
-
-    Raven.configure do |config|
-      config.dsn = 'https://18fa4413629f43e886fbe334fd06bac6:dee8237cfdf5479480fb03dd8da85c4a@o407300.ingest.sentry.io/5276052'
-    end
-
 end

@@ -8,12 +8,16 @@ Rails.application.routes.draw do
   end
   devise_for :users, :skip => [:registrations]
   get '/admin' => redirect('/users/sign_in')
-  resources :categories, only: [:create, :update, :destroy]
-  resources :antiques, only: [:index, :create, :update, :destroy]
+  resources :categories, only: [:create, :update, :destroy] do
+    resources :antiques, only: [:index, :create, :update]
+  end
+  resources :antiques, only: [:destroy]
   resources :contacts#, only: [:create]
   get 'contacts/new'
   get 'contacts/create'
   get '/infos', to: 'pages#infos'
   get '/salons', to: 'pages#salons'
   get '/sncao', to: 'pages#sncao'
+
+  get '/test', to: 'pages#test'
 end
