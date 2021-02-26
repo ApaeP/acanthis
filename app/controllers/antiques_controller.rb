@@ -46,7 +46,7 @@ class AntiquesController < ApplicationController
   def destroy
     @antique = set_antique
     @category = @antique.category
-    @antique.destroy
+    @antique.destroy!
     redirect_to antiques_path(category: @category.id)
   end
 

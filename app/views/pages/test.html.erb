@@ -4,7 +4,7 @@
     <div class="un">
     </div>
     <div class="deux">
-      <h1 id="titre-index"><%#= @category.title %>TOUTES</h1>
+      <h1 id="titre-index"><%= @category.upcase %></h1>
         <p><%= "#{@antiques.count} article#{"s" if @antiques.count > 1}" %></p>
     </div>
     <div class="trois">
@@ -15,6 +15,8 @@
   </div>
 
   <hr id="index-top-separator">
+
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
 
   <div class="card-grid">
 
@@ -42,6 +44,8 @@
     <% end %>
 
   </div>
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
+
 
   <hr id="index-bottom-separator">
 
@@ -58,6 +62,164 @@
     </div>
   </div>
   <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL END -->
+  <% if user_signed_in? %>
+    <!-- Modal New Antique-->
+    <div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Nouvel élément</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="new-antique-modal-body">
+            <%= render 'antiques/new', antique: @antique, category: params[:category] %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal New Antique END-->
+    <!-- Modal Edit Antique-->
+    <% @antiques.each do |antique| %>
+      <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= antique.title %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="edit-antique-modal-body">
+              <%= render 'antiques/edit', antique: antique %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <!-- Modal Edit Antique END-->
+  <% end %>
+</div>
+<!-- ================================================================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container index-container justify-content-center">
+
+  <div id="index-header">
+    <div class="un">
+    </div>
+    <div class="deux">
+      <h1 id="titre-index"><%= @category.title %></h1>
+      <% if @antiques.count == 1 %>
+        <p>(<%= @antiques.count %> élément)</p>
+      <% else %>
+        <p>(<%= @antiques.count %> éléments)</p>
+      <% end %>
+    </div>
+    <div class="trois">
+      <% if user_signed_in? %>
+        <%= link_to "Nouvel élément", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
+      <% end %>
+    </div>
+  </div>
+
+  <hr id="index-top-separator">
+  <%#= select_tag :per_page, options_for_select([12, 16, 20, 24, 48], params[:per_page].to_i),
+   :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+  <%#= link_to "24", current_path, :params[:per_pagee] => "24"  %>
+  <%#= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
+    <!-- GRID -->
+    <div class="antique-grid d-flex flex-wrap">
+      <% @antiquespaginate.each_with_index do |antique, i| %>
+
+        <% if user_signed_in? %>
+
+          <div class="a-card">
+            <div class="card index-card" data-id=<%= i.to_s %>>
+              <% if antique.photo.attached? %>
+                <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "card-img-top" %>
+              <% else %>
+                <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top" %>
+              <% end %>
+            </div>
+<!--             <div class="card-info card-info-user">
+            </div> -->
+            <div class="card-hover card-hover-user" id="hover-<%= i %>" data-id=<%= i.to_s %>>
+              <!-- <div class="card-hover-text" data-id=<%#= i.to_s %>> -->
+                <h5 class="hover-title" id="text-hover-<%= i %>"><%= antique.title.capitalize %></h5>
+                <div>
+                  <%= link_to "Modifier", "#", class: "card-links btn btn-dark", data: { toggle: "modal", target: "#editAntiqueModal#{antique.id}", set: antique.id } %>
+                  <%= link_to "Supprimer", antique_path(antique), class: "card-links btn btn-dark", method: :delete, data: { confirm: "Voulez-vous vraiment supprimer l'élément \"#{antique.title.capitalize}\"?" } %>
+                </div>
+              <!-- </div> -->
+            </div>
+          </div>
+
+        <% else %>
+
+          <div class="a-card a-card-visitor">
+            <div class="card index-card" data-id=<%= i.to_s %>>
+              <% if antique.photo.attached? %>
+                <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "card-img-top card-img-top-visitor" %>
+              <% else %>
+                <%= image_tag "no-photo.png", alt: antique.title, class: "card-img-top card-img-top-visitor" %>
+              <% end %>
+            </div>
+<!--             <div class="card-info">
+            </div> -->
+            <div class="card-hover" id="hover-<%= i %>" data-id=<%= i.to_s %>>
+              <!-- <div class="card-hover-text" data-id=<%#= i.to_s %>> -->
+                <h5 class="hover-title" id="text-hover-<%= i %>"><%= antique.title.capitalize %></h5>
+              <!-- </div> -->
+            </div>
+          </div>
+
+        <% end %>
+
+      <% end %>
+    </div>
+    <!-- GRID END -->
+  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
+
+  <hr id="index-bottom-separator">
+
+</div>
+
+  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL -->
+  <div class="modal fade modal-fullscreen force-fullscreen" id="fs-antiques-modal" tabindex="-1" role="dialog" aria-labelledby="fs-antiques-modalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="fullscreen-carousel-dialog">
+      <div class="modal-content" id="fullscreen-carousel-content">
+        <div class="modal-body" id="fullscreen-carousel-body">
+          <!-- CAROUSEL -->
+         <%= render 'antiques/carousel', antiques: @antiquespaginate %>
+          <!-- CAROUSEL END -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL END -->
+
+<% if user_signed_in? %>
   <!-- Modal New Antique-->
   <div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -75,6 +237,7 @@
     </div>
   </div>
   <!-- Modal New Antique END-->
+
   <!-- Modal Edit Antique-->
   <% @antiques.each do |antique| %>
     <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
@@ -94,6 +257,4 @@
     </div>
   <% end %>
   <!-- Modal Edit Antique END-->
-</div>
-<!-- ================================================================================================== -->
-
+<% end %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/admin' => redirect('/users/sign_in')
   resources :categories, only: [:create, :update, :destroy]
   resources :antiques, only: [:index, :create, :update, :destroy]
-  resources :contacts#, only: [:create]
+  resources :contacts, only: [:create]
   get 'contacts/new'
   get 'contacts/create'
   get '/infos', to: 'pages#infos'
