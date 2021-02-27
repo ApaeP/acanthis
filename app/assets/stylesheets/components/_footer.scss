@@ -20,18 +20,24 @@
   min-height: 175px;
   height: 16vh;
   box-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
+  body.dark & {
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.1);
+  }
 }
 
 #footer-haut {
-  height: 90%;
   background: white;
+  color: grey ;
+  body.dark & {
+    background: $dark-background;
+    color: $dark-color-2;
+  }
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 50px;
-  color: grey;
   font-family: 'Karla', sans-serif;
-  // border-top: 1px solid lightgray;
 }
 
 .footer-links {
@@ -39,7 +45,9 @@
   align-items: center;
   a {
     color: grey;
-    // opacity: 0.15;
+    body.dark & {
+      color: $dark-color-2;
+    }
     text-decoration: none;
     font-size: 24px;
     padding: 0px 10px;
@@ -51,24 +59,20 @@
 
 .footer-copyright {
   color: grey;
+  body.dark & {
+    background-color: $dark-background;
+    color: $dark-color-2;
+  }
   font-size: 0.8rem;
   text-align: center;
   height: 10%;
 }
 
-// #footer-gauche {
-//   color: grey;
-//   font-size: 0.85rem;
-//   text-align: center;
-//   height: 100%;
-//   display: flex;
-//   align-items: center;
-//   width: 30%;
-//   justify-content: center;
-// }
-
 #footer-centre {
   color: grey;
+  body.dark & {
+    color: $dark-color-2;
+  }
   font-size: 0.85rem;
   text-align: center;
   height: 80%;
@@ -80,15 +84,24 @@
   a {
     text-decoration: none !important;
     color: rgba(0,0,0,.5);
+    body.dark & {
+      color: $dark-color-2;
+    }
     padding: 0.3rem 0;
     &:hover {
       color: rgba(0,0,0,.7);
+      body.dark & {
+        color: $dark-color-1;
+      }
     }
   }
 }
 
 #footer-droite {
   color: grey;
+  body.dark & {
+    color: $dark-color-2;
+  }
   font-size: 0.85rem;
   text-align: center;
   height: 100%;
@@ -100,10 +113,16 @@
   a {
     text-decoration: none !important;
     color: rgba(0,0,0,.5);
+    body.dark & {
+      color: $dark-color-2;
+    }
     font-size: 0.95rem;
     margin-bottom: 1rem;
     &:hover {
       color: rgba(0,0,0,.7);
+      body.dark & {
+        color: $dark-color-1;
+      }
     }
   }
 }

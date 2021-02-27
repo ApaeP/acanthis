@@ -14,19 +14,20 @@
     display: flex;
     align-items: center;
   }
-  .new-antique {
+  #new-antique-btn {
+    transition: 0.3s all ease;
     float: right;
     text-decoration: none;
     color: rgba(40, 40, 40, 0.7);
-    border: rgba(40, 40, 40, 0.7) 0.5px solid;
-    padding: 10px 15px 10px 15px;
-    width: 125px;
+    padding: 5px 15px;
     text-align: center;
     line-height: 1.3rem;
+    border-radius: 3px;
+    background-color: rgba(40, 40, 40, 0.1);
     &:hover {
       text-decoration: underline;
       color: black;
-      border: black 0.5px solid;
+      background-color: rgba(40, 40, 40, 0.2);
     }
   }
 }
@@ -50,7 +51,7 @@
 }
 
 .sq-card {
-  background-color: lightgrey;
+  // background-color: lightgrey;
   width: 16rem;
   height: 16rem;
   cursor: pointer;

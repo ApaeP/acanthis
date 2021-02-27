@@ -1,4 +1,6 @@
 <div class="navbar-container">
+  <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
+
   <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
     <div class="d-flex" id="logo-div">
     </div>
@@ -15,9 +17,9 @@
           <div class="dropdown">
             <%= link_to "Acanthis", root_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLinkInfos", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
             <div class="dropdown-content dropdown-menu">
-                <%= link_to "Accueil", root_path, class: "dropdown-item info nav-link acanthis-menu" %>
-                <%= link_to "Salon Dij'Antik", salons_path, class: "dropdown-item info nav-link acanthis-menu" %>
-                <%= link_to "SNCAO-GA", sncao_path, class: "dropdown-item info nav-link acanthis-menu" %>
+                <%= link_to "Accueil", root_path, class: "dropdown-item nav-link acanthis-menu" %>
+                <%= link_to "Salon Dij'Antik", salons_path, class: "dropdown-item nav-link acanthis-menu" %>
+                <%= link_to "SNCAO-GA", sncao_path, class: "dropdown-item nav-link acanthis-menu" %>
             </div>
           </div>
         </li>
@@ -50,11 +52,24 @@
           <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
         </li>
 
+
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out-link" %>
           </li>
         <% end %>
+        <li class="class-item sticky-right">
+          <div class="theme-items">
+            <!-- <i class="fas fa-moon"></i> -->
+            <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
+              <% if cookies[:theme] == "dark" %>
+                <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
+              <% else %>
+                <input id="theme-toggle" type="checkbox" class="toggle-theme">
+              <% end %>
+            <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
+          </div>
+        </li>
 
       </ul>
     </div>

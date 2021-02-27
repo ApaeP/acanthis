@@ -1,18 +1,13 @@
 .banner-home {
   height: 50vh;
-  // margin-top: -60px;
   display: flex;
   align-items: center;
   background-position: center;
   background-size: cover;
-  h1 {
-    color: white;
-  }
-  h2 {
-    color: white;
-  }
-  h5 {
-    color: white;
+
+  color: white;
+  body.dark & {
+    color: $dark-color-1;
   }
 }
 
@@ -33,7 +28,6 @@
 }
 
 table {
-  // font-size: 0.85rem;
   margin: 0 auto;
   td {
     padding: 3px 3vw;

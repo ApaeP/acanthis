@@ -4,6 +4,7 @@ require("channels")
 
 import 'bootstrap';
 
+import { themeToggle }                                                from '../components/theme_toggle';
 import { closeShowModalWhenModify }                                   from '../pages/index';
 import { openCarouselOnClickedElement, navigateFSCarouselWithArrows } from '../components/fullscreencarousel';
 import { passSrcToVideoModal }                                        from '../components/videomodal';
@@ -13,6 +14,7 @@ import { openCarouselOnClickedElementV2 }                             from '../c
 
 $(document).on('turbolinks:load', function() {
 
+  themeToggle();
   $('#carouselFullscreen').carousel('pause');
   navigateFSCarouselWithArrows();
   closeShowModalWhenModify();
