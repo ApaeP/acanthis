@@ -9,7 +9,7 @@
     </div>
     <div class="trois">
       <% if user_signed_in? %>
-        <%= link_to "Nouvel élément", "#", class: "new-antique", data: { toggle: "modal", target: "#newAntiqueModal" } %>
+        <%= link_to "Nouvel article", "#", id: "new-antique-btn", data: { toggle: "modal", target: "#newAntiqueModal" } %>
       <% end %>
     </div>
   </div>

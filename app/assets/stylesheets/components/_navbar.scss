@@ -4,6 +4,9 @@
   }
   #navbarSupportedContent {
     background-color: rgba(255, 255, 255, 0.95);
+    body.dark & {
+      background-color: rgba(35, 35, 35, 0.95);
+    }
   }
   #log-out-link {
     margin: 10px 22vw !important;
@@ -22,7 +25,11 @@
     margin: 0 !important;
   }
   .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: red;
+    // background-color: rgba(255, 255, 255, 0.8);
+    body.dark & {
+      background-color: rgba(35, 35, 35, 0.8);
+    }
   }
 }
 @media (min-width: 601px) {
@@ -42,19 +49,34 @@
     top: -19.2vh;
     z-index: 1000;
     box-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
+    body.dark & {
+      box-shadow: 0 0 15px rgba(55, 55, 55, 0.4);
+    }
   }
   .navbar-lewagon {
-    justify-content: center !important;
     background: white;
+    body.dark & {
+      background: $dark-background;
+    }
+    justify-content: center !important;
     color: grey;
+    body.dark & {
+      color: $dark-color-2;
+    }
     height: 20%;
     padding: 0 !important;
     // height: 24vh;
     font-family: 'Karla', sans-serif;
     .nav-link {
-      color: grey !important;
+      color: grey ;
+      body.dark & {
+        color: $dark-color-2;
+      }
       &:hover {
-        color: black !important;
+        color: black;
+        body.dark & {
+          color: $dark-color-1;
+        }
         // background-color: white;
       }
     }
@@ -67,31 +89,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    body.dark & {
+      background-color: $dark-background;
+    }
   }
 
+  // ======================================================================
   .dropdown-menu {
     border-radius: 3px;
   }
 
   /* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-}
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+  }
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  // ======================================================================
 
   #logo-div {
+    background-image: url(image-path('LOGO-LIGHT.png'));
+    body.dark & {
+      background-image: url(image-path('LOGO-DARK.png'));
+    }
     height: 85%;
     width: 100vw;
-    background-image: url(image-path('logov3.png'));
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

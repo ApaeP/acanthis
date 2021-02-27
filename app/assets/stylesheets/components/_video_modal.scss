@@ -1,21 +1,20 @@
-  .video-modal-dialog {
-    max-width: 800px;
-    margin: 30px auto;
-  }
+.video-modal-dialog {
+  max-width: 800px;
+  margin: 30px auto;
+}
 
+.video-modal-body {
+  position:relative;
+  padding:0px;
+}
 
-
-  .video-modal-body {
-    position:relative;
-    padding:0px;
-  }
-  .close-video-modal {
-    position:absolute;
-    right:-30px;
-    top:0;
-    z-index:999;
-    font-size:2rem;
-    font-weight: normal;
-    color:#fff;
-    opacity:1;
-  }
+.close-video-modal {
+  position:absolute;
+  right:-30px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  color:#fff;
+  opacity:1;
+}
