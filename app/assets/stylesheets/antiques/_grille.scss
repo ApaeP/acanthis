@@ -9,9 +9,6 @@
     display: none !important;
   }
 }
-@media (min-width: 601px) {
-
-}
 
 .antique-grid {
   justify-content: center;
@@ -50,34 +47,16 @@
 }
 
 .gauche {
-  // background-color: black;
   width: 20%;
   height: 48px;
   margin-top: 20px;
 }
 
 .droite {
-  // background-color: black;
   width: 20%;
   height: 48px;
   margin-top: 20px;
 }
-
-// .new-antique {
-//   float: right;
-//   text-decoration: none;
-//   color: rgba(40, 40, 40, 0.7);
-//   border: rgba(40, 40, 40, 0.7) 0.5px solid;
-//   padding: 10px 15px 10px 15px;
-//   width: 125px;
-//   text-align: center;
-//   line-height: 1.3rem;
-//   &:hover {
-//     text-decoration: underline;
-//     color: black;
-//     border: black 0.5px solid;
-//   }
-// }
 
 .pagination {
   justify-content: center;
@@ -93,12 +72,7 @@
   }
   .active {
     a {
-      // text-decoration: underline;
       color: black;
-      // border: black 1px solid;
-      // padding-right: 6px;
-      // padding-left: 5px;
-      // border-radius: 50%;
       text-decoration: underline;
     }
   }

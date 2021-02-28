@@ -1,15 +1,27 @@
-// $theme-map: null;
+$theme-map: null;
+
 $themes: (
   light: (
+
     logo: url("../images/brand/logo_vertical.svg"),
-    okcolor: rgb(12, 2, 120),
-    color: red
+    color-1: hsla(0, 0%, 0%, 1),
+    color-1-hover: hsla(0, 0%, 5%, 1),
+    color-2: hsla(0, 0%, 10%, 1),
+    color-2-hover: hsla(0, 0%, 15%, 1),
+    background-color-main: hsla(0, 0%, 100%, 1),
+    background-color-elements: hsla(0, 0%, 99%, 1)
 
   ),
   dark: (
-    logo: url("../images/brand/logo_vertical--invert.svg"),
-    okcolor: rgb(12, 200, 120),
-    color: blue
+
+    logo: url("../images/brand/logo_vertical.svg"),
+    color-1: hsla(0, 0%, 80%, 1),
+    color-1-hover: hsla(0, 0%, 70%, 1),
+    color-2: hsla(0, 0%, 75%, 1),
+    color-2-hover: hsla(0, 0%, 65%, 1),
+    background-color-main: hsla(0, 0%, 16%, 1),
+    background-color-elements: hsla(0, 0%, 15%, 1)
+
   ),
 );
 
@@ -22,7 +34,7 @@ $themes: (
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
       @content;
-      $theme-map: null !global;
+      // $theme-map: null !global;
     }
   }
 }
@@ -33,7 +45,7 @@ $themes: (
 
 .exemple {
   @include themed() {
-    background-color: t('okcolor');
+    background-color: t('color');
   }
   width: 20vh;
   height: 20vh;
