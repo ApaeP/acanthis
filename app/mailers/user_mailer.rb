@@ -11,6 +11,6 @@ class UserMailer < ApplicationMailer
     @contact = Contact.new
     @contact = params[:contact]
     mail(to: 'acanthisdev@gmail.com', subject: "Acanthis - Demande de contact par #{@contact.name} (n°#{@contact.id})")
-    # mail(to: 'acanthis.21@free.fr', subject: "Acanthis - Demande de contact par #{@contact.name} (n°#{@contact.id})")
+    mail(to: 'acanthis.21@free.fr', subject: "Acanthis - Demande de contact par #{@contact.name} (n°#{@contact.id})")
   end
 end
