@@ -6,6 +6,10 @@
 .modal-content {
   border-radius: 0px !important;
   border: none !important;
+  @include themed() {
+    background-color: t('background-color-elements');
+    color: t('color-1');
+  }
 }
 
 #loading-new-elem {

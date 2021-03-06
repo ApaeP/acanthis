@@ -7,7 +7,6 @@
   <!-- Logo Banner end -->
   <div class="navbar-bottom">
     <div class="navbar-elements">
-
       <div class="navbar-element dropdown">
         <p class="navbar-element-text">Acanthis</p>
         <div class="navbar-drop-menu">
@@ -19,29 +18,20 @@
       <div class="navbar-element dropdown">
         <p class="navbar-element-text">Galeries</p>
         <div class="navbar-drop-menu">
-
-<!-- A REFAIRE -->
-              <% Category.all.order("created_at ASC").each do |cat| %>
-                <div class="dropdown-flex">
-                  <%= link_to "#{cat.title} - (#{cat.antiques.length})", category_antiques_path(cat), class: "dropdown-item photo-cat" %>
-                  <% if user_signed_in? %>
-                    <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item photo-cat deux' do %><i class="far fa-edit"></i><% end %>
-                    <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %><i class="far fa-trash-alt"></i><% end %>
-                  <% end %>
-                </div>
+          <% Category.all.order("created_at ASC").each do |cat| %>
+            <div class="dropdown-menu-elem-flex">
+              <%= link_to "#{cat.title} - (#{cat.antiques.length})", category_antiques_path(cat), class: "dropdown-item-nav photo-cat un" %>
+              <% if user_signed_in? %>
+                <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item-nav photo-cat deux' do %><i class="far fa-edit"></i><% end %>
+                <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %><i class="far fa-trash-alt"></i><% end %>
               <% end %>
-<!-- A REFAIRE -->
-
-
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="navbar-element dropdown">
-        <p class="navbar-element-text">Contact</p>
-        <div class="navbar-drop-menu">
-          <p>coucou</p>
-        </div>
+        <%= link_to "Contact", "#", class: "navbar-element-text", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
       </div>
-
       <!-- Theme switch -->
       <div class="theme-items">
         <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
@@ -58,3 +48,4 @@
   </div>
 </div>
 
+<%= render 'shared/contact_modal' %>

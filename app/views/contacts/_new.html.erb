@@ -1,5 +1,4 @@
 <div class="container d-flex justify-content-center">
-  <!-- <div class="d-flex flex-column justify-content-center"> -->
     <%= simple_form_for(contact, remote: true) do |f| %>
       <div class="d-flex flex-column justify-content-center contact-form">
         <%= f.input :name, label: false, placeholder: "Votre nom" %>
@@ -20,5 +19,4 @@
       <%= mail_to "acanthis.21@free.fr", "acanthis.21@free.fr", id: "last-link-right" %>
     </div>
     <% end %>
-  <!-- </div> -->
 </div>

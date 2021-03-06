@@ -1,0 +1,6 @@
+.form-control {
+  @include themed() {
+    color: t('color-1');
+    background-color: t('background-color-elements-hover');
+  }
+}
