@@ -1,20 +1,3 @@
-body {
-  font-family: 'Karla', sans-serif;
-}
-
-body.light {
-  color: black;
-  background-color: white;
-}
-
-body.dark {
-  color: $dark-color-1;
-  background-color: rgb(45, 45, 45);
-  hr {
-    border-top: 1px solid rgba(120, 120, 120, 0.8) !important;
-  }
-}
-
 #theme-link {
   position: absolute;
   z-index: 0;
@@ -23,9 +6,6 @@ body.dark {
 }
 
 .theme-items {
-  // z-index: 99999999;
-  // position: absolute;
-  // margin: 1rem 1rem;
   display: flex;
   padding: 0.6rem;
   i {
@@ -57,7 +37,6 @@ input[type="checkbox"] {
   position: relative;
   margin: 0 10px;
   border: 1px solid rgba(120, 120, 120, 0);
-  // background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
   background: rgba(120, 120, 120, 0.3);
   transition: all .2s ease;
   &:after {
@@ -69,13 +48,11 @@ input[type="checkbox"] {
     height: 17px;
     border-radius: 50%;
     background: rgba(120, 120, 120, 0.7);
-    // box-shadow: 0 1px 2px rgba(44,44,44,.2);
     transition: all .2s cubic-bezier(.5,.1,.75,1.35);
   }
   &:checked {
     background: rgba(120, 120, 120, 1);
     border: 1px solid rgba(120, 120, 120, 1);
-    // border-color: rgb(55, 55, 55);
     &:after {
       background: rgba(230, 230, 230, 1);
       transform: translatex(20px);

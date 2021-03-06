@@ -17,18 +17,14 @@
 .index-card {
   background-image: image-url("no-photo.png");
   background-size: cover;
-  // width: 16rem;
   border-radius: 0 !important;
   border: none !important;
   cursor: pointer;
-  // box-shadow:  0px 0px 12px rgba(40, 40, 40, 0.3);
   p {
     text-decoration: none !important;
-    // color: black !important;
   }
   p:hover {
     text-decoration: none !important;
-    // color: black !important;
   }
   &:hover {
     text-decoration: none !important;
@@ -79,40 +75,11 @@ a:hover {
   color: white;
 }
 
-// .card-hover-user {
-//   top: -17.5rem !important;
-//   height: 14.5rem;
-// }
-
-// .card-hover-text {
-//   width: 100%;
-//   position: relative;
-//   z-index: 101;
-//   left: 0;
-//   // top: 50%;
-//   height: 16rem;
-//   width: 16rem;
-//   padding: 1rem;
-//   cursor: pointer;
-//   display: flex;
-//   text-align: center;
-//   align-items: center;
-//   transition: all 0.3s ease-in-out;
-//   h5 {
-//     width: 100%;
-//   }
-//   // &:hover {
-//   //   top: 0;
-//   // }
-// }
-
 .card-text-transition {
   transform: translate(0, 100%);
 }
 
 .card-body {
-  // padding-top: 10px !important;
-  // padding-left: 0px !important;
   padding: 10px 0 0 0 !important;
 }
 
@@ -121,20 +88,6 @@ a:hover {
   display: flex;
   justify-content: space-around;
 }
-
-// .card-info-user {
-//   height: 1.5rem;
-//   top: -1.5rem;
-//   z-index: 2;
-//   position: relative;
-//   background-color: rgba(255, 255, 255, 0.4);
-//   a {
-//     color: white !important;
-//     &:hover {
-//       color: gray;
-//     }
-//   }
-// }
 
 .card-links {
   text-decoration: none !important;

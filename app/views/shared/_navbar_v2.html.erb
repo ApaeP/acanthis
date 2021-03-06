@@ -1,0 +1,51 @@
+<div class="navbarv2">
+  <!-- Logo Banner -->
+  <%= link_to root_path do %>
+    <div id="navbar-logo">
+    </div>
+  <% end %>
+  <!-- Logo Banner end -->
+  <div class="navbar-bottom">
+    <div class="navbar-elements">
+      <div class="navbar-element dropdown">
+        <p class="navbar-element-text">Acanthis</p>
+        <div class="navbar-drop-menu">
+          <%= link_to "Accueil", root_path, class: "navbar-drop-element" %>
+          <%= link_to "Salon Dij'Antik", salons_path, class: "navbar-drop-element" %>
+          <%= link_to "SNCAO-GA", sncao_path, class: "navbar-drop-element" %>
+        </div>
+      </div>
+      <div class="navbar-element dropdown">
+        <p class="navbar-element-text">Galeries</p>
+        <div class="navbar-drop-menu">
+          <% Category.all.order("created_at ASC").each do |cat| %>
+            <div class="dropdown-menu-elem-flex">
+              <%= link_to "#{cat.title} - (#{cat.antiques.length})", category_antiques_path(cat), class: "dropdown-item-nav photo-cat un" %>
+              <% if user_signed_in? %>
+                <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item-nav photo-cat deux' do %><i class="far fa-edit"></i><% end %>
+                <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %><i class="far fa-trash-alt"></i><% end %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="navbar-element dropdown">
+        <%= link_to "Contact", "#", class: "navbar-element-text", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
+      </div>
+      <!-- Theme switch -->
+      <div class="theme-items">
+        <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
+        <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
+          <% if cookies[:theme] == "dark" %>
+            <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
+          <% else %>
+            <input id="theme-toggle" type="checkbox" class="toggle-theme">
+          <% end %>
+        <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
+      </div>
+      <!-- Theme switch end -->
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/contact_modal' %>

@@ -13,10 +13,12 @@
 }
 
 #infos-contact-form {
+  @include themed() {
+    color: t('color-1');
+  }
   color: black;
   font-size: 0.85rem;
   text-align: center;
-  // height: 100%;
   display: flex;
   align-items: center;
   width: 30%;
@@ -27,11 +29,11 @@
   margin-bottom: 1rem;
   a {
     text-decoration: none !important;
-    color: rgba(0,0,0,.5);
+    // color: rgba(0,0,0,.5);
     font-size: 0.95rem;
     margin-bottom: 0;
     &:hover {
-      color: black;
+      // color: black;
     }
   }
   p {

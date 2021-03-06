@@ -1,5 +1,4 @@
 <div class="navbar-container">
-  <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
 
   <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
     <div class="d-flex" id="logo-div">
@@ -61,6 +60,7 @@
         <li class="class-item sticky-right">
           <div class="theme-items">
             <!-- <i class="fas fa-moon"></i> -->
+            <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
             <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
               <% if cookies[:theme] == "dark" %>
                 <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>

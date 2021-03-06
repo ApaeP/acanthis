@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_theme
+  before_action :set_theme, :set_contact
 
   def default_url_options
     { host: ENV["DOMAIN"] || "localhost:3000" }
@@ -12,5 +12,9 @@ class ApplicationController < ActionController::Base
       cookies[:theme] = theme
       redirect_to(request.referrer || root_path)
     end
+  end
+
+  def set_contact
+    @contact = Contact.new
   end
 end
