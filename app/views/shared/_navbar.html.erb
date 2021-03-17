@@ -51,12 +51,12 @@
           <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
         </li>
 
-
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out-link" %>
           </li>
         <% end %>
+
         <li class="class-item sticky-right">
           <div class="theme-items">
             <!-- <i class="fas fa-moon"></i> -->
@@ -75,6 +75,7 @@
     </div>
   </div>
 </div>
+
 <!-- Modal Contact -->
 <div class="modal fade" id="newContactModal" tabindex="-1" role="dialog" aria-labelledby="newContactModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

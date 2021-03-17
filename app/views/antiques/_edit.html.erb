@@ -8,6 +8,8 @@
         Changer de photo
         <span style="display:none;">
           <%= f.input :photo, as: :file, required: true, name: 'Photo' %>
+          <%#= f.input :photo, as: :file, name: 'Photo', input_html: { multiple: true } %>
+          <%#= f.input :photo, as: :file, input_html: { class: 'hidden', id: 'photo-input', multiple: true}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
         </span>
       </label>
       <hr>
