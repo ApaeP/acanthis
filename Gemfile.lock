@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 677ac8fd96213a188a5512cf3aa78c89f1fcda91
+  revision: 3fa147d971a68c82a77980a6140522bb42fc07c9
   branch: master
   specs:
-    faker (2.16.0)
+    faker (2.17.0)
       i18n (>= 1.6, < 2)
 
 GEM
@@ -100,7 +100,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    ffi (1.14.2)
+    ffi (1.15.0)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -135,7 +135,7 @@ GEM
     multipart-post (2.1.1)
     netrc (0.11.0)
     nio4r (2.5.7)
-    nokogiri (1.11.1)
+    nokogiri (1.11.2)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     non-stupid-digest-assets (1.0.9)

@@ -1,4 +1,4 @@
-<div class="fs-carousel-haut-bas">
+<div class="fs-carousel-haut">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="carousel-fs-close-btn">&times;</button>
 </div>
 
@@ -6,17 +6,17 @@
 
   <div class="carousel-inner" id="carousel-fs-inner">
     <% antiques.each_with_index do |elem, i| %>
-        <div class="fs-car-item carousel-item <%= "active" if i == 0 %>" id="fs-car-item-<%= i %>" data-id="<%= i %>">
-          <% if elem.photo.attached? %>
-            <%= cl_image_tag elem.photo.key, height: 1000, crop: :fill, alt: "photo #{elem.title}", class: "photo-fs-carousel" %>
-          <% else %>
-            <%= image_tag image_url('no-photo.png'), alt: "photo #{elem.title}", class: "photo-fs-carousel"  %>
-          <% end %>
-          <div class="carousel-caption d-none d-md-block" id="fs-carousel-caption">
-            <h5><%= elem.title %></h5>
-            <p><%= elem.description %></p>
-          </div>
+      <div class="fs-car-item carousel-item <%= "active" if i == 0 %>" id="fs-car-item-<%= i %>" data-id="<%= i %>">
+        <% if elem.photo.attached? %>
+          <%= cl_image_tag elem.photo.key, height: 1000, crop: :fill, alt: "photo #{elem.title}", class: "photo-fs-carousel" %>
+        <% else %>
+          <%= image_tag image_url('no-photo.png'), alt: "photo #{elem.title}", class: "photo-fs-carousel"  %>
+        <% end %>
+        <div class="carousel-caption d-md-block" id="fs-carousel-caption">
+          <h5><%= elem.title %></h5>
+          <p><%= elem.description %></p>
         </div>
+      </div>
     <% end %>
   </div>
 
@@ -33,7 +33,7 @@
 
 </div>
 
-<div class="fs-carousel-haut-bas">
+<div class="fs-carousel-bas">
   <ol class="carousel-indicators">
     <% antiques.each_with_index do |elem, i| %>
       <% if elem.photo.attached? %>

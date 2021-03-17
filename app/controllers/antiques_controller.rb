@@ -69,6 +69,7 @@ class AntiquesController < ApplicationController
   end
 
   def antique_params
-    params.require(:antique).permit(:title, :description, :photo, :category_id)
+    params.require(:antique).permit(:title, :description, :category_id, :photo)
+    # params.require(:antique).permit(:title, :description, :category_id, :photo, photo: [])
   end
 end
