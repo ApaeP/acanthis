@@ -118,7 +118,7 @@ Rails.application.configure do
   # class timestamps to determine how long to wait before reading from the
   # replica.
     # config Devise
-    config.action_mailer.default_url_options = { host: "http://acanthis21.herokuapp.com" }
+    config.action_mailer.default_url_options = { host: "http://www.acanthisantiquites.com" }
 
     Raven.configure do |config|
       config.dsn = 'https://18fa4413629f43e886fbe334fd06bac6:dee8237cfdf5479480fb03dd8da85c4a@o407300.ingest.sentry.io/5276052'

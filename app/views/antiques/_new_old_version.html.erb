@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+  <div class="container new-antique-container">
+    <%= simple_form_for([@category, antique], remote: true) do |f| %>
+      <%= f.input :title, label: false, placeholder: "Nom" %>
+      <%= f.input :description, as: :text, input_html: {:rows => 6}, label: false, placeholder: "Description" %>
+      <%#= f.association :category, as: :collection_select, selected: params[:category_id], label: "Galerie" %>
+      <label class="btn btn-outline-info" style="width: 100%;">
+        Ajouter une photo <em> (10.5 Mb max.)</em>
+     <!--    form_for @user do |f|
+          f.simple_fields_for :posts do |posts_form|
+            # Here you have all simple_form methods available
+            posts_form.input :title
+          end
+        end -->
+        <%= f.simple_fields_for :images do |ff| %>
+          <!-- file_field :image, multiple: true, name: "images[]" -->
+          <%= ff.input :image, as: :file, input_html: { multiple: true }, name: 'images[]' %>
+        <% end %>
+
+        <span style="display:none;">
+          <%#= f.input :photo, as: :file, required: true, name: 'Photo' %>
+          <%#= f.input :photo, as: :file, name: 'Photo', input_html: { multiple: true } %>
+          <%#= f.input :photo, as: :file, input_html: { class: 'hidden', id: 'photo-input', multiple: true }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+          <%#= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+        </span>
+      </label>
+      <hr>
+      <div class="d-flex justify-content-center submit-new-element-container">
+        <div class="fillnewelem"></div>
+        <%= f.submit "OK", class: "ok-modal btn btn-outline-info submit-new-element" %>
+        <div class="fillnewelem">
+          <%= image_tag asset_path("loading.gif"), alt: "alttext", id: "loading-new-elem" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="container">
+    <p>Vous n'avez pas accès à ces fonctions.</p>
+  </div>
+<% end %>

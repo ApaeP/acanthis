@@ -30,19 +30,31 @@ puts "\n-- Creating #{nb_of_antiques_to_seed} antiques..."
 
 photo_links = ['https://images-na.ssl-images-amazon.com/images/I/81Tl7qyesGL._AC_SL1500_.jpg', 'https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/662678', 'https://www.gmcrafts.co.uk/wp-content/uploads/2018/11/Cute-Unicorn-Main-Product-Image.jpg', 'https://images.photowall.com/products/57496/unicorn-2.jpg?h=699&q=85', 'https://www.politics.co.uk/wp-content/uploads/2020/08/cnphoto_0_0_0_0_14127456_1200.jpg', 'https://static.posters.cz/image/1300/posters-muraux/sweet-unicorn-pink-520x318-cm-premium-non-woven-130gsm-i78815.jpg', 'https://cdn.shopify.com/s/files/1/1365/2497/products/Rainbow-unicorn-mask_1024x.png', "https://images-eu.ssl-images-amazon.com/images/I/71\%2BncdWcmRL.png", "https://assets.entrepreneur.com/content/3x2/2000/20171025203714-GettyImages-527133383.jpeg"]
 
+# nb_of_antiques_to_seed.times do |index|
+#   photo = URI.open(photo_links.sample)
+#   # photo2 = URI.open(photo_links.sample)
+#   # photo3 = URI.open(photo_links.sample)
+#   antique = Antique.new(title: Faker::Ancient.titan, description: Faker::Lorem.sentence(word_count: 15, supplemental: true, random_words_to_add: 15))
+#   antique.category = Category.all.sample
+#   antique.photo.attach(io: photo, filename: "Masques.png", content_type: 'image/png')
+#   # antique.photo.attach(io: photo2, filename: "Kol.png", content_type: 'image/png')
+#   # antique.photo.attach(io: photo3, filename: "Lol.png", content_type: 'image/png')
+#   antique.save!
+#   puts "  -- Antique n°#{index+1} created."
+# end
+
 nb_of_antiques_to_seed.times do |index|
-  photo = URI.open(photo_links.sample)
-  # photo2 = URI.open(photo_links.sample)
-  # photo3 = URI.open(photo_links.sample)
   antique = Antique.new(title: Faker::Ancient.titan, description: Faker::Lorem.sentence(word_count: 15, supplemental: true, random_words_to_add: 15))
   antique.category = Category.all.sample
-  antique.photo.attach(io: photo, filename: "Masques.png", content_type: 'image/png')
-  # antique.photo.attach(io: photo2, filename: "Kol.png", content_type: 'image/png')
-  # antique.photo.attach(io: photo3, filename: "Lol.png", content_type: 'image/png')
   antique.save!
+  rand(1..3).times do
+    antique.images.create!(image: URI.open(photo_links.sample))
+  end
   puts "  -- Antique n°#{index+1} created."
 end
 
+
+# product.product_images.create!(image: File.open(File.join(Rails.root, 'test.jpg')))
 
 puts "-- Antiques created"
 

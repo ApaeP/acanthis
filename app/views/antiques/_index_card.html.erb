@@ -1,7 +1,8 @@
 <div class="sq-card" data-id=<%= i.to_s %>>
   <div class="sq-card-photo sq">
-    <% if antique.photo.attached? %>
-      <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "sq-card-photo-image sq" %>
+    <% if antique.images.any? %>
+      <%#= cl_image_tag antique.photo.key, width: 300, height: 300, crop: "fill", alt: antique.title, class: "sq-card-photo-image sq" %>
+      <%= image_tag antique.images.first.image_url(:card), alt: antique.title, class: "sq-card-photo-image sq" %>
     <% else %>
       <%= image_tag "no-photo.png", alt: 'no-photo', class: 'sq-card-photo-image sq' %>
     <% end %>

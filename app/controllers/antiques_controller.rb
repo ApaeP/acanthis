@@ -8,6 +8,7 @@ class AntiquesController < ApplicationController
     @antiques = @category.antiques.order("created_at DESC")
     @antiquespaginate = Antique.where(category_id: params[:category]).order("created_at DESC").paginate(page: params[:page], per_page: per_page)
     @new_antique = Antique.new
+    @new_image = @new_antique.images.build
   end
 
   def create
@@ -15,6 +16,11 @@ class AntiquesController < ApplicationController
     @antique = Antique.new(antique_params)
     @antique.category = @category
     if @antique.save
+      if params[:images]
+        params[:images].each do |image|
+          @antique.images.create(image: image)
+        end
+      end
       respond_to do |format|
         format.html { redirect_to category_antiques_path(@category) }
         format.js
@@ -33,6 +39,11 @@ class AntiquesController < ApplicationController
     @antique.update(antique_params)
     # @category = @antique.category
     if @antique.save
+      if params[:images]
+        params[:images].each do |image|
+          @antique.images.create(image: image)
+        end
+      end
       respond_to do |format|
         format.html { redirect_to category_antiques_path(@category) }
         format.js { render js: "window.location = '#{category_antiques_path(@category)}'" }
@@ -69,7 +80,18 @@ class AntiquesController < ApplicationController
   end
 
   def antique_params
-    params.require(:antique).permit(:title, :description, :category_id, :photo)
-    # params.require(:antique).permit(:title, :description, :category_id, :photo, photo: [])
+    params.require(:antique).permit(
+      :title,
+      :description,
+      :category_id,
+      :photo,
+      :name,
+      :image,
+      {images_attributes: [
+        :id,
+        :antique_id,
+        :image
+      ]}
+    )
   end
 end

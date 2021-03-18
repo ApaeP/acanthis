@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   end
   resources :antiques, only: [:destroy]
   resources :contacts#, only: [:create]
+  resources :images, only: [:destroy]
   get 'contacts/new'
   get 'contacts/create'
   get '/infos', to: 'pages#infos'
   get '/salons', to: 'pages#salons'
   get '/sncao', to: 'pages#sncao'
-
-  get '/test', to: 'pages#test'
 end
