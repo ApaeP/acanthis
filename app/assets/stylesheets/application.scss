@@ -14,3 +14,8 @@
 @import "pages/index";
 @import "antiques/index";
 
+hr {
+  @include themed() {
+    background: t('color-2-hover');
+  }
+}

@@ -12,4 +12,5 @@ module PagesHelper
   def current_opposite_theme
     current_theme == 'light' ? 'dark' : 'light'
   end
+
 end

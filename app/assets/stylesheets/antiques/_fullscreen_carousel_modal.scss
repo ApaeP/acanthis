@@ -1,112 +1,111 @@
-.fs-carousel-haut {
-  height: 10vh;
-  display: flex;
-}
-
+// MODAL
 #fullscreen-carousel-dialog {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-#fullscreen-carousel-content {
-  height: auto;
-  min-height: 100%;
-  border-radius: 0;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-#fullscreen-carousel-body {
-  padding: 0;
-  display: grid;
-  align-items: center;
-}
-
-.fs-car-item {
-  height: 70vh;
-}
-
-.photo-fs-carousel {
-  width: 100%;
-  height: 70vh;
-  object-fit: contain;
-  object-position: center;
-}
-
-#fs-carousel-nav {
-  color: gray;
-}
-
-#carousel-control-fs {
-  height: 70vh;
-}
-
-#carousel-fs-close-btn {
-  text-align: right;
-  width: 90vw;
-  color: white;
-}
-
-#fs-carousel-caption {
-  bottom: -15vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  width: 100vw;
-  left: 0;
-  right: 0;
-  height: 15vh;
-}
-
-.carousel-caption {
-  p {
-    height: calc(100% - 1.25rem);
-    overflow-y: scroll;
-    margin-bottom: 0;
-    width: 80vw;
-    max-width: 950px;
-    margin: 0 auto;
+  #fullscreen-carousel-content {
+    height: auto;
+    min-height: 100%;
+    border-radius: 0;
+    width: 100vw;
+    @include themed() {
+      background-color: t('carousel-background');
+    }
+    #fullscreen-carousel-body {
+      padding: 0;
+      // display: grid;
+      // align-items: center;
+    }
   }
 }
+// MODAL END
 
-  ::-webkit-scrollbar {
-    display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+// ============================================================
+
+// TOP OF CAROUSEL
+.fs-carousel-haut {
+  height: 5vh;
+  display: flex;
+  #carousel-fs-close-btn {
+    text-align: right;
+    width: 90vw;
+    color: white;
   }
-
-#carousel-fs-inner {
-  height: 85vh;
 }
+// TOP OF CAROUSEL END
 
+// ============================================================
+
+// CAROUSEL CONTENT
+.carousel-content {
+  .carousel-inner {
+    height: 90vh;
+    width: 90%;
+    margin: 0 5%;
+    .fs-car-item {
+      width: 100%;
+      height: 75vh;
+      .photo-fs-carousel {
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+      }
+      .carousel-caption {
+        bottom: -15vh;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        left: 0;
+        right: 0;
+        height: 15vh;
+        // width: 100vw;
+        p {
+          height: calc(100% - 1.25rem);
+          overflow-y: scroll;
+          margin-bottom: 0;
+          max-width: 950px;
+          margin: 0 auto;
+          // width: 80vw;
+        }
+      }
+    }
+  }
+  .carousel-control {
+    height: 70vh;
+    width: 5%;
+    span {
+      color: gray;
+    }
+  }
+}
+// CAROUSEL CONTENT END
+
+// ============================================================
+
+// BOTTOM OF CAROUSEL
 .fs-carousel-bas {
   height: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .carousel-indicators {
+    margin: 0 auto;
+    bottom: unset;
+    .fs-carousel-indicators {
+      height: 30px;
+      width: 30px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: black;
+      margin: 0 2px 0 2px;
+      cursor: pointer;
+      &:active {
+        background-color: black !important;
+      }
+    }
+  }
 }
+// BOTTOM OF CAROUSEL END
 
-
-.carousel-indicators {
-  // margin-bottom: 0;
-  margin: 0 auto;
-  bottom: unset;
-}
-
-.fs-carousel-indicators {
-  height: 30px;
-  width: 30px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: black;
-  margin: 0 2px 0 2px;
-  cursor: pointer;
-}
-
-.fs-carousel-indicators.active {
-  background-color: black !important;
-}

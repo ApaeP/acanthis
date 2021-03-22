@@ -1,6 +1,15 @@
 class AntiquesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+  def new
+    set_category
+    @antique = Antique.new
+  end
+
+  def edit
+    set_category
+    set_antique
+  end
 
   def index
     set_category
@@ -23,13 +32,14 @@ class AntiquesController < ApplicationController
       end
       respond_to do |format|
         format.html { redirect_to category_antiques_path(@category) }
-        format.js
+        # format.js
       end
     else
-      respond_to do |format|
-        format.html { redirect_to category_antiques_path(@category) }
-        format.js
-      end
+      render :new
+      # respond_to do |format|
+      #   format.html { redirect_to category_antiques_path(@category) }
+      #   # format.js { render :new}
+      # end
     end
   end
 
@@ -45,12 +55,14 @@ class AntiquesController < ApplicationController
         end
       end
       respond_to do |format|
-        format.html { redirect_to category_antiques_path(@category) }
-        format.js { render js: "window.location = '#{category_antiques_path(@category)}'" }
+        format.html { redirect_to category_antiques_path(@category, anchor: @antique) }
+        # format.html { redirect_to category_antiques_path(@category) }
+        # format.js { render js: "window.location = '#{category_antiques_path(@category)}'" }
       end
     else
       respond_to do |format|
-        format.html { redirect_to category_antiques_path(@category) }
+        format.html { redirect_to edit_category_antique_path(@category, @antique) }
+        # format.html { redirect_to category_antiques_path(@category) }
         format.js
       end
     end

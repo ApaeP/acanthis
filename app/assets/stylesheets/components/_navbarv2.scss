@@ -2,6 +2,7 @@
   height: $navbar-height;
   position: sticky;
   top: calc(#{$navbar-height} / 100 * -80);
+  z-index: 1000;
   @include themed() {
     background-color: t('background-color-elements');
   }
@@ -60,7 +61,7 @@
   display: none;
   position: absolute;
   flex-direction: column;
-  margin-top: 1px;
+  // margin-top: 1px;
   @include themed() {
     background-color: t('background-color-elements');
   }

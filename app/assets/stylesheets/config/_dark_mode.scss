@@ -16,9 +16,12 @@ $themes: (
     color-1-hover: hsla(0, 0%, 15%, 1),
     color-2: hsla(0, 0%, 10%, 1),
     color-2-hover: hsla(0, 0%, 25%, 1),
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3),
     background-color-main: hsla(0, 0%, 100%, 1),
     background-color-elements: hsla(0, 0%, 98%, 1),
-    background-color-elements-hover: hsla(0, 0%, 89%, 1)
+    background-color-elements-hover: hsla(0, 0%, 89%, 1),
+    elements-color: hsla(0, 0%, 60%, 1),
+    carousel-background: rgba(255, 255, 255, 0.7)
 
   ),
   dark: (
@@ -28,9 +31,12 @@ $themes: (
     color-1-hover: hsla(0, 0%, 65%, 1),
     color-2: hsla(0, 0%, 75%, 1),
     color-2-hover: hsla(0, 0%, 60%, 1),
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3),
     background-color-main: hsla(0, 0%, 15%, 1),
     background-color-elements: hsla(0, 0%, 12%, 1),
-    background-color-elements-hover: hsla(0, 0%, 22%, 1)
+    background-color-elements-hover: hsla(0, 0%, 22%, 1),
+    elements-color: hsla(0, 0%, 40%, 1),
+    carousel-background: rgba(0, 0, 0, 0.7)
 
   ),
 );

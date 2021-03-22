@@ -35,13 +35,12 @@
         </div>
       </div>
       <div class="navbar-element">
-        <%= link_to "Contact", "#", class: "navbar-element-text", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
-      </div>
-      <% if user_signed_in? %>
-        <div class="navbar-element">
+        <% if user_signed_in? %>
           <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-element-text", id: "log-out-link" %>
-        </div>
-      <% end %>
+        <% else %>
+          <%= link_to "Contact", "#", class: "navbar-element-text", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
+        <% end %>
+      </div>
       <!-- Theme switch -->
       <div class="theme-items">
         <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
