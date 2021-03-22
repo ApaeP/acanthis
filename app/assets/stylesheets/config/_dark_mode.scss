@@ -21,7 +21,8 @@ $themes: (
     background-color-elements: hsla(0, 0%, 98%, 1),
     background-color-elements-hover: hsla(0, 0%, 89%, 1),
     elements-color: hsla(0, 0%, 60%, 1),
-    carousel-background: rgba(255, 255, 255, 0.7)
+    carousel-background: rgba(255, 255, 255, 0.95),
+    carousel-background-2: rgba(225, 225, 225, 0.5)
 
   ),
   dark: (
@@ -36,7 +37,8 @@ $themes: (
     background-color-elements: hsla(0, 0%, 12%, 1),
     background-color-elements-hover: hsla(0, 0%, 22%, 1),
     elements-color: hsla(0, 0%, 40%, 1),
-    carousel-background: rgba(0, 0, 0, 0.7)
+    carousel-background: rgba(100, 100, 100, 0.95),
+    carousel-background-2: rgba(100, 100, 100, 0.6)
 
   ),
 );

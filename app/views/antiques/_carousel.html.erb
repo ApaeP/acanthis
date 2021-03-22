@@ -14,10 +14,10 @@
         <% else %>
           <%= image_tag "no-photo.png", alt: "photo #{elem.title}", class: "photo-fs-carousel"  %>
         <% end %>
-<!--         <div class="carousel-caption d-md-block">
-          <h5><%#= elem.title %></h5>
-          <p><%#= elem.description %></p>
-        </div> -->
+        <div class="carousel-caption d-md-block">
+          <h5><%= elem.title %></h5>
+          <%= simple_format(elem.description) %>
+        </div>
       </div>
     <% end %>
   </div>
@@ -48,6 +48,4 @@
   </ol>
 </div>
 <!-- BOTTOM OF CAROUSEL END -->
-
-
 
