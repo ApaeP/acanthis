@@ -71,7 +71,7 @@
             <div class="swiper-slide-inside">
               <%= link_to category_antiques_path(antique.category) do %>
                 <% if antique.images.any? %>
-                  <%= image_tag antique.images.first.image_url(:show), alt: antique.title, class: "img-swiper-multi" %>
+                  <%= image_tag antique.images.first.image_url(:card), alt: antique.title, class: "img-swiper-multi" %>
                   <%#= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo {antique.title}", class: "img-swiper-multi" %>
                 <% else %>
                   <%= image_tag "no-photo.png", alt: "photo {antique.title}", class: "img-swiper-multi" %>
@@ -98,4 +98,24 @@
   <hr class="home-hr">
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

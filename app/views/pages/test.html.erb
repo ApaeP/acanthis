@@ -1,0 +1,60 @@
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+<h1 style="text-align: center;">TITRE</h1>
+<div class="cards-grid-container">
+  <div class="cards-grid">
+
+    <% @antiques.each_with_index do |antique, i| %>
+      <%= link_to modal_path(antique, category: @category.title), class: 'antique-card-link', data: { toggle: 'modal', target: '#exampleModal'}, remote: true do %>
+
+        <div class="card-product">
+
+          <div class="antique-card-img-container">
+            <% if antique.images.any? %>
+              <%= image_tag antique.images.first.image_url(:card), alt: antique.title%>
+            <% else %>
+              <%= image_tag "no-photo.png", alt: "photo #{antique.title}" %>
+            <% end %>
+          </div>
+          <div class="card-product-infos">
+            <h2><%= antique.title %></h2>
+            <%= simple_format antique.description %>
+          </div>
+        </div>
+
+      <% end %>
+    <% end %>
+
+  </div>
+</div>
+
+<script>
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        document.querySelector('.swiper-button-prev').click();
+      } else if (event.key === 'ArrowRight') {
+        document.querySelector('.swiper-button-next').click();
+      };
+    });
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content modal-content-fullscreen" id="antique-show-modal">
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

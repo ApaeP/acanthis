@@ -26,5 +26,7 @@ $(document).on('turbolinks:load', function() {
   initSwiperHome();
   initMap();
 
+
+
 });
 
