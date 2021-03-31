@@ -29,8 +29,8 @@
     <div class="loaded-text-description">
       <%= simple_format antique.description %>
     </div>
-    <%= link_to "Next antique", modal_path(antique: antique, nav: 'next', category: category.title), remote: true %>
-    <%= link_to "Previous antique", modal_path(antique: antique, nav: 'prev'), remote: true %>
+    <%= link_to "Next antique", modal_path(antique: antique, nav: 'next', category: category.title), remote: true, class: "nav-antique next" %>
+    <%= link_to "Previous antique", modal_path(antique: antique, nav: 'prev', category: category.title), remote: true, class: "nav-antique prev" %>
   </div>
 </div>
 

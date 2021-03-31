@@ -16,39 +16,41 @@ class PagesController < ApplicationController
   end
 
   def test
-    @antiques = Antique.where(category: Category.first)
-    @category = Category.first
+    @category = Category.find_by(title: "Salon Dij'Antik 2017")
+    @antiques = Antique.where(category: @category).order(created_at: 'DESC')
   end
 
   def modal
+    puts "\n\n\n\n\n\n"
+
     @category = Category.find_by(title: params[:category])
+    # puts "\ncategory : #{@category.title}\n\n"
     if params[:nav]
-      antiques = Antique.where(category: @category)
+      antiques = Antique.where(category: @category).order(created_at: 'DESC')
+      # puts "\nantiques : #{antiques.map(&:id)}\n\n"
+
       @current_antique = Antique.find(params[:antique])
+      # puts "\ncurrent antique : #{@current_antique} id#{@current_antique.id}\n\n"
       @antique = ((params[:nav] == 'next') ? next_element(@current_antique, antiques) : previous_element(@current_antique, antiques))
-      puts "\n\n\n\n\n\n\n\n\n\n\n#{@antique}\n\n\n\n\n\n\n\n\n\n\n\n"
+      # puts "\n#{params[:nav]} antique : #{@current_antique}\n\n"
     else
       @antique = Antique.find(params[:id])
     end
+
+    puts "\n\n\n\n\n\n"
     respond_to do |format|
       format.js
     end
   end
 
   def next_element(element, array)
-    elem = array[(array.find_index(element) + 1)] rescue array[0]
-    puts "\n\n\n\n\n\n\n\n\n\n\n\ncaca"
-    puts "\n\n\n\n\n\n\n\n\n\n\n#{elem}\n\n\n\n\n\n\n\n\n\n\n\n"
-    puts "caca\n\n\n\n\n\n\n\n\n\n\n\n"
-    elem
+    return array.first if element == array.last
+    array[(array.find_index(element) + 1)]
   end
 
   def previous_element(element, array)
-    elem = array[(array.find_index(element) - 1)] rescue array[0]
-    puts "\n\n\n\n\n\n\n\n\n\n\n\ncaca"
-    puts "\n\n\n\n\n\n\n\n\n\n\n#{(array.find_index(element)}\n\n\n\n\n\n\n\n\n\n\n\n"
-    puts "caca\n\n\n\n\n\n\n\n\n\n\n\n"
-    elem
+    return array.last if element == array.first
+    array[(array.find_index(element) - 1)]
   end
 end
 

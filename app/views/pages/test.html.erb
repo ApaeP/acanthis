@@ -11,7 +11,7 @@
 
         <div class="card-product">
 
-          <div class="antique-card-img-container">
+          <div>
             <% if antique.images.any? %>
               <%= image_tag antique.images.first.image_url(:card), alt: antique.title%>
             <% else %>
