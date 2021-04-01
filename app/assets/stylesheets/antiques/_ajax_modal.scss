@@ -18,7 +18,8 @@
   }
   .loaded-text {
     width: 100%;
-    height: 30%;
+    height: 25%;
+    overflow: auto;
     hr {
       margin: 0 auto;
       width: 80%;
@@ -37,24 +38,34 @@
         margin: 0 auto;
       }
     }
-    .nav-antique {
-      position: absolute;
+  }
+  .loaded-links-container {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    .loaded-links {
+      // position: absolute;
       padding: 0.5rem 1rem;
       background: rgba(200, 200, 200, 0.2);
       border-radius: 4px;
       transition: 0.35s all ease;
+      min-width: 120px;
+      display: inline-block;
+      text-align: center;
       &:hover {
         background: rgba(255, 255, 255, 0.2)
       }
     }
-    .next {
-      bottom: 1rem;
-      right: 1rem;
-    }
-    .prev {
-      bottom: 1rem;
-      left: 1rem;
-    }
+    // .next {
+    //   bottom: 1rem;
+    //   right: 1rem;
+    // }
+    // .prev {
+    //   bottom: 1rem;
+    //   left: 1rem;
+    // }
   }
 }
 
