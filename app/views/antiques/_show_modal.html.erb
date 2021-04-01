@@ -1,0 +1,47 @@
+<div class="loaded-content">
+  <div class="loaded-images">
+    <!-- Slider main container -->
+    <div class="swiper-container loaded-swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <% if antique.images.any? %>
+          <% antique.images.each do |image| %>
+            <div class="swiper-slide">
+              <%= image_tag image.image_url(:show), alt: antique.title, class: 'loaded-image-tag' %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="swiper-slide">
+            <%= image_tag "no-photo", alt: "no-photo", class: 'loaded-image-tag' %>
+          </div>
+        <% end %>
+      </div>
+      <!-- need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+  <div class="loaded-text">
+    <h3><%= antique.title %></h3>
+    <hr>
+    <div class="loaded-text-description">
+      <%= simple_format antique.description %>
+    </div>
+          <!-- <div class="admin-actions"> -->
+        <%#= link_to "Modifier", edit_category_antique_path(antique.category.id, antique), id: "edit-link", class: '' %>
+        <%#= link_to "Supprimer", antique, id: "delete-link", class: '' %>
+      <!-- </div> -->
+      <% if user_signed_in? %>
+        <%= link_to "Modifier", edit_category_antique_path(antique.category.id, antique) %>
+        <%= link_to "Supprimer", antique, method: :delete %>
+          <!-- <p data-id="<%= antique.id %>" class="action-link edit-link">Modifier</p> -->
+          <!-- <p data-id="<%= antique.id %>" class="action-link delete-link">Supprimer</p> -->
+      <% end %>
+    <%= link_to "Suivant", modal_path(antique: antique, nav: 'next', category: category.title), remote: true, class: "nav-antique next" %>
+    <%= link_to "Précédent", modal_path(antique: antique, nav: 'prev', category: category.title), remote: true, class: "nav-antique prev" %>
+  </div>
+</div>
+
+

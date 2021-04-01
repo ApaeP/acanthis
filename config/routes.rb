@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   resources :antiques, only: [:destroy]
   resources :contacts
   resources :images, only: [:destroy]
-  # get 'contacts/new'
-  # get 'contacts/create'
+  get '/modal/:id', to: 'antiques#modal', as: :modal
   get '/infos', to: 'pages#infos'
   get '/salons', to: 'pages#salons'
   get '/sncao', to: 'pages#sncao'
-  get '/test', to: 'pages#test'
-  get '/modal//:id', to: 'pages#modal', as: :modal
+  # get 'contacts/create'
+  # get 'contacts/new'
+  # get '/test', to: 'pages#test'
 end

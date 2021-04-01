@@ -1,3 +1,20 @@
+<ol>
+  <%# @antiques.each do |antique| %>
+    <li>
+      <%#= antique.photo.methods %>
+      <ol>
+        <%# antique.photo.attachment.methods.sort.each do |met| %>
+          <li>
+            <%#= met %>
+          </li>
+        <% #end %>
+      </ol>
+    </li>
+  <%# end %>
+</ol>
+
+
+
 <div class="banner-home" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('<%= asset_url('home-banner.jpg')%>');">
   <div class="container banner-container">
     <h5>Dij'Antik & SNCAO</h5>
@@ -72,7 +89,8 @@
               <%= link_to category_antiques_path(antique.category) do %>
                 <% if antique.images.any? %>
                   <%= image_tag antique.images.first.image_url(:card), alt: antique.title, class: "img-swiper-multi" %>
-                  <%#= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo {antique.title}", class: "img-swiper-multi" %>
+                <% elsif antique.photo.attached? %>
+                  <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
                 <% else %>
                   <%= image_tag "no-photo.png", alt: "photo {antique.title}", class: "img-swiper-multi" %>
                 <% end %>

@@ -12,10 +12,12 @@ import { initMap }                                                    from '../c
 import { openCarouselOnClickedElement, navigateFSCarouselWithArrows } from '../components/fullscreen_carousel';
 import { previewImageOnFileSelect }                                   from '../components/photo_preview';
 import { ableizeSubmitting, actionsOnBtnAfterSubmit }                 from '../components/antique_forms';
+import { allowSwiperNavWithKeys }                                     from '../components/key_nav_swiper';
 
 $(document).on('turbolinks:load', function() {
 
   ableizeSubmitting();
+  allowSwiperNavWithKeys();
   actionsOnBtnAfterSubmit();
   previewImageOnFileSelect();
   themeToggle();
@@ -25,8 +27,6 @@ $(document).on('turbolinks:load', function() {
   openCarouselOnClickedElement();
   initSwiperHome();
   initMap();
-
-
 
 });
 

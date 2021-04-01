@@ -1,3 +1,47 @@
+.gallery-header {
+  margin: 2vh auto 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  .un {
+    width: 125px;
+  }
+  .deux {
+    width: auto;
+    text-align: center;
+  }
+  .trois {
+    width: 125px;
+    display: flex;
+    align-items: center;
+  }
+  #new-antique-btn {
+    @include themed() {
+      color: t('color-2');
+      background-color: t('background-color-elements');
+    }
+    transition: 0.3s all ease;
+    float: right;
+    text-decoration: none;
+    padding: 5px 15px;
+    text-align: center;
+    line-height: 1.3rem;
+    border-radius: 3px;
+    &:hover {
+      text-decoration: underline;
+      @include themed() {
+        color: t('color-2-hover');
+        background-color: t('background-color-elements-hover');
+      }
+    }
+  }
+}
+
+#index-hr {
+  width: 80%;
+  margin: 2vh auto;
+}
+
 .cards-grid {
   flex-wrap: wrap;
   display: flex;
