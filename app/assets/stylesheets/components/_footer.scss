@@ -1,7 +1,4 @@
 @media (max-width:600px) {
-  #footer-gauche {
-    display: none !important;
-  }
   #footer-droite {
     display: none !important;
   }
@@ -16,18 +13,21 @@
 .footer {
   min-height: 175px;
   height: 16vh;
-  box-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
-  body.dark & {
-    box-shadow: 0 0 15px rgba(100, 100, 100, 0.1);
+  @include themed() {
+    box-shadow: t('box-shadow');
   }
 }
 
 #footer-haut {
-  background: white;
-  color: grey ;
-  body.dark & {
-    background: $dark-background;
-    color: $dark-color-2;
+  // background: white;
+  // color: grey ;
+  // body.dark & {
+  //   background: $dark-background;
+  //   color: $dark-color-2;
+  // }
+  @include themed() {
+    // color: t('color-main');
+    background: t('element-background');
   }
   height: 90%;
   display: flex;
@@ -56,9 +56,8 @@
 
 .footer-copyright {
   color: grey;
-  body.dark & {
-    background-color: $dark-background;
-    color: $dark-color-2;
+  @include themed() {
+    background: t('element-background');
   }
   font-size: 0.8rem;
   text-align: center;

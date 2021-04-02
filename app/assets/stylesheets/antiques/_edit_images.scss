@@ -1,0 +1,180 @@
+.edit-antique-container {
+  width: 80vw;
+  max-width: 750px;
+  margin: 0 auto;
+  .antique-form-title {
+    text-align: center;
+  }
+}
+
+.new-antique-container {
+  width: 80vw;
+  max-width: 750px;
+  margin: 0 auto;
+  h4 {
+    text-align: center;
+  }
+}
+
+.edit-images-container {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-image-div {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(100, 100, 100, 0.5);
+  margin: 3px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.edit-image-tag {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.delete-image-link {
+  color: white !important;
+  width: 100%;
+  opacity: 0;
+  display: block;
+  text-align: center;
+  line-height: 150px;
+  background-color: rgba(100, 100, 100, 0.5);
+  transition: all ease 0.35s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.add-image {
+  text-align: center;
+  width: 100%;
+  line-height: 150px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all ease 0.35s;
+  background-color: rgba(100, 100, 100, 0.6);
+  &:hover {
+    font-size: 2.5rem;
+    background-color: rgba(150, 150, 150, 0.6);
+  }
+}
+
+.edit-image-div-add {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+#add-field {
+  width: 150px;
+  height: 150px;
+  margin: 3px;
+}
+
+.added-image {
+  object-fit: contain;
+  margin: 3px;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
+.antique-form-submit-btn {
+  @include themed() {
+    color: t('color-1');
+    border-color: t('color-2');
+    background: t('background-color-elements');
+    &:hover {
+      color: t('color-1-hover');
+      background: t('background-color-elements-hover');
+    }
+  }
+  margin: 10px auto;
+  width: 100%;
+  text-align: center;
+  border: solid 2px;
+  border-radius: 5px;
+  height: 60px;
+  cursor: pointer;
+  transition: all ease 0.35s;
+}
+
+#loading-new-elem {
+  width: 60px;
+  height: 60px;
+}
+
+.loader-div {
+  transition: all ease 0.35s;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  margin: 10px auto;
+  width: 100%;
+  height: 60px;
+}
+
+.submit-btn-div {
+  margin-bottom: 10vh;
+}
+
+.text-inputs {
+  display: flex;
+  flex-direction: column;
+  label {
+    text-align: center;
+    margin-top: 1vh;
+  }
+  .edit-input {
+    @include themed() {
+      color: t('color-1');
+      background-color: t('background-color-elements');
+      box-shadow: t('box-shadow');
+      border: 1px solid t('background-color-elements');
+      &:focus {
+        border: 1px solid t('elements-color');
+      }
+    }
+    padding: 0.5rem 1rem;
+    margin: 0 auto 2vh auto;
+    width: 80%;
+    border-radius: 5px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .title-input {
+
+  }
+  .description-input {
+    height: 7rem;
+  }
+}
+
+.field_with_errors {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  input {
+    border: 1px solid rgba(255, 100, 100, 0.8) !important;
+  }
+}
+
+
+.back-btn {
+  padding: 0.4rem 1.5rem;
+  border-radius: 4px;
+  position: relative;
+  top: 10px;
+  @include themed() {
+    border: t('border-secondary');
+
+  }
+}
+

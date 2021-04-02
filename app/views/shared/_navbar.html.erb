@@ -1,101 +1,63 @@
-<div class="navbar-container">
-
-  <%= link_to root_path, class: "navbar-brand", id: "logo-navbar" do %>
-    <div class="d-flex" id="logo-div">
+<div class="navbarv2">
+  <!-- Logo Banner -->
+  <%= link_to root_path do %>
+    <div id="navbar-logo">
     </div>
   <% end %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <%= link_to "#", class: "nav-link phone-menu", role: "button", data: {toggle: "collapse", target: "#navbarSupportedContent"}, aria: {controls: "navbarSupportedContent", expanded: "false", label: "Toggle navigation"} do %>
-      <p>Menu</p>
-    <% end %>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item">
-          <div class="dropdown">
-            <%= link_to "Acanthis", root_path, class: "nav-link dropdown-toggle", role: "button", id: "dropdownMenuLinkInfos", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
-            <div class="dropdown-content dropdown-menu">
-                <%= link_to "Accueil", root_path, class: "dropdown-item nav-link acanthis-menu" %>
-                <%= link_to "Salon Dij'Antik", salons_path, class: "dropdown-item nav-link acanthis-menu" %>
-                <%= link_to "SNCAO-GA", sncao_path, class: "dropdown-item nav-link acanthis-menu" %>
-            </div>
-          </div>
-        </li>
-
-        <li class="nav-item active">
-          <div class="dropdown">
-            <%= link_to "Galeries", category_antiques_path(Category.first), class: "nav-link dropdown-toggle", role: "button", id: "dropdownPhotoMenuLink", data: {toggle: "dropdown"}, aria: {haspopup: "true", expanded: "false"} %>
-            <div class="dropdown-content dropdown-menu">
-              <% Category.all.order("created_at ASC").each do |cat| %>
-                <div class="dropdown-flex">
-                  <%= link_to "#{cat.title} - (#{cat.antiques.length})", category_antiques_path(cat), class: "dropdown-item photo-cat" %>
-                  <% if user_signed_in? %>
-                    <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item photo-cat deux' do %>
-                      <i class="far fa-edit"></i>
-                    <% end %>
-                    <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %>
-                      <i class="far fa-trash-alt"></i>
-                    <% end %>
-                  <% end %>
-                </div>
-              <% end %>
+  <!-- Logo Banner end -->
+  <div class="navbar-bottom">
+    <div class="navbar-elements">
+      <div class="navbar-element dropdown">
+        <p class="navbar-element-text">Acanthis</p>
+        <div class="navbar-drop-menu">
+          <%= link_to "Accueil", root_path, class: "navbar-drop-element" %>
+          <%= link_to "Salon Dij'Antik", salons_path, class: "navbar-drop-element" %>
+          <%= link_to "SNCAO-GA", sncao_path, class: "navbar-drop-element" %>
+        </div>
+      </div>
+      <div class="navbar-element dropdown">
+        <p class="navbar-element-text">Galeries</p>
+        <div class="navbar-drop-menu">
+          <% Category.all.order("created_at ASC").each do |cat| %>
+            <div class="dropdown-menu-elem-flex">
+              <%= link_to "#{cat.title} - (#{cat.antiques.length})", category_antiques_path(cat), class: "dropdown-item-nav photo-cat un" %>
               <% if user_signed_in? %>
-                <%= link_to "Nouvelle Galerie", "#", class: "nav-link dropdown-item photo-cat new-link-in-dropdown", data: { toggle: "modal", target: "#newCategoryModal" }, id: "category-navbar" %>
+                <%= link_to "#", class: "card-links", data: { toggle: "modal", target: "#editCategoryModal#{cat.id}", set: cat.id }, class: 'dropdown-item-nav photo-cat deux' do %><i class="far fa-edit"></i><% end %>
+                <%= link_to category_path(cat), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer la catégorie \"#{cat.title}\", ainsi que tous les éléments liés à celle-ci?" }, class: 'dropdown-item photo-cat deux' do %><i class="far fa-trash-alt"></i><% end %>
               <% end %>
             </div>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Contact", "#", class: "nav-link", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
-        </li>
-
+          <% end %>
+          <% if user_signed_in? %>
+            <div class="dropdown-menu-elem-flex">
+              <%= link_to "Nouvelle Galerie", "#", class: "dropdown-item-nav photo-cat un", data: { toggle: "modal", target: "#newCategoryModal" }, id: "category-navbar" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="navbar-element">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link", id: "log-out-link" %>
-          </li>
+          <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "navbar-element-text", id: "log-out-link" %>
+        <% else %>
+          <%= link_to "Contact", "#", class: "navbar-element-text", data: { toggle: "modal", target: "#newContactModal" }, id: "contact-navbar" %>
         <% end %>
-
-        <li class="class-item sticky-right">
-          <div class="theme-items">
-            <!-- <i class="fas fa-moon"></i> -->
-            <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
-            <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
-              <% if cookies[:theme] == "dark" %>
-                <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
-              <% else %>
-                <input id="theme-toggle" type="checkbox" class="toggle-theme">
-              <% end %>
-            <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
-          </div>
-        </li>
-
-      </ul>
+      </div>
+      <!-- Theme switch -->
+      <div class="theme-items">
+        <%= link_to "", root_path(theme: "#{ current_opposite_theme }"), id: "theme-link" %>
+        <i class="<%= theme_is_dark? ? 'fas' : 'far' %> fa-moon"></i>
+          <% if cookies[:theme] == "dark" %>
+            <input id="theme-toggle" type="checkbox" class="toggle-theme" checked>
+          <% else %>
+            <input id="theme-toggle" type="checkbox" class="toggle-theme">
+          <% end %>
+        <i class="<%= theme_is_dark? ? 'far' : 'fas' %> fa-moon"></i>
+      </div>
+      <!-- Theme switch end -->
     </div>
   </div>
 </div>
 
-<!-- Modal Contact -->
-<div class="modal fade" id="newContactModal" tabindex="-1" role="dialog" aria-labelledby="newContactModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Contact par e-mail</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="new-contact-modal-body">
-        <%= render 'contacts/new', contact: Contact.new %>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal Contact END-->
-
-<% if user_signed_in? %>
-
+<%= render 'shared/contact_modal' %>
   <!-- Modal New Category -->
   <div class="modal fade" id="newCategoryModal" tabindex="-1" role="dialog" aria-labelledby="newCategoryModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -113,9 +75,7 @@
     </div>
   </div>
 
-
-  <!-- Modal Edit Category -->
-  <% Category.all.order("created_at ASC").each do |cat| %>
+    <% Category.all.order("created_at ASC").each do |cat| %>
     <div class="modal fade" id="editCategoryModal<%= cat.id %>" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -132,5 +92,3 @@
       </div>
     </div>
   <% end %>
-
-<% end %>

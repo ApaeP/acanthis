@@ -1,0 +1,62 @@
+<% if user_signed_in? %>
+  <div class="edit-antique-container">
+
+    <h2 class="antique-form-title">Modification de "<%= @antique.title %>"</h2>
+
+    <hr>
+
+    <%= form_for([@category, @antique], remote: true) do |f| %>
+      <!-- ======================= EXISTING IMAGES ======================= -->
+      <div class="edit-images-container">
+        <% if @antique.images.any? %>
+          <% @antique.images.each do |image| %>
+            <div class="edit-image-div" id="edit-image-<%= image.id %>" style="background-image: url(<%= image.image_url(:card) %>);">
+              <%= link_to "Supprimer", image_path(image), method: :delete, remote: true, class: 'delete-image-link' %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="edit-image-div" id="edit-image" style="background-image: url(<%= asset_url('no-photo.png') %>);"></div>
+        <% end %>
+      </div>
+      <!-- ===================== EXISTING IMAGES END ===================== -->
+      <hr>
+      <!-- ======================= NEW IMAGES FIELD ======================= -->
+      <h4>Ajouter des photos</h4>
+      <div class="edit-image-div-add">
+        <div id="add-field">
+          <%= f.fields_for :images, @antique.images.build do |ff| %>
+              <%= ff.label :image, " + ", class: "add-image" %>
+              <%= ff.file_field :image, multiple: true, name: "images[]", class: 'd-none edit-image-input edit-input' %>
+          <% end %>
+        </div>
+      </div>
+      <!-- ===================== NEW IMAGES FIELD END ===================== -->
+      <hr>
+      <!-- ================= TITLE AND DESCRIPTION FIELDS ================= -->
+      <div class="text-inputs">
+        <%= f.label :title, 'Titre' %>
+        <%= f.text_field :title, placeholder: "Nom", class: 'edit-input title-input' %>
+        <%= f.label :description %>
+        <%= f.text_area :description, as: :text, input_html: {:rows => 6}, label: false, placeholder: "Description", class: 'edit-input description-input' %>
+      </div>
+      <!-- =============== TITLE AND DESCRIPTION FIELDS END =============== -->
+      <hr>
+      <!-- ========================= SUBMIT BUTTON ========================= -->
+      <div class="submit-btn-div">
+        <%= f.submit "Enregistrer", class: "antique-form-submit-btn", data: {clickable: 'false'} %>
+        <div class="loader-div">
+          <% if theme_is_dark? %>
+            <%= image_tag asset_path("loader-dark.gif"), alt: "alttext", id: "loading-new-elem" %>
+          <% else %>
+            <%= image_tag asset_path("loader-light.gif"), alt: "alttext", id: "loading-new-elem" %>
+          <% end %>
+        </div>
+        <%= link_to "Retour", :back, class: 'back-btn' %>
+      </div>
+      <!-- ======================= SUBMIT BUTTON END ======================= -->
+    <% end %> <!-- form_for([@category, @antique], remote: true) do |f| -->
+  </div>
+
+<% end %>
+
+

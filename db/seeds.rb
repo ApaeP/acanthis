@@ -1,8 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
 puts "\nDestroying DataBase"
 puts "\n -- Destroying antiques"
 Antique.destroy_all
@@ -32,17 +27,25 @@ photo_links = ['https://images-na.ssl-images-amazon.com/images/I/81Tl7qyesGL._AC
 
 nb_of_antiques_to_seed.times do |index|
   photo = URI.open(photo_links.sample)
-  # photo2 = URI.open(photo_links.sample)
-  # photo3 = URI.open(photo_links.sample)
   antique = Antique.new(title: Faker::Ancient.titan, description: Faker::Lorem.sentence(word_count: 15, supplemental: true, random_words_to_add: 15))
   antique.category = Category.all.sample
   antique.photo.attach(io: photo, filename: "Masques.png", content_type: 'image/png')
-  # antique.photo.attach(io: photo2, filename: "Kol.png", content_type: 'image/png')
-  # antique.photo.attach(io: photo3, filename: "Lol.png", content_type: 'image/png')
   antique.save!
   puts "  -- Antique n°#{index+1} created."
 end
 
+nb_of_antiques_to_seed.times do |index|
+  antique = Antique.new(title: Faker::Ancient.titan, description: Faker::Lorem.sentence(word_count: 15, supplemental: true, random_words_to_add: 15))
+  antique.category = Category.all.sample
+  antique.save!
+  rand(2..3).times do
+    antique.images.create!(image: URI.open(photo_links.sample))
+  end
+  puts "  -- Antique n°#{index+1} created."
+end
+
+
+# product.product_images.create!(image: File.open(File.join(Rails.root, 'test.jpg')))
 
 puts "-- Antiques created"
 

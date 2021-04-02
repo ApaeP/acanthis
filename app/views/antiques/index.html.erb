@@ -1,83 +1,49 @@
-<div class="container gallery-container-v2">
-
-  <div class="gallery-header">
-    <div class="un">
-    </div>
-    <div class="deux">
-      <h1 id="titre-index"><%= @category.title.upcase %></h1>
-        <p><%= "#{@antiques.count} article#{"s" if @antiques.count > 1}" %></p>
-    </div>
-    <div class="trois">
-      <% if user_signed_in? %>
-        <%= link_to "Nouvel article", "#", id: "new-antique-btn", data: { toggle: "modal", target: "#newAntiqueModal" } %>
-      <% end %>
-    </div>
+<div class="gallery-header">
+  <div class="un">
   </div>
-
-  <hr id="index-top-separator">
-
-  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
-  <div class="card-grid">
-    <% @antiques.each_with_index do |antique, i| %>
-      <%= render 'index_card', antique: antique, i: i %>
+  <div class="deux">
+    <h1 id="titre-index"><%= @category.title.upcase %></h1>
+      <p><%= "#{@antiques.count} objet#{"s" if @antiques.count > 1}" %></p>
+  </div>
+  <div class="trois">
+    <% if user_signed_in? %>
+      <%= link_to "Nouvel objet", new_category_antique_path, id: "new-antique-btn"%>
     <% end %>
   </div>
-  <%= will_paginate @antiquespaginate, previous_label: "<", next_label: ">" %>
-
-
-  <hr id="index-bottom-separator">
-
-  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL -->
-  <div class="modal fade modal-fullscreen force-fullscreen" id="fs-antiques-modalv2" tabindex="-1" role="dialog" aria-labelledby="fs-antiques-modalLabel" aria-hidden="true">
-    <div class="modal-dialog" id="fullscreen-carousel-dialog">
-      <div class="modal-content" id="fullscreen-carousel-content">
-        <div class="modal-body" id="fullscreen-carousel-body">
-          <!-- CAROUSEL -->
-          <%= render 'antiques/carousel', antiques: @antiques %>
-          <!-- CAROUSEL END -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- MODAL FULLSCREEN ANTIQUES CAROUSEL END -->
-  <% if user_signed_in? %>
-    <!-- Modal New Antique-->
-    <div class="modal fade" id="newAntiqueModal" tabindex="-1" role="dialog" aria-labelledby="newAntiqueModalTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Nouvel élément</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="new-antique-modal-body">
-            <%= render 'antiques/new', category: @category, antique: @new_antique %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal New Antique END-->
-    <!-- Modal Edit Antique-->
-    <% @antiques.each do |antique| %>
-      <div class="modal fade" id="editAntiqueModal<%= antique.id %>" tabindex="-1" role="dialog" aria-labelledby="editAntiqueModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modifier <%= antique.title %></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="edit-antique-modal-body">
-              <%= render 'antiques/edit', category: @category, antique: antique %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <!-- Modal Edit Antique END-->
-  <% end %>
 </div>
-<!-- ================================================================================================== -->
 
+<hr id="index-hr">
+
+<div class="cards-grid-container">
+  <div class="cards-grid">
+    <% @antiques.each_with_index do |antique, i| %>
+      <%= link_to modal_path(antique, category: @category.title), class: 'antique-card-link', data: { toggle: 'modal', target: '#antiqueShowModal'}, remote: true do %>
+        <div class="card-product">
+          <div>
+            <% if antique.images.any? %>
+              <%= image_tag antique.images.first.image_url(:card), alt: antique.title %>
+            <% elsif antique.photo.attached? %>
+              <%= cl_image_tag antique.photo.key, height: '120', crop: :fill, alt: antique.title %>
+            <% else %>
+              <%= image_tag "no-photo.png", alt: "photo #{antique.title}" %>
+            <% end %>
+          </div>
+          <div class="card-product-infos">
+            <h2><%= antique.title %></h2>
+            <%= simple_format antique.description %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<hr id="index-hr">
+
+<!-- Modal -->
+<div class="modal fade" id="antiqueShowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content modal-content-fullscreen" id="antique-show-modal">
+    </div>
+  </div>
+</div>

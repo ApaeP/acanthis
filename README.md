@@ -1,24 +1,16 @@
-# README
+Ruby on Rails Application for ACANTHIS ANTIQUITES
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Made by @ApaeP
 
-Things you may want to cover:
+Ruby on Rails
+= 6.0.3.5
 
-* Ruby version
+Ruby version
+= 2.6.5
 
-* System dependencies
+Handling images with CarrierWave => Cloudinary
+  image versions heights :
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    - show        = 1500px
+    - card        = 450px
+    - thumbnail   = 50px

@@ -1,4 +1,4 @@
-<div class="banner-home" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('<%= image_url('home-banner.jpg')%>');">
+<div class="banner-home" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('<%= asset_url('home-banner.jpg')%>');">
   <div class="container banner-container">
     <h5>Dij'Antik & SNCAO</h5>
     <h1>Acanthis Antiquités</h1>
@@ -70,8 +70,10 @@
           <div class="swiper-slide">
             <div class="swiper-slide-inside">
               <%= link_to category_antiques_path(antique.category) do %>
-                <% if antique.photo.attached? %>
-                  <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo {antique.title}", class: "img-swiper-multi" %>
+                <% if antique.images.any? %>
+                  <%= image_tag antique.images.first.image_url(:card), alt: antique.title, class: "img-swiper-multi" %>
+                <% elsif antique.photo.attached? %>
+                  <%= cl_image_tag antique.photo.key, width: 300, height: 300, crop: :fill, alt: "photo #{antique.title}", class: "img-swiper-multi" %>
                 <% else %>
                   <%= image_tag "no-photo.png", alt: "photo {antique.title}", class: "img-swiper-multi" %>
                 <% end %>
@@ -82,9 +84,6 @@
       <% end %>
 
     </div>
-    <!-- Add Pagination -->
-    <!-- <div class="swiper-pagination"></div> -->
-    <!-- Add Arrows -->
     <div class="swiper-button-next swiper-nav"></div>
     <div class="swiper-button-prev swiper-nav"></div>
   </div>
@@ -94,11 +93,30 @@
 
   <hr class="home-hr">
 
-    <!--The div element for the map -->
     <div id="map">
     </div>
 
   <hr class="home-hr">
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
