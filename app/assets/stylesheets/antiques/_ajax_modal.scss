@@ -1,14 +1,15 @@
 .loaded-content {
   width: 100%;
   height: 100%;
-  // display: flex;
   .loaded-images {
     width: 100%;
-    height: 70%;
+    height: calc(70% - 25px);
     .loaded-swiper-container {
       width: 100%;
       height: 100%;
-      background: rgba(200, 200, 200, 0.1);
+      @include themed() {
+        background: t('element-background-secondary');
+      }
     }
     .loaded-image-tag {
       height: 100%;
@@ -18,7 +19,7 @@
   }
   .loaded-text {
     width: 100%;
-    height: 25%;
+    height: calc(30% - 25px);
     overflow: auto;
     hr {
       margin: 0 auto;
@@ -34,38 +35,32 @@
       p {
         font-size: 0.9rem;
         padding: 0.6rem;
-        max-width: 80%;
+        max-width: 800px;
         margin: 0 auto;
       }
     }
   }
   .loaded-links-container {
-    height: 5%;
+    height: 50px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 1rem;
     .loaded-links {
-      // position: absolute;
       padding: 0.5rem 1rem;
-      background: rgba(200, 200, 200, 0.2);
       border-radius: 4px;
       transition: 0.35s all ease;
       min-width: 120px;
       display: inline-block;
       text-align: center;
-      &:hover {
-        background: rgba(255, 255, 255, 0.2)
+      margin: 0 2rem;
+      @include themed() {
+        background: t('button-background');
+        &:hover {
+          background: t('button-background-hover');
+        }
       }
     }
-    // .next {
-    //   bottom: 1rem;
-    //   right: 1rem;
-    // }
-    // .prev {
-    //   bottom: 1rem;
-    //   left: 1rem;
-    // }
   }
 }
 

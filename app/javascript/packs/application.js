@@ -11,14 +11,14 @@ import { initSwiperHome }                                             from '../c
 import { initMap }                                                    from '../components/googlemap';
 import { openCarouselOnClickedElement, navigateFSCarouselWithArrows } from '../components/fullscreen_carousel';
 import { previewImageOnFileSelect }                                   from '../components/photo_preview';
-import { ableizeSubmitting, actionsOnBtnAfterSubmit }                 from '../components/antique_forms';
+import { ableizeSubmitting, authorizeSubmit }                         from '../components/antique_forms';
 import { allowSwiperNavWithKeys }                                     from '../components/key_nav_swiper';
 
 $(document).on('turbolinks:load', function() {
 
   ableizeSubmitting();
   allowSwiperNavWithKeys();
-  actionsOnBtnAfterSubmit();
+  authorizeSubmit();
   previewImageOnFileSelect();
   themeToggle();
   $('#carouselFullscreen').carousel('pause');

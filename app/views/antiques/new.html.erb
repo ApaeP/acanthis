@@ -29,7 +29,8 @@
       <hr>
       <!-- ========================= SUBMIT BUTTON ========================= -->
       <div class="submit-btn-div">
-        <%= f.submit "Enregistrer les modifications", class: "antique-form-submit-btn", disabled: true %>
+        <%= f.submit "Enregistrer les modifications", class: "antique-form-submit-btn", data: {clickable: 'false'} %>
+        <%= link_to "Retour", :back %>
         <div class="loader-div">
           <% if theme_is_dark? %>
             <%= image_tag asset_path("loader-dark.gif"), alt: "alttext", id: "loading-new-elem" %>

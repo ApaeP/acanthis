@@ -39,12 +39,12 @@
   </head>
 
   <body class="<%= cookies[:theme] || 'light' %> <%= "sass-theme-#{(cookies[:theme] || 'light')}" %>">
-    <%= render 'shared/navbar_v2' %>
+    <%= render 'shared/navbar' %>
 
     <div class="container-general">
 
-      <!-- <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p> -->
+      <!-- <p class="notice"><%#= notice %></p>
+      <p class="alert"><%#= alert %></p> -->
 
       <%= yield %>
 

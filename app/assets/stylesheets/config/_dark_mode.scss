@@ -1,11 +1,15 @@
 body.light {
   font-family: 'Karla', sans-serif;
+  // background-color: hsla(0, 0%, 100%, 1);
+  // color: hsla(0, 0%, 0%, 1);
+  color: hsla(0, 0%, 10%, 1);
   background-color: hsla(0, 0%, 100%, 1);
-  color: hsla(0, 0%, 0%, 1);
 }
 body.dark {
-  background-color: hsla(0, 0%, 16%, 1);
-  color: hsla(0, 0%, 80%, 1);
+  // background-color: hsla(0, 0%, 16%, 1);
+  // color: hsla(0, 0%, 80%, 1);
+  color: hsla(0, 0%, 75%, 1);
+  background-color: hsla(0, 0%, 15%, 1);
 }
 
 $themes: (
@@ -16,13 +20,28 @@ $themes: (
     color-1-hover: hsla(0, 0%, 15%, 1),
     color-2: hsla(0, 0%, 10%, 1),
     color-2-hover: hsla(0, 0%, 25%, 1),
-    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3),
     background-color-main: hsla(0, 0%, 100%, 1),
     background-color-elements: hsla(0, 0%, 98%, 1),
     background-color-elements-hover: hsla(0, 0%, 89%, 1),
     elements-color: hsla(0, 0%, 60%, 1),
     carousel-background: rgba(255, 255, 255, 0.95),
-    carousel-background-2: rgba(225, 225, 225, 0.5)
+    carousel-background-2: rgba(225, 225, 225, 0.5),
+
+    color-title: hsla(0, 0%, 0%, 1),
+    color-link: hsla(0, 0%, 0%, 1),
+    color-link-hover: hsla(0, 0%, 15%, 1),
+    color-main: hsla(0, 0%, 10%, 1),
+    color-secondary: hsla(0, 0%, 20%, 1),
+    color-tertiary: hsla(0, 0%, 25%, 1),
+    background: hsla(0, 0%, 100%, 1),
+    element-background: hsla(0, 0%, 98%, 1),
+    element-background-secondary: hsla(0, 0%, 94%, 1),
+    button-background: hsla(0, 0%, 90%, 1),
+    button-background-hover: hsla(0, 0%, 80%, 1),
+    separator: hsla(0, 0%, 20%, 1),
+    border-main: solid 1px hsla(0, 0%, 10%, 1),
+    border-secondary: solid 1px hsla(0, 0%, 20%, 1),
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3)
 
   ),
   dark: (
@@ -32,13 +51,28 @@ $themes: (
     color-1-hover: hsla(0, 0%, 65%, 1),
     color-2: hsla(0, 0%, 75%, 1),
     color-2-hover: hsla(0, 0%, 60%, 1),
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3),
     background-color-main: hsla(0, 0%, 15%, 1),
     background-color-elements: hsla(0, 0%, 12%, 1),
     background-color-elements-hover: hsla(0, 0%, 22%, 1),
     elements-color: hsla(0, 0%, 40%, 1),
     carousel-background: rgba(100, 100, 100, 0.95),
-    carousel-background-2: rgba(100, 100, 100, 0.6)
+    carousel-background-2: rgba(100, 100, 100, 0.6),
+
+    color-title: hsla(0, 0%, 80%, 1),
+    color-link: hsla(0, 0%, 80%, 1),
+    color-link-hover: hsla(0, 0%, 65%, 1),
+    color-main: hsla(0, 0%, 75%, 1),
+    color-secondary: hsla(0, 0%, 65%, 1),
+    color-tertiary: hsla(0, 0%, 55%, 1),
+    background: hsla(0, 0%, 15%, 1),
+    element-background: hsla(0, 0%, 12%, 1),
+    element-background-secondary: hsla(0, 0%, 15%, 1),
+    button-background: hsla(0, 0%, 20%, 1),
+    button-background-hover: hsla(0, 0%, 30%, 1),
+    separator: hsla(0, 0%, 60%, 1),
+    border-main: solid 1px hsla(0, 0%, 50%, 1),
+    border-secondary: solid 1px hsla(0, 0%, 60%, 1),
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3)
 
   ),
 );

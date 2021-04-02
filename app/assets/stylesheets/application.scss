@@ -16,7 +16,8 @@
 
 hr {
   @include themed() {
-    background: t('color-2-hover');
+    background: t('separator');
   }
 }
+
 

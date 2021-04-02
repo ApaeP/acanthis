@@ -35,18 +35,18 @@
     </div>
   </div>
   <div class="loaded-links-container">
-    <div>
-      <%= link_to "Précédent", modal_path(antique: antique, nav: 'prev', category: category.title), remote: true, class: "loaded-links prev" %>
-    </div>
-    <% if user_signed_in? %>
       <div>
-        <%= link_to "Modifier", edit_category_antique_path(antique.category.id, antique), class: "loaded-links" %>
-        <%= link_to "Supprimer", antique, method: :delete, class: "loaded-links" %>
+        <%= link_to "Précédent", modal_path(antique: antique, nav: 'prev', category: category.title), remote: true, class: "loaded-links prev" %>
       </div>
-    <% end %>
-    <div>
-      <%= link_to "Suivant", modal_path(antique: antique, nav: 'next', category: category.title), remote: true, class: "loaded-links next" %>
-    </div>
+      <% if user_signed_in? %>
+        <div>
+          <%= link_to "Modifier", edit_category_antique_path(antique.category.id, antique), class: "loaded-links" %>
+          <%= link_to "Supprimer", antique, method: :delete, class: "loaded-links" %>
+        </div>
+      <% end %>
+      <div>
+        <%= link_to "Suivant", modal_path(antique: antique, nav: 'next', category: category.title), remote: true, class: "loaded-links next" %>
+      </div>
   </div>
 </div>
 
