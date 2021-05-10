@@ -30,8 +30,8 @@ gem 'bootstrap-will_paginate'
 gem 'turbolinks_render'
 
 # gem 'image_processing'#, '~> 1.2'
-gem 'shrine'#, '~> 3.3'
-gem "shrine-cloudinary"#, "~> 1.1"
+gem 'shrine', '~> 3.3'
+gem "shrine-cloudinary", "~> 1.1"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
