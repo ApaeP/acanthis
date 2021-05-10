@@ -21,7 +21,7 @@
         <div class="card-product">
           <div>
             <% if antique.images.any? %>
-              <%= image_tag antique.images.first.image_url(:card), alt: antique.title %>
+              <%= image_tag antique.images.first.image_url, alt: antique.title %>
             <% elsif antique.photo.attached? %>
               <%= cl_image_tag antique.photo.key, height: '120', crop: :fill, alt: antique.title %>
             <% else %>

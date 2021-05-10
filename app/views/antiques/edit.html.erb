@@ -10,7 +10,7 @@
       <div class="edit-images-container">
         <% if @antique.images.any? %>
           <% @antique.images.each do |image| %>
-            <div class="edit-image-div" id="edit-image-<%= image.id %>" style="background-image: url(<%= image.image_url(:card) %>);">
+            <div class="edit-image-div" id="edit-image-<%= image.id %>" style="background-image: url(<%= image.image_url %>);">
               <%= link_to "Supprimer", image_path(image), method: :delete, remote: true, class: 'delete-image-link' %>
             </div>
           <% end %>

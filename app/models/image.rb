@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  include ImageUploader::Attachment(:image)
   belongs_to :antique
 
   after_commit :delete_attachments
