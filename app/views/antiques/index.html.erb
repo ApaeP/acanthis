@@ -21,9 +21,9 @@
         <div class="card-product">
           <div>
             <% if antique.images.any? %>
-              <%= image_tag antique.images.first.image_url, alt: antique.title %>
+              <%= image_tag antique.images.first.image_url(width: 240, height: 240, crop: :fit), alt: antique.title %>
             <% elsif antique.photo.attached? %>
-              <%= cl_image_tag antique.photo.key, height: '120', crop: :fill, alt: antique.title %>
+              <%= cl_image_tag antique.photo.key, height: '240', crop: :fill, alt: antique.title %>
             <% else %>
               <%= image_tag "no-photo.png", alt: "photo #{antique.title}" %>
             <% end %>

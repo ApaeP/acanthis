@@ -7,7 +7,7 @@
         <% if antique.images.any? %>
           <% antique.images.each do |image| %>
             <div class="swiper-slide">
-              <%= image_tag image.image_url, alt: antique.title, class: 'loaded-image-tag' %>
+              <%= image_tag image.image_url(width: 1200, height: 1200, crop: :fit), alt: antique.title, class: 'loaded-image-tag' %>
             </div>
           <% end %>
         <% elsif antique.photo.attached? %>
