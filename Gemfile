@@ -11,6 +11,7 @@ gem 'rails', '6.0.3.5'
 gem 'redis'
 gem 'turbolinks', '~> 5'
 
+
 # gem 'rack-timeout'
 
 gem 'autoprefixer-rails'
