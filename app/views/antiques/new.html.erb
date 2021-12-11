@@ -9,11 +9,14 @@
       <!-- ======================= NEW IMAGES FIELD ======================= -->
       <h4>Ajouter des photos</h4>
       <div class="edit-image-div-add">
+        <div style="align-items: center; align-content: center; display: flex; flex-direction: column;">
         <div id="add-field">
           <%= f.fields_for :images, @antique.images.build do |ff| %>
               <%= ff.label :image, " + ", class: "add-image" %>
               <%= ff.file_field :image, multiple: true, name: "images[]", class: 'd-none edit-image-input edit-input' %>
           <% end %>
+        </div>
+        <span style="font-size: 13px;"><em>Taille maximale d'un fichier 10.5mb</em></span>
         </div>
       </div>
       <!-- ===================== NEW IMAGES FIELD END ===================== -->
