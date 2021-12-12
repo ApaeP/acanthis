@@ -7,12 +7,12 @@
         <% if antique.images.any? %>
           <% antique.images.each do |image| %>
             <div class="swiper-slide">
-              <%= image_tag image.image_url(width: 1200, height: 1200, crop: :fit), alt: antique.title, class: 'loaded-image-tag' %>
+              <%= image_tag image.image_url(width: 1200, height: 1200, crop: :fit), class: 'loaded-image-tag' %>
             </div>
           <% end %>
         <% elsif antique.photo.attached? %>
             <div class="swiper-slide">
-              <%= cl_image_tag antique.photo.key, height: '1000', crop: :fill, alt: antique.title, class: 'loaded-image-tag' %>
+              <%= cl_image_tag antique.photo.key, height: '1000', crop: :fill, class: 'loaded-image-tag' %>
             </div>
         <% else %>
           <div class="swiper-slide">

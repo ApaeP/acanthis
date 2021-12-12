@@ -51,7 +51,10 @@
             <%= image_tag asset_path("loader-light.gif"), alt: "alttext", id: "loading-new-elem" %>
           <% end %>
         </div>
-        <%= link_to "Retour", :back, class: 'back-btn' %>
+        <div style="display: flex; justify-content: space-between;">
+          <%= link_to "Retour", :back, class: 'back-btn' %>
+          <%= link_to "Supprimer", @antique, method: :delete, class: "back-btn", style: "background: none;", data: { confirm: "Supprimer #{@antique.title} ?" } %>
+        </div>
       </div>
       <!-- ======================= SUBMIT BUTTON END ======================= -->
     <% end %> <!-- form_for([@category, @antique], remote: true) do |f| -->

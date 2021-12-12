@@ -7065,9 +7065,9 @@ svgo@^1.0.0:
     util.promisify "~1.0.0"
 
 swiper@^6.4.14:
-  version "6.6.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.6.1.tgz#21a9fa645b6b48e330be69a211fe0e0105b2567c"
-  integrity sha512-vQ2f/zr9mux+EwYlJhObG1c2Vt6U9++YzgqTpTtdzc8K7HOB7AWpQJGXoeEJmfYlcoS9b4Oy8BM6JD70hHX9eA==
+  version "6.8.4"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.8.4.tgz#938fed4144f4d7952fbf9c44e5832d133a4de794"
+  integrity sha512-O+buF9Q+sMA0H7luMS8R59hCaJKlpo8PXhQ6ZYu6Rn2v9OsFd4d1jmrv14QvxtQpKAvL/ZiovEeANI/uDGet7g==
   dependencies:
     dom7 "^3.0.0"
     ssr-window "^3.0.0"
