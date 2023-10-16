@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '3.1.4'
 
 gem 'execjs', '2.7.0'
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
+gem 'pg', '~> 1.1'
 gem 'puma'
-gem 'rails', '6.0.3.5'
+gem 'rails', '6.1.7.6'
 gem 'redis'
 gem 'turbolinks', '~> 5'
 
@@ -23,17 +23,18 @@ gem 'webpacker'
 
 # gem 'carrierwave'
 # gem 'mini_magick'
-gem 'cloudinary', '~> 1.12.0'
+gem 'cloudinary'#, '~> 1.12.0'
 gem 'non-stupid-digest-assets'
 gem 'recaptcha'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+# gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'will_paginate', '3.1.8'
 gem 'bootstrap-will_paginate'
 gem 'turbolinks_render'
+gem 'psych', '< 4'
 
 # gem 'image_processing'#, '~> 1.2'
-gem 'shrine', '~> 3.3'
-gem "shrine-cloudinary", "~> 1.1"
+gem 'shrine'#, '~> 3.3'
+gem "shrine-cloudinary"#, "~> 1.1"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
